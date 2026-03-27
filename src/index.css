@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Moche";
+  src:
+    local("Moche"),
+    url("/fonts/Moche-Regular.woff2") format("woff2"),
+    url("/fonts/Moche-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global colors */
+:root {
+  --bg: #fcf7f5; /* Light mode background */
+  --text: #32341d; /* Light mode text */
+  --text-muted: #334155;
+  --surface: #ffffff;
+  --border: #cbd5e1;
+}
+
+.dark {
+  --bg: #32341d;
+  --text: #d6b283;
+  --text-muted: #cbd5e1;
+  --surface: #0f172a;
+  --border: #334155;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* smooth theme change */
+}
+
+/* Helper classes */
+.theme-border {
+  border-color: var(--border);
+}
+
+.theme-muted {
+  color: var(--text-muted);
+}
+
+.navbar-text {
+  font-family: "Moche", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  leading-trim: none;
+  line-height: 100%;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
