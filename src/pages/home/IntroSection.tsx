@@ -1,6 +1,6 @@
 const IntroSection = () => {
   return (
-    <section className="bg-[#C9A878] pt-24 pb-10 ">
+    <section className="bg-[#C9A878] pt-24 pb-10">
       <div className="mx-auto flex max-w-5xl justify-center gap-12 px-6">
         <p className="max-w-md text-left sub-text text-[#32341D]">
           Every element is crafted to evoke wonder, from the enveloping space

@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <section className="mt-5 mb-20 ">
+      <section className="relative z-10 mt-[-35px] mb-10">
         <IntroSection />
       </section>
       <HomeAboutSection />
