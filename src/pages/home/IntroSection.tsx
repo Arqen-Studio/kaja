@@ -1,7 +1,7 @@
 const IntroSection = () => {
   return (
     <section className="bg-[#C9A878] py-30">
-      <div className="mx-auto flex max-w-5xl items-center justify-center gap-12 px-6">
+      <div className="mx-auto flex max-w-5xl justify-center gap-12 px-6">
         <p className="max-w-md text-left sub-text text-[#32341D]">
           Every element is crafted to evoke wonder, from the enveloping space
           and lighting to the music, the service, and the way food and drinks
