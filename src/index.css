@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Moche Light → weight 300 (headings). Add files under public/fonts/ */
+@font-face {
+  font-family: "Moche";
+  src:
+    local("Moche Light"),
+    url("/fonts/Moche-Light.woff2") format("woff2"),
+    url("/fonts/Moche-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Moche Regular → weight 400 (nav, body text) */
 @font-face {
   font-family: "Moche";
   src:
@@ -19,6 +32,8 @@
   --text-muted: #334155;
   --surface: #ffffff;
   --border: #cbd5e1;
+  /* Figma “Light” ≈ 300; if the browser still feels heavy vs Figma, try 200. If it feels too thin, try 400. */
+  --heading-font-weight: 300;
 }
 
 .dark {
@@ -58,9 +73,55 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  leading-trim: none;
   line-height: 100%;
   letter-spacing: 0;
   vertical-align: middle;
   text-transform: uppercase;
+}
+
+.heading {
+  font-family: "Moche", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+}
+.sub-text {
+  font-family: "Moche", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.base-text {
+  font-family: "Moche", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: -2.8%;
+  vertical-align: middle;
+}
+
+.hero-section .heading,
+.hero-section .sub-heading {
+  color: var(--hero-text);
+}
+
+.hero-section-bar {
+  height: clamp(12px, 2vw, 20px);
+  width: 100%;
+  background-color: var(--hero-bar);
+}
+
+.menu-grid {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
 }
