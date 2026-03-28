@@ -9,16 +9,20 @@ const Navbar = () => {
         ))}
 
         <div className="relative flex justify-center">
-          <img
-            src="/png/logo.light.png"
-            alt="Logo"
-            className="block dark:hidden w-[77px] h-[121px]"
-          />
-          <img
-            src="/png/logo.dark.png"
-            alt="Logo"
-            className="hidden dark:block w-[77px] h-[121px]"
-          />
+          <Link to="/">
+            <img
+              src="/png/logo.light.png"
+              alt="Logo"
+              className="block dark:hidden w-[77px] h-[121px]"
+            />
+          </Link>
+          <Link to="/">
+            <img
+              src="/png/logo.dark.png"
+              alt="Logo"
+              className="hidden dark:block w-[77px] h-[121px]"
+            />
+          </Link>
         </div>
 
         {rightNav.map((item) => (

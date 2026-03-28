@@ -13,11 +13,12 @@ const HeroSection = () => {
           </p>
 
           <div className="flex justify-center md:justify-self-center">
-            <img
-              src="/png/hero-section.png"
-              alt="KAJA interior"
-              className=" w-full max-w-[495px] object-cover"
-            />
+           
+              <img
+                src="/png/hero-section.png"
+                alt="KAJA interior"
+                className=" w-full max-w-[495px] object-cover  "
+              />
           </div>
 
           <p className="base-text mx-auto max-w-[303px] mt-[25%] text-center ">

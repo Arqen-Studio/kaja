@@ -27,7 +27,7 @@ const MenuCard: React.FC<Props> = ({ title, image, onClick }) => {
       <div className="absolute inset-0 flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.65))]">
         <h2 className="!font-normal heading m-0">{title}</h2>
 
-        <div className="absolute base-text bottom-[70px] left-0 right-0 flex justify-center gap-[18px] ">
+        <div className="absolute base-text bottom-[70px] flex justify-center gap-[18px] ">
           <span>Explore more</span>
           <span>Explore more</span>
           <span>Explore more</span>

@@ -120,8 +120,4 @@ body {
   background-color: var(--hero-bar);
 }
 
-.menu-grid {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-}
+
