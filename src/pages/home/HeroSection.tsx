@@ -6,23 +6,21 @@ const HeroSection = () => {
           Located in the heart of Ubud
         </h1>
 
-        <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
-          <p className="base-text mx-auto max-w-[230px] text-center md:mt-[35%] md:px-2">
+        <div className="absolute left-0 mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
+          <p className="base-text mx-auto max-w-[227px] text-center md:mt-[35%] mr-8">
             KAJA was created with a clear intention: to surprise, engage, and
             leave a lasting impression.
           </p>
 
-          <div className="flex justify-center leading-none md:justify-self-center">
+          <div className=" = flex justify-center leading-none md:justify-self-center">
             <img
               src="/png/hero-section.png"
               alt="Steaks"
-              width={504}
-              height={492}
-              className="h-[792px] max-w-[504px] max-w-full object-cover "
+              className="relative max-w-[504px] max-w-full object-cover "
             />
           </div>
 
-          <p className="base-text mx-auto max-w-[303px] text-center md:mt-[35%]">
+          <p className="base-text mx-auto max-w-[303px] text-center md:mt-[35%] ml-6">
             It is not simply a restaurant, but a complete evening experience
             where iconic architecture, contemporary cuisine, and entertainment
             come together as one.

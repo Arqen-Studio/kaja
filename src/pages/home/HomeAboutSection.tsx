@@ -1,0 +1,32 @@
+import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+function HomeAboutSection() {
+  return (
+    <div className=" max-w-[950px] py-16 mx-auto">
+      <div className="w-full flex h-[322px] justify-center gap-4 border border-[#32341D] dark:border-[#D6B283] ">
+        <img src="/png/about-image-1.png" alt="about-image-1" />
+        <img src="/png/about-image-2.png" alt="about-image-1" />
+        <div className="py-16 space-y-8">
+          <h1 className="heading !text-left">About</h1>
+          <p className="sub-text !leading-[-2.5px] !font-light">
+            KAJA is a contemporary, high-level destination...
+          </p>
+          <Link
+            to="/menu"
+            className="mt-2 base-text hover:opacity-75 flex items-center gap-2 "
+          >
+            <span>Discover Our Menu</span>
+            <MoveRight
+              className="h-8 w-6 shrink-0"
+              aria-hidden
+              strokeWidth={1}
+            />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default HomeAboutSection;

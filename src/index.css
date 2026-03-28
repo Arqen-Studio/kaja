@@ -32,7 +32,6 @@
   --text-muted: #334155;
   --surface: #ffffff;
   --border: #cbd5e1;
-  /* Figma “Light” ≈ 300; if the browser still feels heavy vs Figma, try 200. If it feels too thin, try 400. */
   --heading-font-weight: 300;
 }
 
@@ -59,7 +58,6 @@ body {
     color 0.3s; /* smooth theme change */
 }
 
-/* Helper classes */
 .theme-border {
   border-color: var(--border);
 }
@@ -105,7 +103,7 @@ body {
   font-style: normal;
   font-size: 16px;
   line-height: 120%;
-  letter-spacing: -2.8%;
+  letter-spacing:0%;
   vertical-align: middle;
 }
 
@@ -114,8 +112,4 @@ body {
   color: var(--hero-text);
 }
 
-.hero-section-bar {
-  height: clamp(12px, 2vw, 20px);
-  width: 100%;
-  background-color: var(--hero-bar);
-}
+

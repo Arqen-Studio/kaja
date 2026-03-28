@@ -8,11 +8,11 @@ function HomeMenuSection() {
         src="/png/trees-dark.png"
         alt="trees"
         aria-hidden
-        className="pointer-events-none absolute right-0 top-20 z-[1] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top opacity-30 sm:top-24 sm:max-w-[min(52vw,32rem)] md:top-28 md:h-[clamp(22rem,48vw,40rem)] lg:top-32 lg:max-w-[min(48vw,36rem)]"
+        className=" absolute right-0  z-[1] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top opacity-12 dark:opacity-6 top-20 sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)]  lg:max-w-[min(48vw,36rem)]"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-12 pb-4 pt-28  ">
-        <div className="relative z-10 flex max-w-[373px] flex-col gap-6 text-[#D4C18D]">
+        <div className="relative z-10 flex max-w-[373px] flex-col gap-6 ">
           <h2 className="heading !text-left">MENU</h2>
           <p className="sub-text">Dive into the wandering experience...</p>
           <Link
