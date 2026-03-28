@@ -9,7 +9,7 @@ const IntroSection = () => {
         </p>
 
         <div className="flex flex-col items-center gap-4 max-w-[277px]">
-          <button className="w-full h-[44px] bg-[#32341D] base-text  tracking-wide">
+          <button className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text  tracking-wide">
             MAKE RESERVATION
           </button>
 

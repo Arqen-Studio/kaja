@@ -13,10 +13,10 @@ function HomeAboutSection() {
             KAJA is a contemporary, high-level destination...
           </p>
           <Link
-            to="/menu"
+            to="/about"
             className="mt-2 base-text hover:opacity-75 flex items-center gap-2 "
           >
-            <span>Discover Our Menu</span>
+            <span>Discover More</span>
             <MoveRight
               className="h-8 w-6 shrink-0"
               aria-hidden

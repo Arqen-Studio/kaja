@@ -6,7 +6,7 @@ import MenuCard from "../../components/MenuCard";
 const MenuPage: React.FC = () => {
   return (
     <div className="menu-page pb-10">
-      <div className="heading py-16">
+      <div className="heading  py-16">
         <h1>Explore our Menu</h1>
       </div>
 
