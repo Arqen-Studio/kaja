@@ -1,0 +1,112 @@
+/* ── Input field ── */
+.kaja-datepicker-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Moche", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: #d6b283;
+  cursor: pointer;
+  width: 110px;
+  letter-spacing: 0;
+}
+
+.kaja-datepicker-input::placeholder {
+  color: #d6b283;
+}
+
+/* ── Calendar popup ── */
+.kaja-calendar {
+  background-color: #32341d !important;
+  border: 1px solid #d6b283 !important;
+  border-radius: 0 !important;
+  font-family: "Moche", sans-serif !important;
+  color: #d6b283 !important;
+}
+
+/* Header (month/year + nav arrows) */
+.kaja-calendar .react-datepicker__header {
+  background-color: #32341d !important;
+  border-bottom: 1px solid #d6b283 !important;
+  border-radius: 0 !important;
+  padding-top: 12px !important;
+}
+
+.kaja-calendar .react-datepicker__current-month {
+  font-family: "Moche", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  color: #d6b283 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Nav arrows */
+.kaja-calendar .react-datepicker__navigation-icon::before {
+  border-color: #d6b283 !important;
+}
+
+.kaja-calendar .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #f5f0e8 !important;
+}
+
+/* Day names (Mon Tue …) */
+.kaja-calendar .react-datepicker__day-name {
+  font-family: "Moche", sans-serif !important;
+  font-size: 11px !important;
+  color: #d6b283 !important;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+/* Day numbers */
+.kaja-calendar .react-datepicker__day {
+  font-family: "Moche", sans-serif !important;
+  font-size: 13px !important;
+  color: #d6b283 !important;
+  border-radius: 0 !important;
+}
+
+.kaja-calendar .react-datepicker__day:hover {
+  background-color: #d6b283 !important;
+  color: #32341d !important;
+}
+
+/* Selected day */
+.kaja-calendar .react-datepicker__day--selected {
+  background-color: #d6b283 !important;
+  color: #32341d !important;
+  font-weight: 400 !important;
+}
+
+/* Today */
+.kaja-calendar .react-datepicker__day--today {
+  font-weight: 400 !important;
+  text-decoration: underline;
+}
+
+/* Disabled / outside month */
+.kaja-calendar .react-datepicker__day--disabled,
+.kaja-calendar .react-datepicker__day--outside-month {
+  opacity: 0.25 !important;
+  cursor: default !important;
+}
+
+.kaja-calendar .react-datepicker__day--disabled:hover {
+  background-color: transparent !important;
+  color: #d6b283 !important;
+}
+
+/* Triangle pointer — hide it */
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+/* Popper z-index */
+.react-datepicker-popper {
+  z-index: 50 !important;
+}
