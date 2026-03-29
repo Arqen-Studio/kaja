@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -51,7 +51,12 @@ const rightNav: NavItem[] = [
 ];
 
 const NavLinkItem = ({ label, path }: NavItem) => (
-  <Link to={path} className="navbar-text">
+  <NavLink
+    to={path}
+    className={({ isActive }) =>
+      isActive ? "navbar-text underline underline-offset-4" : "navbar-text"
+    }
+  >
     {label}
-  </Link>
+  </NavLink>
 );
