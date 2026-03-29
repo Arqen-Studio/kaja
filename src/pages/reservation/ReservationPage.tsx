@@ -170,11 +170,11 @@ export default function ReservationPage() {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              backgroundColor: "#f5f0e8",
+              backgroundColor: "#fcf7f5",
               color: "#32341d",
               width: "100%",
-              maxWidth: "520px",
-              borderRadius: "8px",
+              maxWidth: "517px",
+              borderRadius: "13px",
               overflow: "hidden",
               maxHeight: "90vh",
               overflowY: "auto",
@@ -211,7 +211,7 @@ export default function ReservationPage() {
               <p className="base-text" style={{ color: "#32341d", marginBottom: "8px", lineHeight: "100%" }}>
                 About
               </p>
-              <p className="base-text" style={{ color: "#32341d", lineHeight: "140%", opacity: 0.8 }}>
+              <p className="base-text" style={{ color: "#32341d", lineHeight: "100%" }}>
                 {modalSlot.about}
               </p>
             </div>
@@ -226,9 +226,10 @@ export default function ReservationPage() {
                 className="navbar-text"
                 style={{
                   width: "100%",
-                  padding: "20px 0",
+                  height: "82px",
+                  padding: "0 48px",
                   backgroundColor: "#32341d",
-                  color: "#d6b283",
+                  color: "#fcf7f5",
                   border: "none",
                   cursor: "pointer",
                   borderRadius: "4px",
