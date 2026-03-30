@@ -191,7 +191,7 @@ export default function ReservationPage() {
             </div>
 
             {/* Image */}
-            <div style={{ width: "100%", height: "260px", overflow: "hidden", padding: "0 24px" }}>
+            <div style={{ width: "100%", height: "280px", overflow: "hidden", padding: "0 24px" }}>
               <img
                 src={modalSlot.image}
                 alt={modalSlot.title}
@@ -210,7 +210,7 @@ export default function ReservationPage() {
             </div>
 
             {/* About */}
-            <div style={{ padding: "20px 24px 0" }}>
+            <div style={{ padding: "57px 24px 0" }}>
               <p className="base-text" style={{ color: "#32341d", marginBottom: "8px", lineHeight: "100%" }}>
                 About
               </p>
@@ -220,7 +220,7 @@ export default function ReservationPage() {
             </div>
 
             {/* Select Button */}
-            <div style={{ padding: "24px" }}>
+            <div style={{ padding: "35px 24px 25px" }}>
               <button
                 onClick={() => {
                   setSelectedSlot(modalSlot.id);
