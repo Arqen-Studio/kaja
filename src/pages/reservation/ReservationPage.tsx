@@ -29,7 +29,6 @@ export default function ReservationPage() {
   const [guests, setGuests] = useState("");
   const [date, setDate] = useState<Date | null>(null);
 
-
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (modalSlot) {
@@ -46,8 +45,9 @@ export default function ReservationPage() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--bg)" }}>
+
       {/* Hero Image */}
-      <div className="w-full overflow-hidden" style={{ height: "460px" }}>
+      <div className="w-full overflow-hidden h-[240px] md:h-[460px]">
         <img
           src="/png/reservation-hero.png"
           alt="KAJA Restaurant Interior"
@@ -56,20 +56,23 @@ export default function ReservationPage() {
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-3xl px-6 py-14">
-        <h1 className="heading mb-12" style={{ color: "var(--text)" }}>
+      <div className="mx-auto max-w-3xl px-4 py-8 md:px-6 md:py-14">
+        <h1 className="heading mb-8 md:mb-12 !text-[28px] md:!text-[48px]" style={{ color: "var(--text)" }}>
           A mesmerizing
           <br />
           evening is waiting
         </h1>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="flex flex-col">
 
           {/* Selector Row */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", border: "1px solid var(--text)" }}>
+          <div className="grid grid-cols-3" style={{ border: "1px solid var(--text)" }}>
 
             {/* Guests */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 0", gap: "12px", borderRight: "1px solid var(--text)" }}>
+            <div
+              className="flex flex-col items-center justify-center py-3 md:py-6 gap-2 md:gap-3"
+              style={{ borderRight: "1px solid var(--text)" }}
+            >
               <span className="navbar-text" style={{ color: "var(--text)" }}>GUESTS</span>
               <select
                 value={guests}
@@ -85,13 +88,16 @@ export default function ReservationPage() {
             </div>
 
             {/* Time */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 0", gap: "12px", borderRight: "1px solid var(--text)" }}>
+            <div
+              className="flex flex-col items-center justify-center py-3 md:py-6 gap-2 md:gap-3"
+              style={{ borderRight: "1px solid var(--text)" }}
+            >
               <span className="navbar-text" style={{ color: "var(--text)" }}>TIME</span>
               <span className="navbar-text" style={{ color: "var(--text)" }}>-- --</span>
             </div>
 
             {/* Date */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 0", gap: "12px" }}>
+            <div className="flex flex-col items-center justify-center py-3 md:py-6 gap-2 md:gap-3">
               <span className="navbar-text" style={{ color: "var(--text)" }}>DATE</span>
               <DatePicker
                 selected={date}
@@ -107,21 +113,18 @@ export default function ReservationPage() {
           </div>
 
           {/* Slots Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1px", backgroundColor: "var(--bg)", marginTop: "24px" }}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3 mt-6"
+            style={{ gap: "1px", backgroundColor: "var(--bg)" }}
+          >
             {DUMMY_SLOTS.map((slot) => {
               const isSelected = selectedSlot === slot.id;
               return (
                 <button
                   key={slot.id}
                   onClick={() => { setSelectedSlot(slot.id); setModalSlot(slot); }}
-                  className="transition-colors"
+                  className="transition-colors flex flex-col items-center justify-center py-5 md:py-6 gap-1"
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "24px 0",
-                    gap: "4px",
                     backgroundColor: isSelected ? "#D6B283" : "var(--slot-bg)",
                     color: "#32341d",
                     margin: 0,
@@ -137,8 +140,8 @@ export default function ReservationPage() {
 
           {/* Submit Button */}
           <button
-            className="navbar-text"
-            style={{ width: "100%", padding: "24px 0", backgroundColor: "var(--text)", color: "var(--bg)", border: "none", marginTop: "24px" }}
+            className="navbar-text w-full mt-6 py-5 md:py-6"
+            style={{ backgroundColor: "var(--text)", color: "var(--bg)", border: "none" }}
           >
             SUBMIT REQUEST
           </button>
@@ -150,23 +153,15 @@ export default function ReservationPage() {
       {modalSlot && (
         <div
           onClick={() => setModalSlot(null)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.55)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 100,
-            padding: "24px",
-          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
+          style={{ backgroundColor: "rgba(0,0,0,0.55)" }}
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            className="w-full overflow-y-auto"
             style={{
               backgroundColor: "#fcf7f5",
               color: "#32341d",
-              width: "100%",
               maxWidth: "517px",
               borderRadius: "13px",
               overflow: "hidden",
@@ -182,7 +177,7 @@ export default function ReservationPage() {
             </div>
 
             {/* Image */}
-            <div style={{ width: "100%", height: "280px", overflow: "hidden", padding: "0 24px" }}>
+            <div className="w-full h-[180px] sm:h-[280px] overflow-hidden px-6">
               <img
                 src={modalSlot.image}
                 alt={modalSlot.title}
@@ -217,9 +212,8 @@ export default function ReservationPage() {
                   setSelectedSlot(modalSlot.id);
                   setModalSlot(null);
                 }}
-                className="navbar-text"
+                className="navbar-text w-full"
                 style={{
-                  width: "100%",
                   height: "82px",
                   padding: "0 48px",
                   backgroundColor: "#32341d",
