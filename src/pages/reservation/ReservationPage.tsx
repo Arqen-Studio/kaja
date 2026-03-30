@@ -140,8 +140,8 @@ export default function ReservationPage() {
 
           {/* Submit Button */}
           <button
-            className="navbar-text w-full mt-6 py-5 md:py-6 cursor-pointer hover:opacity-80 transition-opacity"
-            style={{ backgroundColor: "#D6B283", color: "#32341d", border: "none" }}
+            className="navbar-text w-full mt-6 cursor-pointer hover:opacity-80 transition-opacity"
+            style={{ backgroundColor: "#FCF7F5", color: "#32341D", border: "1px solid #32341D", height: "82px" }}
           >
             SUBMIT REQUEST
           </button>
