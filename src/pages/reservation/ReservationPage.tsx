@@ -211,7 +211,7 @@ export default function ReservationPage() {
 
             {/* About */}
             <div style={{ padding: "57px 24px 0" }}>
-              <p className="base-text" style={{ color: "#32341d", marginBottom: "8px", lineHeight: "100%" }}>
+              <p className="base-text" style={{ color: "#32341d", marginBottom: "22px", lineHeight: "100%" }}>
                 About
               </p>
               <p className="base-text" style={{ color: "#32341d", lineHeight: "100%" }}>
