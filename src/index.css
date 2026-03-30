@@ -32,6 +32,8 @@
   --text-muted: #334155;
   --surface: #ffffff;
   --border: #cbd5e1;
+  --slot-separator: #c8c1b0;
+  --slot-bg: #e8e2d9;
   --heading-font-weight: 300;
 }
 
@@ -41,6 +43,8 @@
   --text-muted: #cbd5e1;
   --surface: #0f172a;
   --border: #334155;
+  --slot-separator: #4a4d35;
+  --slot-bg: #f5f0e8;
 }
 
 html,

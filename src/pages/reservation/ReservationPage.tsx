@@ -29,15 +29,6 @@ export default function ReservationPage() {
   const [guests, setGuests] = useState("");
   const [date, setDate] = useState<Date | null>(null);
 
-  useEffect(() => {
-    const wasDark = document.documentElement.classList.contains("dark");
-    document.documentElement.classList.add("dark");
-    return () => {
-      if (!wasDark) {
-        document.documentElement.classList.remove("dark");
-      }
-    };
-  }, []);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -86,9 +77,9 @@ export default function ReservationPage() {
                 className="bg-transparent text-center navbar-text appearance-none cursor-pointer"
                 style={{ color: "var(--text)" }}
               >
-                <option value="" style={{ backgroundColor: "#32341d" }}>--</option>
+                <option value="" style={{ backgroundColor: "var(--bg)" }}>--</option>
                 {GUEST_OPTIONS.map((n) => (
-                  <option key={n} value={n} style={{ backgroundColor: "#32341d" }}>{n}</option>
+                  <option key={n} value={n} style={{ backgroundColor: "var(--bg)" }}>{n}</option>
                 ))}
               </select>
             </div>
@@ -116,7 +107,7 @@ export default function ReservationPage() {
           </div>
 
           {/* Slots Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1px", backgroundColor: "#32341d", marginTop: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1px", backgroundColor: "var(--bg)", marginTop: "24px" }}>
             {DUMMY_SLOTS.map((slot) => {
               const isSelected = selectedSlot === slot.id;
               return (
@@ -131,7 +122,7 @@ export default function ReservationPage() {
                     justifyContent: "center",
                     padding: "24px 0",
                     gap: "4px",
-                    backgroundColor: isSelected ? "#D6B283" : "#f5f0e8",
+                    backgroundColor: isSelected ? "#D6B283" : "var(--slot-bg)",
                     color: "#32341d",
                     margin: 0,
                     border: "none",
@@ -147,7 +138,7 @@ export default function ReservationPage() {
           {/* Submit Button */}
           <button
             className="navbar-text"
-            style={{ width: "100%", padding: "24px 0", backgroundColor: "#f5f0e8", color: "#32341d", border: "none", marginTop: "24px" }}
+            style={{ width: "100%", padding: "24px 0", backgroundColor: "var(--text)", color: "var(--bg)", border: "none", marginTop: "24px" }}
           >
             SUBMIT REQUEST
           </button>

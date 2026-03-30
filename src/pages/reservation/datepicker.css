@@ -9,29 +9,29 @@
   line-height: 100%;
   text-transform: uppercase;
   text-align: center;
-  color: #d6b283;
+  color: var(--text);
   cursor: pointer;
   width: 110px;
   letter-spacing: 0;
 }
 
 .kaja-datepicker-input::placeholder {
-  color: #d6b283;
+  color: var(--text);
 }
 
 /* ── Calendar popup ── */
 .kaja-calendar {
-  background-color: #32341d !important;
-  border: 1px solid #d6b283 !important;
+  background-color: var(--bg) !important;
+  border: 1px solid var(--text) !important;
   border-radius: 0 !important;
   font-family: "Moche", sans-serif !important;
-  color: #d6b283 !important;
+  color: var(--text) !important;
 }
 
 /* Header (month/year + nav arrows) */
 .kaja-calendar .react-datepicker__header {
-  background-color: #32341d !important;
-  border-bottom: 1px solid #d6b283 !important;
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--text) !important;
   border-radius: 0 !important;
   padding-top: 12px !important;
 }
@@ -40,25 +40,25 @@
   font-family: "Moche", sans-serif !important;
   font-weight: 400 !important;
   font-size: 14px !important;
-  color: #d6b283 !important;
+  color: var(--text) !important;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 /* Nav arrows */
 .kaja-calendar .react-datepicker__navigation-icon::before {
-  border-color: #d6b283 !important;
+  border-color: var(--text) !important;
 }
 
 .kaja-calendar .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
-  border-color: #f5f0e8 !important;
+  border-color: var(--text) !important;
 }
 
 /* Day names (Mon Tue …) */
 .kaja-calendar .react-datepicker__day-name {
   font-family: "Moche", sans-serif !important;
   font-size: 11px !important;
-  color: #d6b283 !important;
+  color: var(--text) !important;
   opacity: 0.6;
   text-transform: uppercase;
 }
@@ -67,19 +67,19 @@
 .kaja-calendar .react-datepicker__day {
   font-family: "Moche", sans-serif !important;
   font-size: 13px !important;
-  color: #d6b283 !important;
+  color: var(--text) !important;
   border-radius: 0 !important;
 }
 
 .kaja-calendar .react-datepicker__day:hover {
-  background-color: #d6b283 !important;
-  color: #32341d !important;
+  background-color: var(--text) !important;
+  color: var(--bg) !important;
 }
 
 /* Selected day */
 .kaja-calendar .react-datepicker__day--selected {
-  background-color: #d6b283 !important;
-  color: #32341d !important;
+  background-color: var(--text) !important;
+  color: var(--bg) !important;
   font-weight: 400 !important;
 }
 
@@ -98,7 +98,7 @@
 
 .kaja-calendar .react-datepicker__day--disabled:hover {
   background-color: transparent !important;
-  color: #d6b283 !important;
+  color: var(--text) !important;
 }
 
 /* Triangle pointer — hide it */
