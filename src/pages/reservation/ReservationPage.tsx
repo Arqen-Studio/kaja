@@ -77,7 +77,7 @@ export default function ReservationPage() {
               <select
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
-                className="bg-transparent text-center navbar-text appearance-none cursor-pointer"
+                className="bg-transparent text-center navbar-text appearance-none cursor-pointer hover:opacity-80 transition-opacity"
                 style={{ color: "var(--text)" }}
               >
                 <option value="" style={{ backgroundColor: "var(--bg)" }}>--</option>
@@ -123,7 +123,7 @@ export default function ReservationPage() {
                 <button
                   key={slot.id}
                   onClick={() => { setSelectedSlot(slot.id); setModalSlot(slot); }}
-                  className="transition-colors flex flex-col items-center justify-center py-5 md:py-6 gap-1"
+                  className="transition-all cursor-pointer flex flex-col items-center justify-center py-5 md:py-6 gap-1 hover:opacity-80"
                   style={{
                     backgroundColor: isSelected ? "#D6B283" : "var(--slot-bg)",
                     color: "#32341d",
@@ -140,8 +140,8 @@ export default function ReservationPage() {
 
           {/* Submit Button */}
           <button
-            className="navbar-text w-full mt-6 py-5 md:py-6"
-            style={{ backgroundColor: "var(--text)", color: "var(--bg)", border: "none" }}
+            className="navbar-text w-full mt-6 py-5 md:py-6 cursor-pointer hover:opacity-80 transition-opacity"
+            style={{ backgroundColor: "#D6B283", color: "#32341d", border: "none" }}
           >
             SUBMIT REQUEST
           </button>
@@ -212,14 +212,13 @@ export default function ReservationPage() {
                   setSelectedSlot(modalSlot.id);
                   setModalSlot(null);
                 }}
-                className="navbar-text w-full"
+                className="navbar-text w-full cursor-pointer hover:opacity-80 transition-opacity"
                 style={{
                   height: "82px",
                   padding: "0 48px",
                   backgroundColor: "#32341d",
                   color: "#fcf7f5",
                   border: "none",
-                  cursor: "pointer",
                   borderRadius: "4px",
                 }}
               >
