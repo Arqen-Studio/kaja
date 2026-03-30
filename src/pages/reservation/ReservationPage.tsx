@@ -30,9 +30,12 @@ export default function ReservationPage() {
   const [date, setDate] = useState<Date | null>(null);
 
   useEffect(() => {
+    const wasDark = document.documentElement.classList.contains("dark");
     document.documentElement.classList.add("dark");
     return () => {
-      document.documentElement.classList.remove("dark");
+      if (!wasDark) {
+        document.documentElement.classList.remove("dark");
+      }
     };
   }, []);
 
