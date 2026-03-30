@@ -10,12 +10,14 @@ const MenuPage: React.FC = () => {
         <h1>Explore our Menu</h1>
       </div>
 
-      <div className="flex justify-center gap-12">
-        <Link to="/menu-steaks">
-          <MenuCard title="Steaks" image="/png/steaks.png" />
-        </Link>
-        <MenuCard title="Appetizers" image="/png/appetizers.png " />
-        <MenuCard title="Desserts" image="/png/desserts.png" />
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-12">
+          <Link to="/menu-steaks">
+            <MenuCard title="Steaks" image="/png/steaks.png" />
+          </Link>
+          <MenuCard title="Appetizers" image="/png/appetizers.png" />
+          <MenuCard title="Desserts" image="/png/desserts.png" />
+        </div>
       </div>
     </div>
   );

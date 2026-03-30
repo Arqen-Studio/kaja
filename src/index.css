@@ -70,10 +70,7 @@ body {
   color: var(--text-muted);
 }
 
-.navbar-text {
-  font-family: "Moche", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.nvbar-text {
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0;
@@ -81,24 +78,35 @@ body {
   text-transform: uppercase;
 }
 
-.heading {
-  font-family: "Moche", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 48px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-align: center;
-  vertical-align: middle;
-}
-.sub-text {
-  font-family: "Moche", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  vertical-align: middle;
+@layer components {
+  .heading {
+    font-family: "Moche", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    vertical-align: middle;
+
+    @apply text-[30px] leading-[100%] tracking-[0]
+           md:text-[48px];
+  }
+  .sub-text {
+    font-family: "Moche", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: middle;
+
+    @apply text-[16px] leading-[120%] tracking-[0]
+    md:text-[24px];
+  }
+  .navbar-text {
+    font-family: "Moche", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: middle;
+    text-transform: uppercase;
+    @apply text-[30px] leading-[100%] tracking-[0];
+    @apply md:text-[16px];
+  }
 }
 
 .base-text {
@@ -107,7 +115,7 @@ body {
   font-style: normal;
   font-size: 16px;
   line-height: 120%;
-  letter-spacing:0%;
+  letter-spacing: 0%;
   vertical-align: middle;
 }
 
@@ -115,5 +123,3 @@ body {
 .hero-section .sub-heading {
   color: var(--hero-text);
 }
-
-

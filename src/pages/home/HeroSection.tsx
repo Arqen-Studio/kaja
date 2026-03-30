@@ -7,7 +7,7 @@ const HeroSection = () => {
         </h1>
 
         <div className="absolute left-0 mx-auto grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 ">
-          <p className="base-text mx-auto max-w-[227px] text-center md:mt-[25%] mr-8">
+          <p className="hidden md:block base-text mx-auto max-w-[227px] text-center md:mt-[25%] mr-8">
             KAJA was created with a clear intention: to surprise, engage, and
             leave a lasting impression.
           </p>
@@ -20,7 +20,7 @@ const HeroSection = () => {
             />
           </div>
 
-          <p className="base-text mx-auto max-w-[303px] text-center md:mt-[25%] ml-6">
+          <p className="hidden md:block base-text mx-auto max-w-[303px] text-center md:mt-[25%] ml-6">
             It is not simply a restaurant, but a complete evening experience
             where iconic architecture, contemporary cuisine, and entertainment
             come together as one.

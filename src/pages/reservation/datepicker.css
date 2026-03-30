@@ -110,3 +110,32 @@
 .react-datepicker-popper {
   z-index: 50 !important;
 }
+
+/* Mobile: fit calendar on narrow screens, readable tap targets */
+@media (max-width: 639px) {
+  .kaja-datepicker-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: 12px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .kaja-calendar {
+    max-width: calc(100vw - 1rem) !important;
+    width: calc(100vw - 1rem) !important;
+    font-size: 12px !important;
+  }
+
+  .kaja-calendar .react-datepicker__day {
+    width: 2.25rem !important;
+    line-height: 2.25rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .kaja-calendar .react-datepicker__day-name {
+    width: 2.25rem !important;
+    margin: 0.15rem !important;
+  }
+}

@@ -16,7 +16,7 @@ const MenuDetailPage = () => {
         </h1>
 
         <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
-          <p className="base-text mx-auto max-w-[230px] text-center md:mt-[35%] md:px-2">
+          <p className="hidden md:block base-text mx-auto max-w-[230px] text-center md:mt-[35%] md:px-2">
             KAJA was created with a clear intention: to surprise, engage, and
             leave a lasting impression.
           </p>
@@ -27,11 +27,11 @@ const MenuDetailPage = () => {
               alt="Steaks"
               width={504}
               height={492}
-              className="h-[492px] w-[504px] max-w-full object-cover object-[center_20%]"
+              className="h-[492px] max-w-[504px] max-w-full object-cover object-[center_20]"
             />
           </div>
 
-          <p className="base-text mx-auto max-w-[303px] text-center md:mt-[35%]">
+          <p className="md:block hidden base-text mx-auto max-w-[303px] text-center md:mt-[35%]">
             It is not simply a restaurant, but a complete evening experience
             where iconic architecture, contemporary cuisine, and entertainment
             come together as one.
@@ -39,12 +39,12 @@ const MenuDetailPage = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col items-center">
+      <div className="w-full flex flex-col items-center py-10">
         <h2 className="heading mb-6">For meat lovers</h2>
 
         <div className="w-[60%] border-t border-[#e6d3a3]/30 mb-6"></div>
 
-        <ul className="flex flex-col gap-0 w-full max-w-[600px]">
+        <ul className="flex flex-col gap-0 w-full max-w-[600px] px-10">
           {items.map((item) => (
             <li key={item.name} className="flex justify-between py-4 md:py-5">
               <span className="base-text">{item.name}</span>
