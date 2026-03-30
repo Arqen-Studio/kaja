@@ -101,7 +101,7 @@ export default function ReservationPage() {
               <span className="navbar-text" style={{ color: "var(--text)" }}>DATE</span>
               <DatePicker
                 selected={date}
-                onChange={(d) => setDate(d)}
+                onChange={(d: Date | null) => setDate(d)}
                 placeholderText="-- -- --"
                 dateFormat="dd MM yyyy"
                 minDate={new Date()}
