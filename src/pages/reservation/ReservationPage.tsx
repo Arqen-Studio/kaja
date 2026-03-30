@@ -122,7 +122,7 @@ export default function ReservationPage() {
               return (
                 <button
                   key={slot.id}
-                  onClick={() => setModalSlot(slot)}
+                  onClick={() => { setSelectedSlot(slot.id); setModalSlot(slot); }}
                   className="transition-colors"
                   style={{
                     display: "flex",
