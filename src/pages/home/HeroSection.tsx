@@ -5,7 +5,7 @@ const HeroSection = () => {
   const ref = useRef(null);
   const [vh, setVh] = useState(() =>
     typeof window !== "undefined"
-      ? window.visualViewport?.height ?? window.innerHeight
+      ? (window.visualViewport?.height ?? window.innerHeight)
       : 0,
   );
 
@@ -40,8 +40,8 @@ const HeroSection = () => {
   const imageOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="mt-10 min-h-[200svh] overflow-x-hidden">
-      <div className="sticky top-0 flex min-h-[100svh] items-center overflow-x-hidden">
+    <section ref={ref} className="mt-10 overflow-x-hidden">
+      <div className="sticky top-0 flex items-center overflow-x-hidden">
         <div className="mx-auto w-full max-w-6xl px-4">
           <motion.h1
             style={{ y: textY, opacity: textOpacity }}
@@ -85,6 +85,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      {/* <IntroSection/> */}
     </section>
   );
 };

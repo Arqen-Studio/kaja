@@ -17,12 +17,10 @@ const IntroSection = () => {
   const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const textExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
-  // const textExitOpacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
 
   const rightX = useTransform(scrollYProgress, [0, 0.4], [100, 0]);
   const rightOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const rightExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
-  // const rightExitOpacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
 
   const handleReservation = () => {
     setIsExpanding(true);
@@ -36,7 +34,7 @@ const IntroSection = () => {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="py-24 relative overflow-hidden"
+      className="pt-24 relative overflow-hidden"
     >
       <div className="mx-auto flex flex-col md:flex-row max-w-5xl items-center md:items-start justify-center gap-12 px-6">
         <motion.p
