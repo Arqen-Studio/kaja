@@ -30,18 +30,80 @@ const FIELD_LABEL =
 const FIELD_CELL =
   "flex min-w-0 flex-col items-center justify-center gap-1.5 px-1 py-3 sm:py-4 md:gap-2 md:py-6";
 
+const TIME_OPTIONS = (() => {
+  const opts: string[] = [];
+  for (let h = 9; h <= 23; h++) {
+    opts.push(`${h.toString().padStart(2, "0")}:00`);
+    if (h < 23) opts.push(`${h.toString().padStart(2, "0")}:30`);
+  }
+  return opts;
+})();
+
+const COUNTRY_CODES = [
+  { code: "+62", flag: "🇮🇩" },
+  { code: "+1",  flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+61", flag: "🇦🇺" },
+  { code: "+65", flag: "🇸🇬" },
+  { code: "+60", flag: "🇲🇾" },
+  { code: "+66", flag: "🇹🇭" },
+  { code: "+63", flag: "🇵🇭" },
+  { code: "+84", flag: "🇻🇳" },
+  { code: "+81", flag: "🇯🇵" },
+  { code: "+82", flag: "🇰🇷" },
+  { code: "+86", flag: "🇨🇳" },
+  { code: "+91", flag: "🇮🇳" },
+  { code: "+971", flag: "🇦🇪" },
+  { code: "+49", flag: "🇩🇪" },
+  { code: "+33", flag: "🇫🇷" },
+  { code: "+39", flag: "🇮🇹" },
+  { code: "+34", flag: "🇪🇸" },
+  { code: "+31", flag: "🇳🇱" },
+  { code: "+7",  flag: "🇷🇺" },
+];
+
+const inputBase: React.CSSProperties = {
+  width: "100%",
+  padding: "12px",
+  border: "1px solid #D1D1D1",
+  outline: "none",
+  fontFamily: "Moche, sans-serif",
+  fontSize: "14px",
+  color: "#32341D",
+  backgroundColor: "#fff",
+  borderRadius: "2px",
+};
+
+const inputError: React.CSSProperties = { ...inputBase, borderColor: "#c0392b" };
+
 export default function ReservationPage() {
+  // ── Slot selection state ──
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [modalSlot, setModalSlot] = useState<Slot | null>(null);
   const [guests, setGuests] = useState("");
   const [date, setDate] = useState<Date | null>(null);
 
+  // ── Request details modal state ──
+  const [requestOpen, setRequestOpen] = useState(false);
+  const [startTime, setStartTime]     = useState("");
+  const [endTime, setEndTime]         = useState("");
+  const [notes, setNotes]             = useState("");
+  const [firstName, setFirstName]     = useState("");
+  const [lastName, setLastName]       = useState("");
+  const [email, setEmail]             = useState("");
+  const [phone, setPhone]             = useState("");
+  const [phoneCountry, setPhoneCountry] = useState("+62");
+  const [offerVenue, setOfferVenue]   = useState(false);
+  const [offerAll, setOfferAll]       = useState(false);
+  const [errors, setErrors]           = useState<Record<string, boolean>>({});
+
+  // Prevent body scroll when any modal is open
   useEffect(() => {
-    document.body.style.overflow = modalSlot ? "hidden" : "";
+    document.body.style.overflow = modalSlot || requestOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [modalSlot]);
+  }, [modalSlot, requestOpen]);
 
   const formattedDate = date
     ? date.toLocaleDateString("en-GB", {
@@ -50,6 +112,32 @@ export default function ReservationPage() {
         month: "short",
       })
     : "-- -- --";
+
+  const requestFormattedDate = date
+    ? date.toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
+
+  const clearError = (key: string) =>
+    setErrors((prev) => ({ ...prev, [key]: false }));
+
+  const handleSubmitRequest = () => {
+    const e: Record<string, boolean> = {};
+    if (!startTime)        e.startTime = true;
+    if (!endTime)          e.endTime   = true;
+    if (!firstName.trim()) e.firstName = true;
+    if (!lastName.trim())  e.lastName  = true;
+    if (!email.trim())     e.email     = true;
+    if (!phone)            e.phone     = true;
+    setErrors(e);
+    if (Object.keys(e).length === 0) {
+      setRequestOpen(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
@@ -62,7 +150,7 @@ export default function ReservationPage() {
       </div>
 
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-10 md:py-14">
-        <h1 className="heading mb-6 text-balance  sm:mb-8  md:mb-10 ">
+        <h1 className="heading mb-6 text-balance sm:mb-8 md:mb-10">
           A mesmerizing
           <br />
           evening is waiting
@@ -145,6 +233,7 @@ export default function ReservationPage() {
 
           <button
             type="button"
+            onClick={() => setRequestOpen(true)}
             className="navbar-text mt-4 min-h-12 w-full touch-manipulation border border-[#32341D] bg-[#FCF7F5] py-3.5 !text-sm text-[#32341D] transition-opacity hover:opacity-80 sm:mt-6 sm:min-h-[60px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
           >
             SUBMIT REQUEST
@@ -152,6 +241,7 @@ export default function ReservationPage() {
         </div>
       </div>
 
+      {/* ── Slot Detail Modal ── */}
       {modalSlot && (
         <div
           role="presentation"
@@ -223,6 +313,218 @@ export default function ReservationPage() {
           </div>
         </div>
       )}
+
+      {/* ── Request Details Modal ── */}
+      {requestOpen && (
+        <div
+          role="presentation"
+          onClick={() => setRequestOpen(false)}
+          className="fixed inset-0 z-[100] flex items-end justify-center bg-black/55 sm:items-center sm:p-4"
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[92dvh] w-full max-w-[516px] overflow-y-auto rounded-t-2xl bg-white sm:rounded-xl"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 pt-6 pb-4">
+              <h2 className="base-text" style={{ color: "#32341D", lineHeight: "100%" }}>
+                Request Details
+              </h2>
+              <button
+                type="button"
+                onClick={() => setRequestOpen(false)}
+                className="min-h-11 min-w-11 flex items-center justify-center shrink-0 touch-manipulation text-xl leading-none opacity-70 hover:opacity-100 cursor-pointer"
+                style={{ color: "#32341D", background: "none", border: "none" }}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Date / Guests summary */}
+            <div className="px-6 pb-4 flex flex-col gap-2">
+              {requestFormattedDate && (
+                <div className="flex items-center gap-2">
+                  <span>📅</span>
+                  <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                    {requestFormattedDate}
+                  </span>
+                </div>
+              )}
+              {guests && (
+                <div className="flex items-center gap-2">
+                  <span>👥</span>
+                  <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                    {guests} {guests === "1" ? "guest" : "guests"}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <hr style={{ borderColor: "#E5E5E5", margin: "0 24px" }} />
+
+            {/* Form */}
+            <div className="p-6 flex flex-col gap-4">
+
+              {/* Reservation Time */}
+              <div>
+                <label className="base-text block mb-2" style={{ color: "#32341D", fontSize: "14px", lineHeight: "100%" }}>
+                  Reservation Time Between:*
+                </label>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                  <select
+                    value={startTime}
+                    onChange={(e) => { setStartTime(e.target.value); clearError("startTime"); }}
+                    style={errors.startTime ? { ...inputError } : { ...inputBase }}
+                  >
+                    <option value="">Choose Start Time</option>
+                    {TIME_OPTIONS.map((t) => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                  <span className="base-text hidden sm:block" style={{ color: "#32341D", flexShrink: 0 }}>-</span>
+                  <select
+                    value={endTime}
+                    onChange={(e) => { setEndTime(e.target.value); clearError("endTime"); }}
+                    style={errors.endTime ? { ...inputError } : { ...inputBase }}
+                  >
+                    <option value="">Choose End Time</option>
+                    {TIME_OPTIONS.map((t) => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <label className="base-text block mb-2" style={{ color: "#32341D", fontSize: "14px", lineHeight: "100%" }}>
+                  Reservation Notes
+                </label>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  rows={4}
+                  placeholder="Any special requests or notes..."
+                  className="resize-none"
+                  style={{ ...inputBase }}
+                />
+              </div>
+
+              {/* First + Last Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  placeholder="First Name*"
+                  value={firstName}
+                  onChange={(e) => { setFirstName(e.target.value); clearError("firstName"); }}
+                  style={errors.firstName ? { ...inputError } : { ...inputBase }}
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name*"
+                  value={lastName}
+                  onChange={(e) => { setLastName(e.target.value); clearError("lastName"); }}
+                  style={errors.lastName ? { ...inputError } : { ...inputBase }}
+                />
+              </div>
+
+              {/* Email + Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  type="email"
+                  placeholder="Email Address*"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); clearError("email"); }}
+                  style={errors.email ? { ...inputError } : { ...inputBase }}
+                />
+                <div
+                  style={{
+                    borderRadius: "2px",
+                    border: `1px solid ${errors.phone ? "#c0392b" : "#D1D1D1"}`,
+                    display: "flex",
+                    backgroundColor: "#fff",
+                    overflow: "hidden",
+                  }}
+                >
+                  <select
+                    value={phoneCountry}
+                    onChange={(e) => setPhoneCountry(e.target.value)}
+                    style={{
+                      border: "none",
+                      borderRight: "1px solid #D1D1D1",
+                      outline: "none",
+                      fontFamily: "Moche, sans-serif",
+                      fontSize: "13px",
+                      color: "#32341D",
+                      backgroundColor: "#fff",
+                      padding: "0 6px",
+                      cursor: "pointer",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {COUNTRY_CODES.map((c) => (
+                      <option key={c.code} value={c.code}>{c.flag} {c.code}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number*"
+                    value={phone}
+                    onChange={(e) => { setPhone(e.target.value); clearError("phone"); }}
+                    style={{
+                      flex: 1,
+                      border: "none",
+                      outline: "none",
+                      fontFamily: "Moche, sans-serif",
+                      fontSize: "14px",
+                      color: "#32341D",
+                      backgroundColor: "#fff",
+                      padding: "12px 10px",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Checkboxes */}
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={offerVenue}
+                  onChange={(e) => setOfferVenue(e.target.checked)}
+                  className="mt-1 cursor-pointer"
+                />
+                <span className="base-text flex items-center gap-1" style={{ color: "#32341D", fontSize: "13px", lineHeight: "140%" }}>
+                  Receive news and offers for this venue
+                  <span style={{ fontSize: "12px", opacity: 0.5, cursor: "help" }} title="You'll receive updates about this venue only">ⓘ</span>
+                </span>
+              </label>
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={offerAll}
+                  onChange={(e) => setOfferAll(e.target.checked)}
+                  className="mt-1 cursor-pointer"
+                />
+                <span className="base-text flex items-center gap-1" style={{ color: "#32341D", fontSize: "13px", lineHeight: "140%" }}>
+                  Receive news and offers for all our locations
+                  <span style={{ fontSize: "12px", opacity: 0.5, cursor: "help" }} title="You'll receive updates about all our locations">ⓘ</span>
+                </span>
+              </label>
+
+              {/* Submit */}
+              <button
+                type="button"
+                onClick={handleSubmitRequest}
+                className="navbar-text min-h-12 w-full touch-manipulation cursor-pointer transition-opacity hover:opacity-80"
+                style={{ backgroundColor: "#8B1F1F", color: "#fff", border: "none", borderRadius: "2px", padding: "14px 0" }}
+              >
+                Submit a request
+              </button>
+
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
