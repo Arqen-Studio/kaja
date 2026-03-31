@@ -329,7 +329,7 @@ export default function ReservationPage() {
             className="max-h-[92dvh] w-full max-w-[516px] overflow-y-auto rounded-t-2xl bg-white sm:rounded-xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-6 pb-4">
+            <div className={`flex items-center justify-between px-6 pt-6 ${(requestFormattedDate || guests) ? "pb-3" : "pb-0"}`}>
               <h2 className="base-text" style={{ color: "#32341D", lineHeight: "100%" }}>
                 Request Details
               </h2>
@@ -344,29 +344,30 @@ export default function ReservationPage() {
               </button>
             </div>
 
-            {/* Date / Guests summary — only shown when at least one value exists */}
+            {/* Date / Guests summary + divider — only shown when at least one value exists */}
             {(requestFormattedDate || guests) && (
-              <div className="px-6 pb-4 flex flex-col gap-2">
-                {requestFormattedDate && (
-                  <div className="flex items-center gap-2">
-                    <span>📅</span>
-                    <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
-                      {requestFormattedDate}
-                    </span>
-                  </div>
-                )}
-                {guests && (
-                  <div className="flex items-center gap-2">
-                    <span>👥</span>
-                    <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
-                      {guests} {guests === "1" ? "guest" : "guests"}
-                    </span>
-                  </div>
-                )}
-              </div>
+              <>
+                <div className="px-6 pb-4 flex flex-col gap-2">
+                  {requestFormattedDate && (
+                    <div className="flex items-center gap-2">
+                      <span>📅</span>
+                      <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                        {requestFormattedDate}
+                      </span>
+                    </div>
+                  )}
+                  {guests && (
+                    <div className="flex items-center gap-2">
+                      <span>👥</span>
+                      <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                        {guests} {guests === "1" ? "guest" : "guests"}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <hr style={{ borderColor: "#E5E5E5", margin: "0 24px" }} />
+              </>
             )}
-
-            <hr style={{ borderColor: "#E5E5E5", margin: "0 24px" }} />
 
             {/* Form */}
             <div className="p-6 flex flex-col gap-4">
