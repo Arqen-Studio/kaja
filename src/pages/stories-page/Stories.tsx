@@ -64,28 +64,77 @@ const Stories = () => {
           </p>
         </div>
       </div>
-      <div className="w-full py-10">
-        <h1 className="heading">crafted to evoke wonder</h1>
-        <div className="flex justify-between flex-col md:flex-row gap-10">
+
+      <div className="flex w-full py-10 px-4 md:px-10">
+        <div className="mx-auto max-w-6xl flex md:flex-row flex-col gap-10 justify-center items-center ">
           <div>
-            <img src="/png/seafood.png" alt="seafood" className="py-6" />
+            <div>
+              <img
+                src="/png/food.png"
+                alt="food"
+                className="w-full max-w-[520px] object-cover"
+              />
+            </div>
+
+            <div className="mt-6 flex flex-col items-center  md:items-start mb-4">
+              <h3 className="heading font-light mb-3">Sea Food</h3>
+              <p className="base-text max-w-[375px]">
+                Takahiko ‘Taka’ Kondo began his culinary journey in high school,
+                cooking at home and learning from food programs on television
+                before experimenting on his own. His interest in art and fashion
+                led him to Italy in 2000, where a pivotal encounter with Massimo
+                Bottura revealed his blend of passion, precision, and curiosity.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center md:items-start text-center p-10 mt-6 mb-6 space-y-6">
+            <div className="relative w-[200px] md:w-[300px]">
+              <img
+                src="/png/plate.png"
+                alt="Plate"
+                className="w-full h-full object-contain"
+              />
+
+              <img
+                src="/png/circular-text.png"
+                alt="circular text"
+                className="absolute left-1/2 top-1/2 h-[180%] md:w-[150%] md:h-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain animate-spin-slow pointer-events-none"
+              />
+            </div>
+
+            <div className="max-w-[120px] py-10 mt-4">
+              <h3 className="heading font-light text-center md:text-left">
+                Best Food in Ubud
+              </h3>
+            </div>
+          </div>{" "}
+        </div>
+      </div>
+
+      <div className="max-w-[1400px] mb-10">
+        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche leading-[120%] tracking-[-2.8%] ">
+          crafted to evoke wonder
+        </h1>
+        <div className="flex justify-between flex-col items-center md:flex-row gap-10">
+          <div className="max-w-[590px]">
+            <img src="/png/seafood.png" alt="seafood" className="w-full py-6" />
             <h1 className="heading">Seafood</h1>
           </div>
           <div>
-            <img src="/png/nature.png" alt="nature" className="py-5"/>
+            <img src="/png/nature.png" alt="nature" className="py-5" />
             <h1 className="heading">Heart of Nature</h1>
           </div>
         </div>
       </div>
-      <div className="w-full  items-center">
+      <div className="w-full items-center">
         <div className="border border-[#D6B283] border-[0.85px] w-full "></div>
         <Link to="/menu">
-          <div className="flex  items-center m-10 transition-transform duration-300 hover:translate-x-2">
+          <div className="flex justify-between items-center m-10 transition-transform duration-300 hover:translate-x-2">
             <h1 className="heading font-light">Discover Our Menu</h1>
             <MoveRight className="w-10 h-10" />
           </div>
         </Link>
-        <div className="border border-[#D6B283] border-[0.85px] w-full  "></div>
+        <div className="border border-[#D6B283] border-[0.85px] w-full  mb-10"></div>
       </div>
     </div>
   );

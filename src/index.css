@@ -107,6 +107,10 @@ body {
     @apply text-[30px] leading-[100%] tracking-[0];
     @apply md:text-[16px];
   }
+
+  .animate-spin-slow {
+    animation: spin 12s linear infinite;
+  }
 }
 
 .base-text {
