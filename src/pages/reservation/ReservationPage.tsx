@@ -256,7 +256,7 @@ export default function ReservationPage() {
             aria-modal="true"
             aria-labelledby="reservation-slot-title"
             onClick={(e) => e.stopPropagation()}
-            className="max-h-[min(92dvh,100%)] w-full max-w-lg overflow-y-auto rounded-t-2xl bg-[#fcf7f5] text-[#32341d] sm:rounded-xl"
+            className="max-h-[min(92dvh,100%)] w-full max-w-[517px] overflow-y-auto rounded-t-2xl bg-[#fcf7f5] text-[#32341d] sm:rounded-xl"
           >
             <div className="flex items-start justify-between gap-3 px-4 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-6">
               <p
@@ -275,7 +275,7 @@ export default function ReservationPage() {
               </button>
             </div>
 
-            <div className="h-40 w-full overflow-hidden px-4 sm:h-52 sm:px-6 md:h-64">
+            <div className="h-[160px] w-full overflow-hidden px-4 sm:h-[260px] sm:px-6 md:h-[280px]">
               <img
                 src={modalSlot.image}
                 alt=""
@@ -292,8 +292,8 @@ export default function ReservationPage() {
               </span>
             </div>
 
-            <div className="px-4 pt-6 sm:px-6 sm:pt-10">
-              <p className="base-text mb-2 text-sm leading-[100%] sm:mb-4 sm:text-base">
+            <div className="px-4 pt-6 sm:px-6 sm:pt-[57px]">
+              <p className="base-text mb-2 text-sm leading-[100%] sm:mb-[22px] sm:text-base">
                 About
               </p>
               <p className="base-text text-sm leading-snug sm:text-base sm:leading-normal">
@@ -520,7 +520,7 @@ export default function ReservationPage() {
               <button
                 type="button"
                 onClick={handleSubmitRequest}
-                className="navbar-text min-h-12 w-full touch-manipulation cursor-pointer transition-opacity hover:opacity-80"
+                className="navbar-text min-h-12 w-full touch-manipulation cursor-pointer transition-opacity hover:opacity-80 !text-sm md:!text-base"
                 style={{ backgroundColor: "#8B1F1F", color: "#fff", border: "none", borderRadius: "2px", padding: "14px 0" }}
               >
                 Submit a request
