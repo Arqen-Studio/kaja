@@ -17,7 +17,7 @@ function HomeMenuSection() {
           <p className="sub-text">Dive into the wandering experience...</p>
           <Link
             to="/menu"
-            className="mt-2 base-text hover:opacity-75 flex items-center gap-2 "
+            className="mt-2 base-text leading-[100%] hover:opacity-75 flex items-center gap-2"
           >
             <span>Discover Our Menu</span>
             <MoveRight

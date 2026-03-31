@@ -15,7 +15,7 @@ function HomeAboutSection() {
           </p>
           <Link
             to="/about"
-            className="mt-2 base-text hover:opacity-75 flex items-center gap-2 "
+            className="mt-2 base-text leading-[100%] hover:opacity-75 flex items-center gap-2"
           >
             <span>Discover More</span>
             <MoveRight
