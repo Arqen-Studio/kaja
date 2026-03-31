@@ -100,13 +100,13 @@ function HomeMenuSection() {
         <div
           className="absolute top-0 left-0 right-0 z-[15] pointer-events-none"
           style={{
-            height: "50vh",
-            background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
+            height: "42vh",
+            background: "linear-gradient(to bottom, var(--bg) 40%, transparent 100%)",
           }}
         />
 
         {/* Images — start below text, scroll up through the viewport window as user scrolls */}
-        <div className="absolute inset-x-0 top-[48vh] px-4 z-10">
+        <div className="absolute inset-x-0 top-[38vh] px-4 z-10">
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {IMAGES.map((src, index) => (
