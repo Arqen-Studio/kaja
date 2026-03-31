@@ -11,8 +11,11 @@ function Home() {
       <HeroSection />
 
       <IntroSection />
+      <div className="h-16" />
       <HomeAboutSection />
+      <div className="h-16" />
       <HomeMenuSection />
+      <div className="h-8" />
       <HomeChefSection />
       <HomeFooterSection />
     </>

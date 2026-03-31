@@ -36,8 +36,8 @@ function HomeChefSection() {
       // Distance from center of screen
       const delta = e.clientX - center;
 
-      // Subtle movement range
-      const maxMove = 80;
+      // Stronger movement range
+      const maxMove = window.innerWidth / 2;
 
       // Normalize (-1 to 1)
       const normalized = delta / maxMove;
@@ -79,14 +79,15 @@ function HomeChefSection() {
 
       <motion.div
         style={{ x: isDesktop ? springX : 0 }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        exit={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.6 }}
-        className="relative z-10 flex max-h-[min(504px,70vh)] w-full max-w-[min(336px,100%)] flex-col items-center justify-center gap-4 border md:z-50 will-change-transform"
+        className="relative z-10 flex max-h-[min(504px,70vh)] w-full max-w-[min(336px,100%)] flex-col items-center justify-center gap-4 border md:z-50"
       >
         <img
-          src="/png/apron.png"
+          src="/png/chef.png"
           alt="chef"
           className="h-auto w-full max-w-[336px] object-contain"
         />

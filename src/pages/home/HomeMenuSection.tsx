@@ -17,7 +17,7 @@ const IMAGES = [
 
 // Different upward travel per column — right col moves fastest (depth parallax)
 // Values must be large enough to bring all 3 rows into the viewport window
-const COL_TRAVEL = [1000, 1200, 1400];
+const COL_TRAVEL = [1500, 1900, 2300];
 
 function MenuTile({
   src,
@@ -53,7 +53,7 @@ function HomeMenuSection() {
 
   return (
     // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: "260vh" }} className="relative w-full">
+    <section ref={ref} style={{ height: "420vh" }} className="relative w-full">
 
       {/* Sticky viewport window — clips images naturally, releases when section ends */}
       <div className="sticky top-0 h-screen overflow-hidden">
@@ -63,7 +63,7 @@ function HomeMenuSection() {
           src="/png/trees-dark.png"
           alt="trees"
           aria-hidden
-          className="absolute right-0 z-[1] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-12 dark:opacity-6 sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw]"
+          className="absolute right-0 z-[16] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw]"
         />
 
         {/* Text — absolutely placed, always visible at the top */}
@@ -96,17 +96,17 @@ function HomeMenuSection() {
           </div>
         </div>
 
-        {/* Gradient mask — fades images out as they scroll up behind the text */}
+        {/* Gradient mask — fades images as they scroll up behind text */}
         <div
           className="absolute top-0 left-0 right-0 z-[15] pointer-events-none"
           style={{
-            height: "360px",
-            background: "linear-gradient(to bottom, var(--bg) 55%, transparent 100%)",
+            height: "480px",
+            background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
           }}
         />
 
         {/* Images — start below text, scroll up through the viewport window as user scrolls */}
-        <div className="absolute inset-x-0 top-[320px] px-4 z-10">
+        <div className="absolute inset-x-0 top-[420px] px-4 z-10">
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {IMAGES.map((src, index) => (
