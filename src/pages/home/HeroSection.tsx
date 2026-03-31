@@ -1,15 +1,31 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
   const ref = useRef(null);
-  const vh = useMemo(
-    () =>
-      typeof window !== "undefined"
-        ? (window.visualViewport?.height ?? window.innerHeight)
-        : 0,
-    [],
+  const [vh, setVh] = useState(() =>
+    typeof window !== "undefined"
+      ? window.visualViewport?.height ?? window.innerHeight
+      : 0,
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const vv = window.visualViewport;
+    const update = () => setVh(vv?.height ?? window.innerHeight);
+
+    update();
+    window.addEventListener("resize", update);
+    vv?.addEventListener("resize", update);
+    vv?.addEventListener("scroll", update);
+
+    return () => {
+      window.removeEventListener("resize", update);
+      vv?.removeEventListener("resize", update);
+      vv?.removeEventListener("scroll", update);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -24,9 +40,9 @@ const HeroSection = () => {
   const imageOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="min-h-[200vh] mt-10">
-      <div className="sticky top-0 flex min-h-screen items-center">
-        <div className="mx-auto max-w-6xl px-4 w-full">
+    <section ref={ref} className="mt-10 min-h-[200svh] overflow-x-hidden">
+      <div className="sticky top-0 flex min-h-[100svh] items-center overflow-x-hidden">
+        <div className="mx-auto w-full max-w-6xl px-4">
           <motion.h1
             style={{ y: textY, opacity: textOpacity }}
             className="heading mx-auto mb-8 max-w-[378px] text-center"
@@ -37,7 +53,7 @@ const HeroSection = () => {
           <div className="grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-4">
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
-              className="hidden md:block base-text mx-auto max-w-[227px] text-center md:mt-[25%] mr-8"
+              className="base-text mx-auto hidden max-w-[227px] text-center md:mr-8 md:mt-[25%] md:block"
             >
               KAJA was created with a clear intention: to surprise, engage, and
               leave a lasting impression.
@@ -54,13 +70,13 @@ const HeroSection = () => {
               <img
                 src="/png/hero-section.png"
                 alt="Steaks"
-                className="max-w-[504px] w-full object-cover"
+                className="w-full max-w-[504px] object-cover"
               />
             </motion.div>
 
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
-              className="hidden md:block base-text mx-auto max-w-[303px] text-center md:mt-[25%] ml-6"
+              className="base-text mx-auto hidden max-w-[303px] text-center md:ml-6 md:mt-[25%] md:block"
             >
               It is not simply a restaurant, but a complete evening experience
               where iconic architecture, contemporary cuisine, and entertainment

@@ -1,5 +1,6 @@
 import HeroSection from "./HeroSection";
 import HomeAboutSection from "./HomeAboutSection";
+import HomeChefSection from "./HomeChefSection";
 import HomeMenuSection from "./HomeMenuSection";
 import IntroSection from "./IntroSection";
 
@@ -12,6 +13,7 @@ function Home() {
       </section>
       <HomeAboutSection />
       <HomeMenuSection />
+      <HomeChefSection/>
     </>
   );
 }
