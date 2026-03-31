@@ -164,6 +164,7 @@ export default function ReservationPage() {
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
                 className="base-text w-full min-w-0 max-w-full cursor-pointer appearance-none bg-transparent py-1 text-center text-xs touch-manipulation text-[var(--text)] sm:text-sm md:text-base"
+                style={{ textAlignLast: "center" }}
               >
                 <option value="" className="bg-[var(--bg)] text-[var(--text)]">
                   --
@@ -216,7 +217,7 @@ export default function ReservationPage() {
                     setSelectedSlot(slot.id);
                     setModalSlot(slot);
                   }}
-                  className={`flex min-h-[48px] touch-manipulation flex-col items-center justify-center gap-0.5 border-0 py-3.5 text-[#32341d] transition-opacity hover:opacity-80 sm:min-h-0 sm:py-5 md:gap-1 md:py-6 ${
+                  className={`flex min-h-[48px] touch-manipulation flex-col items-center justify-center gap-0.5 border-0 py-3.5 text-[#32341d] transition-opacity hover:opacity-80 cursor-pointer sm:min-h-0 sm:py-5 md:gap-1 md:py-6 ${
                     isSelected ? "bg-[#D6B283]" : "bg-[var(--slot-bg)]"
                   }`}
                 >
@@ -234,7 +235,7 @@ export default function ReservationPage() {
           <button
             type="button"
             onClick={() => setRequestOpen(true)}
-            className="navbar-text mt-4 min-h-12 w-full touch-manipulation border border-[#32341D] bg-[#FCF7F5] py-3.5 !text-sm text-[#32341D] transition-opacity hover:opacity-80 sm:mt-6 sm:min-h-[60px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
+            className="navbar-text mt-4 min-h-12 w-full touch-manipulation cursor-pointer border border-[#32341D] bg-[#FCF7F5] py-3.5 !text-sm text-[#32341D] transition-opacity hover:opacity-80 sm:mt-6 sm:min-h-[60px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
           >
             SUBMIT REQUEST
           </button>
@@ -343,25 +344,27 @@ export default function ReservationPage() {
               </button>
             </div>
 
-            {/* Date / Guests summary */}
-            <div className="px-6 pb-4 flex flex-col gap-2">
-              {requestFormattedDate && (
-                <div className="flex items-center gap-2">
-                  <span>📅</span>
-                  <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
-                    {requestFormattedDate}
-                  </span>
-                </div>
-              )}
-              {guests && (
-                <div className="flex items-center gap-2">
-                  <span>👥</span>
-                  <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
-                    {guests} {guests === "1" ? "guest" : "guests"}
-                  </span>
-                </div>
-              )}
-            </div>
+            {/* Date / Guests summary — only shown when at least one value exists */}
+            {(requestFormattedDate || guests) && (
+              <div className="px-6 pb-4 flex flex-col gap-2">
+                {requestFormattedDate && (
+                  <div className="flex items-center gap-2">
+                    <span>📅</span>
+                    <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                      {requestFormattedDate}
+                    </span>
+                  </div>
+                )}
+                {guests && (
+                  <div className="flex items-center gap-2">
+                    <span>👥</span>
+                    <span className="base-text text-sm sm:text-base" style={{ color: "#32341D", lineHeight: "100%" }}>
+                      {guests} {guests === "1" ? "guest" : "guests"}
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
 
             <hr style={{ borderColor: "#E5E5E5", margin: "0 24px" }} />
 
