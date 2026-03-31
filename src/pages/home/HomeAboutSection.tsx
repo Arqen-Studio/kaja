@@ -10,7 +10,7 @@ function HomeAboutSection() {
         className="hidden md:block" />
         <div className="flex flex-col items-center md:items-start p-10 space-y-8">
           <h1 className="heading !text-left">About</h1>
-          <p className="sub-text !leading-[-2.5px] !font-light">
+          <p className="sub-text tracking-[-0.028em]">
             KAJA is a contemporary, high-level destination...
           </p>
           <Link
