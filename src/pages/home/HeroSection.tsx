@@ -1,24 +1,36 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 
 const HeroSection = () => {
   const ref = useRef(null);
+  const vh = useMemo(
+    () =>
+      typeof window !== "undefined"
+        ? window.visualViewport?.height ?? window.innerHeight
+        : 0,
+    []
+  );
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const textY = useTransform(scrollYProgress, [0, 0.2], [0, -200]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  // TEXT: move fully out of viewport
+  const textY = useTransform(scrollYProgress, [0, 0.3], [0, -vh]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+  // IMAGE
   const imageScaleX = useTransform(scrollYProgress, [0.2, 0.7], [1, 1.8]);
-  const imageOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
   const imageScaleY = useTransform(scrollYProgress, [0.2, 0.7], [1, 1.6]);
+  const imageOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
+
   return (
     <section ref={ref} className="min-h-[200vh]">
       <div className="sticky top-0 flex min-h-screen items-center">
         <div className="mx-auto max-w-6xl px-4 w-full">
+          
+          {/* MAIN HEADING */}
           <motion.h1
             style={{ y: textY, opacity: textOpacity }}
             className="heading mx-auto mb-8 max-w-[378px] text-center"
@@ -27,6 +39,8 @@ const HeroSection = () => {
           </motion.h1>
 
           <div className="grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-4">
+            
+            {/* LEFT TEXT */}
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
               className="hidden md:block base-text mx-auto max-w-[227px] text-center md:mt-[25%] mr-8"
@@ -35,11 +49,12 @@ const HeroSection = () => {
               leave a lasting impression.
             </motion.p>
 
+            {/* IMAGE */}
             <motion.div
               style={{
                 scaleX: imageScaleX,
-                opacity: imageOpacity,
                 scaleY: imageScaleY,
+                opacity: imageOpacity,
               }}
               className="flex justify-center origin-center"
             >
@@ -50,6 +65,7 @@ const HeroSection = () => {
               />
             </motion.div>
 
+            {/* RIGHT TEXT */}
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
               className="hidden md:block base-text mx-auto max-w-[303px] text-center md:mt-[25%] ml-6"

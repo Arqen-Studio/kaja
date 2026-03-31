@@ -67,10 +67,13 @@ const IntroSection = () => {
               isExpanding
                 ? {
                     position: "fixed",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
+                    top: ["50%", "0%"],
+                    left: ["50%", "0%"],
+                    x: ["-50%", "0%"],
+                    y: ["-50%", "0%"],
+                    width: ["100%", "100dvw"],
+                    maxWidth: ["277px", "100dvw"],
+                    height: ["44px", "100dvh"],
                     borderRadius: 0,
                     zIndex: 50,
                   }
@@ -80,7 +83,7 @@ const IntroSection = () => {
             }
             transition={
               isExpanding
-                ? { duration: 0.6, ease: "easeInOut" }
+                ? { duration: 0.7, ease: "easeInOut" }
                 : {
                     duration: 2,
                     repeat: Infinity,
@@ -94,7 +97,7 @@ const IntroSection = () => {
             whileTap={{ scale: 0.96 }}
             className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-12 border border-[#32341D] cursor-pointer shadow-md"
           >
-            MAKE RESERVATION
+            {isExpanding ? "RESERVATION" : "MAKE RESERVATION"}
           </motion.button>
 
           <img
