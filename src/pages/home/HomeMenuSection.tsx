@@ -16,7 +16,8 @@ const IMAGES = [
 ];
 
 // Different upward travel per column — right col moves fastest (depth parallax)
-const COL_TRAVEL = [500, 650, 800];
+// Values must be large enough to bring all 3 rows into the viewport window
+const COL_TRAVEL = [1000, 1200, 1400];
 
 function MenuTile({
   src,
