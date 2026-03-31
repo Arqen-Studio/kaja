@@ -184,7 +184,9 @@ export default function ReservationPage() {
             <div className={FIELD_CELL}>
               <span className={FIELD_LABEL}>TIME</span>
               <span className="base-text text-center text-xs leading-[100%] sm:text-sm md:text-base">
-                -- --
+                {selectedSlot
+                  ? DUMMY_SLOTS.find((s) => s.id === selectedSlot)?.time ?? "-- --"
+                  : "-- --"}
               </span>
             </div>
 
@@ -306,7 +308,7 @@ export default function ReservationPage() {
                   setSelectedSlot(modalSlot.id);
                   setModalSlot(null);
                 }}
-                className="navbar-text min-h-12 w-full rounded-sm touch-manipulation border-0 bg-[#32341d] py-3.5 !text-sm text-[#fcf7f5] transition-opacity hover:opacity-80 sm:min-h-[72px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
+                className="navbar-text min-h-12 w-full rounded-sm touch-manipulation cursor-pointer border-0 bg-[#32341d] py-3.5 !text-sm text-[#fcf7f5] transition-opacity hover:opacity-80 sm:min-h-[72px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
               >
                 SELECT
               </button>
