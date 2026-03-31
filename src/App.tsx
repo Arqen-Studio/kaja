@@ -6,6 +6,7 @@ import MenuPage from "./pages/menu/MenuPage";
 import MenuDetailPage from "./pages/menu/MenuDetails";
 import About from "./pages/about/About";
 import ReservationPage from "./pages/reservation/ReservationPage";
+import Stories from "./pages/stories-page/Stories";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/menu-steaks" element={<MenuDetailPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="/stories" element={<Stories />} />
         </Route>
       </Routes>
     </BrowserRouter>

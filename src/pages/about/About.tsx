@@ -20,8 +20,8 @@ function About() {
         />
         <p className="base-text text-center py-6">Restaurant planning</p>
       </div>
-      <div className="flex border border-[#32341D] dark:border-[#D6B283] m-10">
-        <div className="flex items-center max-w-[520px] px-6 ml-4">
+      <div className="flex md:flex-row flex-col-reverse border border-[#32341D] dark:border-[#D6B283] m-10">
+        <div className="flex items-center max-w-[520px] p-6 ml-4">
           <p className="sub-text leading-[-2.5%]">
             Our aim is to go beyond dining. We want guests to feel a sense of
             awe from the moment they arrive.
@@ -34,14 +34,14 @@ function About() {
         />
       </div>
 
-      <div className="flex border border-[#32341D] dark:border-[#D6B283] mt-10 mb-20">
+      <div className="flex md:flex-row flex-col border border-[#32341D] dark:border-[#D6B283] mt-10 mb-20">
         {" "}
         <img
           src="/png/vision.png"
           alt="vision"
           className="max-w-[591px] object-cover object-[60%_30%]"
         />
-        <div className="flex items-center max-w-[520px] px-6 ml-4">
+        <div className="flex items-center justify-center  max-w-[520px] p-6 ml-4">
           <p className="sub-text leading-[-2.5%]">
             Our vision is to establish KAJA as one of Bali’s iconic
             destinations. A place that becomes part of Ubud’s identity alongside
