@@ -237,7 +237,7 @@ export default function ReservationPage() {
           <button
             type="button"
             onClick={() => setRequestOpen(true)}
-            className="navbar-text mt-4 min-h-12 w-full touch-manipulation cursor-pointer border border-[#32341D] bg-[#FCF7F5] py-3.5 !text-sm text-[#32341D] transition-opacity hover:opacity-80 sm:mt-6 sm:min-h-[60px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
+            className="navbar-text mt-4 min-h-12 w-full touch-manipulation cursor-pointer border border-[#32341D] bg-[#FCF7F5] px-2 py-3.5 !text-sm text-[#32341D] transition-opacity hover:opacity-80 sm:mt-6 sm:min-h-[60px] sm:!text-base md:!text-[16px] md:min-h-[82px] md:py-0"
           >
             SUBMIT REQUEST
           </button>
