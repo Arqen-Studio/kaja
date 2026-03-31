@@ -15,7 +15,6 @@ function Home() {
       <HomeAboutSection />
       <div className="h-[4vh]" />
       <HomeMenuSection />
-      <div className="h-[2vh]" />
       <HomeChefSection />
       <HomeFooterSection />
     </>
