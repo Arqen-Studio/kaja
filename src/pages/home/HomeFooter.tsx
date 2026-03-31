@@ -10,7 +10,7 @@ const HomeFooterSection: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto flex flex-col justify-between py-10">
+    <div className="max-w-[1400px] mx-auto flex flex-col justify-between py-10 overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -58,7 +58,7 @@ const HomeFooterSection: React.FC = () => {
               key={index}
               src={src}
               alt={`kaja-${index}`}
-              className="h-[120px] w-full flex-1 object-contain md:h-[220px]"
+              className="h-[clamp(80px,14vw,220px)] w-full flex-1 object-contain"
               variants={{
                 hidden: { x: 200, opacity: 0 },
                 visible: {

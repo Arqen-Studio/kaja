@@ -40,7 +40,7 @@ const HeroSection = () => {
   const imageOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="mt-10 overflow-x-hidden">
+    <section ref={ref} className="mt-[5vh] overflow-x-hidden">
       <div className="sticky top-0 flex items-center overflow-x-hidden">
         <div className="mx-auto w-full max-w-6xl px-4">
           <motion.h1

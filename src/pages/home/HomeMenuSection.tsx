@@ -15,9 +15,9 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-// Different upward travel per column — right col moves fastest (depth parallax)
-// Values must be large enough to bring all 3 rows into the viewport window
-const COL_TRAVEL = [1500, 1900, 2300];
+// Travel relative to viewport height so animation scales on all screen sizes
+const vh = typeof window !== "undefined" ? window.innerHeight : 900;
+const COL_TRAVEL = [vh * 1.7, vh * 2.1, vh * 2.6];
 
 function MenuTile({
   src,
@@ -53,7 +53,7 @@ function HomeMenuSection() {
 
   return (
     // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: "420vh" }} className="relative w-full">
+    <section ref={ref} style={{ height: "320vh" }} className="relative w-full">
 
       {/* Sticky viewport window — clips images naturally, releases when section ends */}
       <div className="sticky top-0 h-screen overflow-hidden">
@@ -67,7 +67,7 @@ function HomeMenuSection() {
         />
 
         {/* Text — absolutely placed, always visible at the top */}
-        <div className="absolute top-16 left-0 right-0 z-20 mx-auto max-w-7xl px-12">
+        <div className="absolute top-[8vh] left-0 right-0 z-20 mx-auto max-w-7xl px-12">
           <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
             <h2 className="heading text-center md:!text-left">Menu</h2>
 
@@ -100,13 +100,13 @@ function HomeMenuSection() {
         <div
           className="absolute top-0 left-0 right-0 z-[15] pointer-events-none"
           style={{
-            height: "480px",
+            height: "50vh",
             background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
           }}
         />
 
         {/* Images — start below text, scroll up through the viewport window as user scrolls */}
-        <div className="absolute inset-x-0 top-[420px] px-4 z-10">
+        <div className="absolute inset-x-0 top-[48vh] px-4 z-10">
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {IMAGES.map((src, index) => (
