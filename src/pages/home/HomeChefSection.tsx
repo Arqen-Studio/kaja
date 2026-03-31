@@ -1,9 +1,9 @@
-import React from 'react'
-
 function HomeChefSection() {
   return (
-    <div>HomeChefSection</div>
-  )
+    <div>
+      <h1></h1>
+    </div>
+  );
 }
 
-export default HomeChefSection
+export default HomeChefSection;
