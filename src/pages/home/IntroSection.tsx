@@ -92,7 +92,7 @@ const IntroSection = () => {
               boxShadow: "0px 10px 20px rgba(0,0,0,0.25)",
             }}
             whileTap={{ scale: 0.96 }}
-            className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-2 tracking-wide cursor-pointer shadow-md"
+            className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-12 border border-[#32341D] cursor-pointer shadow-md"
           >
             MAKE RESERVATION
           </motion.button>
