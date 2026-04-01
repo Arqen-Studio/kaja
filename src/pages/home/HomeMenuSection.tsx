@@ -22,7 +22,10 @@ const IMAGES = [
 
 const vh =
   typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-const COL_TRAVEL_3 = [vh * 1.6, vh * 1.9, vh * 2.2] as const;
+// Use a higher cap for 3-col so row-3 images are reachable on large screens
+const vh3 =
+  typeof window !== "undefined" ? Math.min(window.innerHeight, 1600) : 1000;
+const COL_TRAVEL_3 = [vh3 * 1.6, vh3 * 1.9, vh3 * 2.2] as const;
 const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_1 = [vh * 1.7] as const;
 
@@ -59,8 +62,21 @@ function MenuTile({
     [0, columns === 1 ? 0 : -travel],
   );
 
+  // Calculate the y-value at which this row's images enter the viewport
+  const vp = typeof window !== "undefined" ? window.innerHeight : 900;
+  const approxRowH = vp * 0.72 + 112; // image height + gap
+  const rowEntryY = row > 0 ? -(row * approxRowH + vp * 0.37 - vp) : 0;
+
+  // Fade in over 250px of travel inside the visible viewport
+  const opacityFromY = useTransform(
+    y,
+    [rowEntryY + 30, rowEntryY - 250],
+    [0, 1],
+  );
+  const opacity = row === 0 || columns === 1 ? 1 : opacityFromY;
+
   return (
-    <motion.div style={{ y }} className="group">
+    <motion.div style={{ y, opacity }} className="group">
       <img
         src={src}
         alt={`menu-${index + 1}`}

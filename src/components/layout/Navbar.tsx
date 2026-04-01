@@ -5,11 +5,13 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const lastY = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
+      setScrolled(y > 20);
       if (y < 80) {
         setVisible(true);
       } else {
@@ -23,9 +25,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 z-50 transition-transform duration-300 bg-[var(--bg)] ${
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-[var(--bg)] ${
         visible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      } ${scrolled ? "shadow-[0_2px_20px_rgba(0,0,0,0.25)]" : ""}`}
     >
       <div className="hidden md:grid mx-auto w-full grid-cols-5 items-center px-[3vw] py-4 text-center">
         {leftNav.map((item) => (
