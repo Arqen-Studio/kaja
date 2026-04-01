@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full relative">
-      <div className="hidden md:grid mx-auto max-w-6xl grid-cols-5 items-center px-4 py-4 text-center">
+      <div className="hidden md:grid mx-auto w-full grid-cols-5 items-center px-12 py-4 text-center">
         {leftNav.map((item) => (
           <NavLinkItem key={item.path} {...item} />
         ))}

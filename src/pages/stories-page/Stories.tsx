@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Stories = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center ">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:py-20">
+      <div className="mx-auto w-full px-6 md:px-12 py-10 md:py-20">
         <h1 className="heading mx-auto mb-4 max-w-[378px] text-center">
           Introducing our Chef
         </h1>
@@ -32,7 +32,7 @@ const Stories = () => {
           </p>
         </div>
       </div>
-      <div className="max-w-[938px] pb-10 px-4 ">
+      <div className="max-w-[938px] pb-10 px-6 md:px-12">
         <p className="heading ">
           Italian born Chef for a contemporary, high-level destination
           restaurant offering a fully immersive dining experience.
@@ -65,7 +65,7 @@ const Stories = () => {
         </div>
       </div>
 
-      <div className="flex w-full py-10 px-4 md:px-10">
+      <div className="flex w-full py-10 px-6 md:px-12">
         <div className="mx-auto max-w-6xl flex md:flex-row flex-col gap-10 justify-center items-center ">
           <div>
             <div>

@@ -42,7 +42,7 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="mt-[5vh] overflow-x-hidden">
       <div className="sticky top-0 flex items-center overflow-x-hidden">
-        <div className="mx-auto w-full max-w-6xl px-4">
+        <div className="mx-auto w-full px-6 md:px-12">
           <motion.h1
             style={{ y: textY, opacity: textOpacity }}
             className="heading mx-auto mb-8 max-w-[378px] text-center"

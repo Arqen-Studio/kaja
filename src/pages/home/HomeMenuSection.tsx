@@ -197,7 +197,7 @@ function HomeMenuSection() {
           }}
         />
 
-        <div className="absolute inset-x-0 top-[37vh] px-4 z-10">
+        <div className="absolute inset-x-0 top-[37vh] px-6 md:px-12 z-10">
           <div className="mx-auto max-w-[1315px]">
             <motion.div
               ref={gridRef}
