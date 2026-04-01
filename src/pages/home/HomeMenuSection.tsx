@@ -22,7 +22,7 @@ const IMAGES = [
 
 const vh =
   typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-const COL_TRAVEL_3 = [vh * 1.3, vh * 1.5, vh * 1.7] as const;
+const COL_TRAVEL_3 = [vh * 1.6, vh * 1.9, vh * 2.2] as const;
 const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_1 = [vh * 1.7] as const;
 
@@ -130,7 +130,7 @@ function HomeMenuSection() {
       ? "min(240vh, 2400px)"
       : columns === 2
         ? "min(320vh, 3200px)"
-        : "min(250vh, 2000px)";
+        : "min(300vh, 2600px)";
 
   return (
     <section
