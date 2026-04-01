@@ -16,6 +16,8 @@ const HeroSection = () => {
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
   const [imageSize, setImageSize] = useState({ width: 444, height: 300 });
+  const isMobile = vw < 768;
+  const isTablet = vw >= 768 && vw < 1024;
 
   const updateImageSize = () => {
     if (!imageWrapperRef.current) return;
@@ -77,9 +79,42 @@ const HeroSection = () => {
   const imageY = useTransform(smoothProgress, [0.5, 1], [0, -vh * 0.08]);
 
   const imageOpacity = useTransform(smoothProgress, [0.7, 0.9, 1], [1, 0.9, 0]);
+  const sectionHeightClass = isMobile
+    ? "h-[210vh]"
+    : isTablet
+      ? "h-[225vh]"
+      : "h-[240vh]";
+
+  const leftTextLines = isTablet
+    ? [
+        "KAJA was created with a",
+        "clear intention: to",
+        "surprise, engage, and",
+        "leave a lasting impression.",
+      ]
+    : [
+        "KAJA was created with a",
+        "clear intention: to surprise,",
+        "engage, and leave a",
+        "lasting impression.",
+      ];
+
+  const rightTextLines = isTablet
+    ? [
+        "It is not simply a restaurant,",
+        "but a complete evening",
+        "experience where architecture,",
+        "cuisine, and entertainment unite.",
+      ]
+    : [
+        "It is not simply a restaurant,",
+        "but a complete evening",
+        "experience where architecture,",
+        "cuisine, and entertainment unite.",
+      ];
 
   return (
-    <section ref={ref} className="mt-[-10vh] h-[240vh]">
+    <section ref={ref} className={`mt-[-10vh] ${sectionHeightClass}`}>
       <div className="sticky top-0 flex items-center h-screen overflow-x-hidden">
         <div className="mx-auto w-full px-6 md:px-[3vw]">
           <motion.h1
@@ -95,16 +130,13 @@ const HeroSection = () => {
           <div className="grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-4">
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
-              className="base-text mx-auto hidden max-w-[230px] text-start md:mr-8 md:block"
+              className="base-text mx-auto hidden max-w-[230px] text-start leading-relaxed lg:mr-8 lg:block"
             >
               <LetterByLetter
-                lines={[
-                  "KAJA was created with a",
-                  "clear intention: to surprise,",
-                  "engage, and leave a",
-                  "lasting impression.",
-                ]}
-                align="center"
+                lines={leftTextLines}
+                align="left"
+                className="max-w-full"
+                scrollToggle={false}
               />
             </motion.p>
 
@@ -129,16 +161,13 @@ const HeroSection = () => {
 
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
-              className="base-text mx-auto hidden max-w-[303px] text-center md:ml-6 md:block"
+              className="base-text mx-auto hidden max-w-[303px] text-center leading-relaxed lg:ml-6 lg:block"
             >
               <LetterByLetter
-                lines={[
-                  "It is not simply a restaurant, but a ",
-                  "complete evening experience where",
-                  "cuisine, and entertainment come",
-                  "lasting impression.",
-                ]}
+                lines={rightTextLines}
                 align="center"
+                className="max-w-full"
+                scrollToggle={false}
               />
             </motion.p>
           </div>

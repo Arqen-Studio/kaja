@@ -32,14 +32,14 @@ function HomeAboutSection() {
           src="/png/about-image-1.png"
           alt="about-image-1"
           style={{ opacity: imgOpacity }}
-          className="relative z-10"
+          className="relative z-10 h-[220px] w-full object-cover sm:h-[280px] md:h-full md:w-auto md:object-contain"
         />
 
         <motion.img
           src="/png/about-image-2.png"
           alt="about-image-2"
           style={{ opacity: imgOpacity }}
-          className="hidden md:block relative z-10"
+          className="relative z-10 hidden h-full w-auto object-contain md:block"
         />
 
         <motion.div
@@ -48,7 +48,7 @@ function HomeAboutSection() {
             opacity: contentOpacity,
             y: contentY,
           }}
-          className="flex flex-col items-center md:items-start p-10 space-y-8 relative z-0"
+          className="relative z-0 flex flex-col items-center space-y-6 p-6 sm:p-8 md:items-start md:p-10 md:space-y-8"
         >
           <h1 className="heading !text-left">About</h1>
 

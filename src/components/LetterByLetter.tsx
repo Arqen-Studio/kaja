@@ -88,7 +88,7 @@ export function LetterByLetter({
     <motion.span
       ref={ref}
       className={[
-        "block w-full break-normal",
+        "block w-full break-words",
         alignClass,
         className,
       ]
@@ -104,27 +104,14 @@ export function LetterByLetter({
           className="block w-full"
           variants={lineContainer}
         >
-          {line.split(" ").map((word, wordIndex) => (
-            <span
-              key={`word-${lineIndex}-${wordIndex}`}
-              style={{
-                display: "inline-block",
-                whiteSpace: "nowrap", 
-              }}
+          {[...line].map((char, i) => (
+            <motion.span
+              key={`char-${lineIndex}-${i}`}
+              variants={letter}
+              style={{ display: "inline" }}
             >
-              {[...word].map((char, i) => (
-                <motion.span
-                  key={`char-${lineIndex}-${wordIndex}-${i}`}
-                  variants={letter}
-                  style={{ display: "inline-block" }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-
-              {/* space after word */}
-              <span style={{ display: "inline" }}>&nbsp;</span>
-            </span>
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
           ))}
         </motion.span>
       ))}
