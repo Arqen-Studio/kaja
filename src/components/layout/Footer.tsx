@@ -17,7 +17,7 @@ const FooterSection: React.FC = () => {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 md:justify-items-center items-start p-10 pt-8 gap-8">
+        <div className="w-full grid grid-cols-1 md:grid-cols-4 md:justify-items-center items-start p-10 pt-16 md:pt-8 gap-20 md:gap-8">
           {[
             {
               title: "Contact",
@@ -47,7 +47,7 @@ const FooterSection: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="w-full px-4"
+        className="w-full px-4 mt-8 md:mt-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.4 }}

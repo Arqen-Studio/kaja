@@ -75,7 +75,7 @@ function HomeMenuSection() {
   const ref = useRef(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const [columns, setColumns] = useState<1 | 2 | 3>(3);
-  const [oneColTravel, setOneColTravel] = useState(vh * 6);
+  const [oneColTravel, setOneColTravel] = useState(vh * 2);
 
   useEffect(() => {
     const mqMd = window.matchMedia("(min-width: 768px)");
@@ -106,7 +106,7 @@ function HomeMenuSection() {
     const update = () => {
       const gridHeight = el.scrollHeight;
       const viewport = window.innerHeight || 800;
-      setOneColTravel(Math.max(vh * 6, gridHeight - viewport + vh * 0.8));
+      setOneColTravel(Math.max(vh * 2, gridHeight - viewport + vh * 0.3));
     };
 
     update();
@@ -127,7 +127,7 @@ function HomeMenuSection() {
 
   const sectionHeight =
     columns === 1
-      ? "min(420vh, 4200px)"
+      ? "min(240vh, 2400px)"
       : columns === 2
         ? "min(320vh, 3200px)"
         : "min(250vh, 2000px)";
