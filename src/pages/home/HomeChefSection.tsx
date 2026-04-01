@@ -84,12 +84,12 @@ function HomeChefSection() {
         exit={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.6 }}
-        className="relative z-10 -mt-12 flex h-[min(504px,80vh)] w-full max-w-[min(336px,100%)] flex-col items-center justify-center gap-4 border border-[#D6B283] md:z-50"
+        className="relative z-10 -mt-12 flex w-full max-w-[min(336px,100%)] flex-col items-center border border-[#D6B283] md:z-50"
       >
         <img
           src="/png/chef.png"
           alt="chef"
-          className="h-auto w-full max-w-[336px] object-contain"
+          className="h-auto w-full object-cover"
         />
 
         <Link to="/stories" className="base-text py-4">
