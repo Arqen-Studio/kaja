@@ -17,7 +17,7 @@ const IMAGES = [
 
 // Travel relative to viewport height so animation scales on all screen sizes
 const vh = typeof window !== "undefined" ? window.innerHeight : 900;
-const COL_TRAVEL = [vh * 1.4, vh * 1.6, vh * 1.8];
+const COL_TRAVEL = [vh * 1.6, vh * 1.85, vh * 2.1];
 
 function MenuTile({
   src,

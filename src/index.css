@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --font-moche: "Moche", sans-serif;
+}
+
 /* Moche Light → weight 300 (headings). Add files under public/fonts/ */
 @font-face {
   font-family: "Moche";
