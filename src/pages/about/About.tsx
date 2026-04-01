@@ -99,16 +99,39 @@ function About() {
             ))}
           </motion.div>
         </motion.div>
-        <motion.p
-          className="base-text text-center py-6"
-          variants={fadeUp}
+        <motion.div
+          className="relative overflow-hidden py-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.6 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
         >
-          Restaurant planning
-        </motion.p>
+          <motion.p
+            className="base-text relative z-10 text-center"
+            variants={fadeUp}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+          >
+            Restaurant planning
+          </motion.p>
+
+          {/* Build tiles (block-by-block reveal) */}
+          <motion.div
+            aria-hidden
+            variants={tileContainer}
+            className="pointer-events-none absolute inset-0 z-30 grid grid-cols-10 grid-rows-2"
+          >
+            {Array.from({ length: 20 }).map((_, i) => (
+              <motion.div
+                key={i}
+                variants={tile}
+                className="bg-[var(--bg)]"
+                style={{
+                  opacity: 1,
+                  transformOrigin: i % 2 === 0 ? "left" : "right",
+                }}
+              />
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="w-full px-4 md:px-10">

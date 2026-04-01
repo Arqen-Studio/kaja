@@ -30,19 +30,14 @@ function HomeChefSection() {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
 
-      // Mouse relative to viewport (not container)
       const center = window.innerWidth / 2;
 
-      // Distance from center of screen
       const delta = e.clientX - center;
 
-      // Stronger movement range
       const maxMove = window.innerWidth / 2;
 
-      // Normalize (-1 to 1)
       const normalized = delta / maxMove;
 
-      // Apply only when in view
       if (isInView) {
         x.set(normalized * maxMove);
       }
@@ -55,7 +50,6 @@ function HomeChefSection() {
     };
   }, [isInView, isDesktop, x]);
 
-  // Reset to center when not in view
   useEffect(() => {
     if (!isInView) {
       x.set(0);

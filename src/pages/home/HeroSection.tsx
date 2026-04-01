@@ -85,7 +85,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      {/* <IntroSection/> */}
     </section>
   );
 };

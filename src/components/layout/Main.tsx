@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import FooterSection from "./Footer";
 
 function Main() {
   return (
@@ -8,6 +9,7 @@ function Main() {
       <main className="flex-1 global-container">
         <Outlet />
       </main>
+      <FooterSection/>
     </div>
   );
 }

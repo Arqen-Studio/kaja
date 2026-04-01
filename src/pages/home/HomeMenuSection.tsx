@@ -1,4 +1,9 @@
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -15,8 +20,8 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-// Cap vh at 800px so tall screens don't create a huge empty scroll gap
-const vh = typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
+const vh =
+  typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
 const COL_TRAVEL_3 = [vh * 1.3, vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_1 = [vh * 1.7] as const;
@@ -26,13 +31,11 @@ function MenuTile({
   index,
   scrollYProgress,
   columns,
-  oneColTravel,
 }: {
   src: string;
   index: number;
   scrollYProgress: MotionValue<number>;
   columns: 1 | 2 | 3;
-  oneColTravel: number;
 }) {
   const col = index % columns;
   const row = Math.floor(index / columns);
@@ -42,19 +45,19 @@ function MenuTile({
       ? COL_TRAVEL_3[col]
       : columns === 2
         ? COL_TRAVEL_2[col]
-        : oneColTravel || COL_TRAVEL_1[0];
+        : COL_TRAVEL_1[0];
 
-  // Stagger direction by column count:
-  // - 3 cols: right → middle → left
-  // - 2 cols: right → left
-  // - 1 col: top → bottom (one by one)
-  const colOrder = columns - 1 - col; // rightmost first
+  const colOrder = columns - 1 - col;
   const start =
     columns === 1
       ? Math.min(0.06 + index * 0.06, 0.9)
       : Math.min(0.06 + row * 0.06 + colOrder * 0.04, 0.85);
 
-  const y = useTransform(scrollYProgress, [start, 1], [0, -travel]);
+  const y = useTransform(
+    scrollYProgress,
+    [start, 1],
+    [0, columns === 1 ? 0 : -travel],
+  );
 
   return (
     <motion.div style={{ y }} className="group">
@@ -103,7 +106,6 @@ function HomeMenuSection() {
     const update = () => {
       const gridHeight = el.scrollHeight;
       const viewport = window.innerHeight || 800;
-      // Move enough so the bottom of the grid can pass through the viewport.
       setOneColTravel(Math.max(vh * 6, gridHeight - viewport + vh * 0.8));
     };
 
@@ -117,17 +119,26 @@ function HomeMenuSection() {
     };
   }, [columns]);
 
+  const gridY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, columns === 1 ? -oneColTravel : 0],
+  );
+
   const sectionHeight =
-    columns === 1 ? "min(420vh, 4200px)" : columns === 2 ? "min(320vh, 3200px)" : "min(250vh, 2000px)";
+    columns === 1
+      ? "min(420vh, 4200px)"
+      : columns === 2
+        ? "min(320vh, 3200px)"
+        : "min(250vh, 2000px)";
 
   return (
-    // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: sectionHeight }} className="relative w-full">
-
-      {/* Sticky viewport window — clips images naturally, releases when section ends */}
+    <section
+      ref={ref}
+      style={{ height: sectionHeight }}
+      className="relative w-full"
+    >
       <div className="sticky top-0 h-screen overflow-hidden">
-
-        {/* Trees decoration */}
         <img
           src="/png/trees-dark.png"
           alt="trees"
@@ -135,7 +146,6 @@ function HomeMenuSection() {
           className="absolute right-0 z-[16] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw]"
         />
 
-        {/* Text — absolutely placed, always visible at the top */}
         <div className="absolute top-[8vh] left-0 right-0 z-20 mx-auto max-w-7xl px-12">
           <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
             <h2 className="heading text-center md:!text-left">Menu</h2>
@@ -150,34 +160,50 @@ function HomeMenuSection() {
             >
               <motion.span
                 animate={{ x: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 Discover Our Menu
               </motion.span>
               <motion.span
                 animate={{ x: [0, 6, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.1,
+                }}
                 className="flex items-center"
               >
-                <MoveRight className="h-8 w-6 shrink-0" aria-hidden strokeWidth={1} />
+                <MoveRight
+                  className="h-8 w-6 shrink-0"
+                  aria-hidden
+                  strokeWidth={1}
+                />
               </motion.span>
             </Link>
           </div>
         </div>
 
-        {/* Gradient mask — fades images as they scroll up behind text */}
         <div
           className="absolute top-0 left-0 right-0 z-[15] pointer-events-none"
           style={{
             height: "35vh",
-            background: "linear-gradient(to bottom, var(--bg) 40%, transparent 100%)",
+            background:
+              "linear-gradient(to bottom, var(--bg) 40%, transparent 100%)",
           }}
         />
 
-        {/* Images — start below text, scroll up through the viewport window as user scrolls */}
         <div className="absolute inset-x-0 top-[37vh] px-4 z-10">
           <div className="mx-auto max-w-[1315px]">
-            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <motion.div
+              ref={gridRef}
+              style={{ y: gridY }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-8"
+            >
               {IMAGES.map((src, index) => (
                 <MenuTile
                   key={src}
@@ -185,13 +211,11 @@ function HomeMenuSection() {
                   index={index}
                   scrollYProgress={scrollYProgress}
                   columns={columns}
-                  oneColTravel={oneColTravel}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
-
       </div>
     </section>
   );

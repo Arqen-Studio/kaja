@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const HomeFooterSection: React.FC = () => {
+const FooterSection: React.FC = () => {
   const kajaImages = [
     "/png/k-dark.png",
     "/png/a-dark.png",
@@ -97,4 +97,4 @@ const HomeFooterSection: React.FC = () => {
   );
 };
 
-export default HomeFooterSection;
+export default FooterSection;
