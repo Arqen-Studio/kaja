@@ -14,7 +14,9 @@ function Home() {
       <HomeAboutSection />
       <div className="h-[4vh]" />
       <HomeMenuSection />
-      <HomeChefIntroSection />
+      <div className="md:hidden">
+        <HomeChefIntroSection />
+      </div>
       <HomeChefSection />
 
     </>

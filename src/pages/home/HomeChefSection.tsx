@@ -61,6 +61,16 @@ function HomeChefSection() {
       ref={containerRef}
       className="relative mx-auto mb-10 flex w-full max-w-[1400px] flex-col items-center overflow-x-hidden px-4 sm:px-6"
     >
+      <motion.h1
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+        className="hidden md:block max-w-full px-1 py-6 text-center font-moche text-[clamp(1.5rem,6.5vw,109.5px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:pt-10 md:pb-0"
+      >
+        Meet our Dynamic Chef
+      </motion.h1>
+
       <motion.div
         style={{ x: isDesktop ? springX : 0 }}
         initial={{ x: 100, opacity: 0 }}
@@ -68,7 +78,7 @@ function HomeChefSection() {
         exit={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.6 }}
-        className="relative z-10 mt-8 sm:mt-10 flex w-[77%] sm:w-[clamp(200px,26vw,320px)] flex-col items-center border border-[#D6B283] sm:z-50"
+        className="relative z-10 mt-8 md:-mt-[min(3.3vw,55px)] flex w-[77%] sm:w-[clamp(200px,26vw,320px)] flex-col items-center border border-[#D6B283] sm:z-50"
       >
         <img
           src="/png/chef.png"
