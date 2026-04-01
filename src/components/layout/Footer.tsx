@@ -17,7 +17,7 @@ const FooterSection: React.FC = () => {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="w-full grid grid-cols-1 md:grid-cols-4 md:justify-items-start items-start px-12 pt-16 pb-10 md:pt-8 md:pb-10 gap-20 md:gap-8">
+        <div className="w-full flex flex-col md:flex-row md:justify-between items-start px-12 pt-16 pb-10 md:pt-8 md:pb-10 gap-20 md:gap-0">
           {[
             {
               title: "Contact",
@@ -36,7 +36,7 @@ const FooterSection: React.FC = () => {
               lines: ["English", "Italian"],
             },
           ].map((section, i) => (
-            <div key={i} className="base-text space-y-2">
+            <div key={i} className="base-text text-sm space-y-2">
               <p>{section.title}</p>
               {section.lines.map((line, idx) => (
                 <p key={idx}>{line}</p>
