@@ -62,8 +62,14 @@ function MenuTile({
     [0, columns === 1 ? 0 : -travel],
   );
 
+  const opacity = useTransform(
+    scrollYProgress,
+    [Math.max(0, start - 0.05), start + 0.12],
+    [0.15, 1],
+  );
+
   return (
-    <motion.div style={{ y }} className="group">
+    <motion.div style={{ y, opacity }} className="group">
       <img
         src={src}
         alt={`menu-${index + 1}`}
