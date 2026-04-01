@@ -146,8 +146,9 @@ function HomeMenuSection() {
           className="absolute right-0 z-[16] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw]"
         />
 
-        <div className="absolute top-[8vh] left-0 right-0 z-20 px-[3vw]">
-          <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
+        <div className="absolute top-[8vh] left-0 right-0 z-20">
+          <div className="max-w-[950px] mx-auto px-4">
+            <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
             <h2 className="heading text-center md:!text-left">Menu</h2>
 
             <p className="sub-text text-center tracking-[-0.028em] md:text-left">
@@ -185,6 +186,7 @@ function HomeMenuSection() {
                 />
               </motion.span>
             </Link>
+            </div>
           </div>
         </div>
 
