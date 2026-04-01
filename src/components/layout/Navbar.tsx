@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 80) {
+        setVisible(true);
+      } else {
+        setVisible(y < lastY.current);
+      }
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="w-full relative">
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-transform duration-300 bg-[var(--bg)] ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="hidden md:grid mx-auto w-full grid-cols-5 items-center px-[3vw] py-4 text-center">
         {leftNav.map((item) => (
           <NavLinkItem key={item.path} {...item} />
