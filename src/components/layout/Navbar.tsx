@@ -35,12 +35,12 @@ const Navbar = () => {
         <div className="flex justify-center">
           <Link to="/">
             <img
-              src="/png/logo.light.png"
+              src="/svg/logo.light.png"
               alt="Logo"
               className="block dark:hidden w-[77px] h-[121px]"
             />
             <img
-              src="/png/logo.dark.png"
+              src="/svg/KAJA.svg"
               alt="Logo"
               className="hidden dark:block w-[77px] h-[121px]"
             />

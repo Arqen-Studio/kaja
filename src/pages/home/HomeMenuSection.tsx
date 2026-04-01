@@ -22,10 +22,7 @@ const IMAGES = [
 
 const vh =
   typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-// Use a higher cap for 3-col so row-3 images are reachable on large screens
-const vh3 =
-  typeof window !== "undefined" ? Math.min(window.innerHeight, 1600) : 1000;
-const COL_TRAVEL_3 = [vh3 * 1.6, vh3 * 1.9, vh3 * 2.2] as const;
+const COL_TRAVEL_3 = [vh * 1.6, vh * 1.9, vh * 2.2] as const;
 const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_1 = [vh * 1.7] as const;
 
@@ -62,12 +59,8 @@ function MenuTile({
     [0, columns === 1 ? 0 : -travel],
   );
 
-  // Fade in as image travels into frame; row 0 and single-col are always fully visible
-  const opacityFromY = useTransform(y, [0, -200], [0.12, 1]);
-  const opacity = row === 0 || columns === 1 ? 1 : opacityFromY;
-
   return (
-    <motion.div style={{ y, opacity }} className="group">
+    <motion.div style={{ y }} className="group">
       <img
         src={src}
         alt={`menu-${index + 1}`}
@@ -153,9 +146,8 @@ function HomeMenuSection() {
           className="absolute right-0 z-[16] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw]"
         />
 
-        <div className="absolute top-[8vh] left-0 right-0 z-20">
-          <div className="max-w-[950px] xl:max-w-[1200px] 2xl:max-w-[1600px] mx-auto px-4">
-            <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
+        <div className="absolute top-[8vh] left-0 right-0 z-20 mx-auto max-w-7xl px-12">
+          <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
             <h2 className="heading text-center md:!text-left">Menu</h2>
 
             <p className="sub-text text-center tracking-[-0.028em] md:text-left">
@@ -193,7 +185,6 @@ function HomeMenuSection() {
                 />
               </motion.span>
             </Link>
-            </div>
           </div>
         </div>
 
@@ -206,12 +197,12 @@ function HomeMenuSection() {
           }}
         />
 
-        <div className="absolute inset-x-0 top-[37vh] px-6 md:px-[3vw] z-10">
-          <div className="mx-auto w-full">
+        <div className="absolute inset-x-0 top-[37vh] px-6 md:px-12 z-10">
+          <div className="mx-auto max-w-[1315px]">
             <motion.div
               ref={gridRef}
               style={{ y: gridY }}
-              className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-x-8 md:gap-y-28"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-28"
             >
               {IMAGES.map((src, index) => (
                 <MenuTile
