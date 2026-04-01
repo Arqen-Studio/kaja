@@ -36,7 +36,7 @@ const IntroSection = () => {
       style={{ backgroundColor: bgColor }}
       className="pt-24 relative overflow-hidden"
     >
-      <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 md:px-12">
+      <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 md:px-[3vw]">
         <motion.p
           style={{
             x: textX,
@@ -93,7 +93,7 @@ const IntroSection = () => {
               boxShadow: "0px 10px 20px rgba(0,0,0,0.25)",
             }}
             whileTap={{ scale: 0.96 }}
-            className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-12 border border-[#32341D] cursor-pointer shadow-md"
+            className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-[3vw] border border-[#32341D] cursor-pointer shadow-md"
           >
             {isExpanding ? "RESERVATION" : "MAKE RESERVATION"}
           </motion.button>

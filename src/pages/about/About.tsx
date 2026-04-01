@@ -134,7 +134,7 @@ function About() {
         </motion.div>
       </div>
 
-      <div className="w-full px-6 md:px-12">
+      <div className="w-full px-6 md:px-[3vw]">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -163,7 +163,7 @@ function About() {
         </motion.div>
       </div>
 
-      <div className="w-full px-6 pb-20 pt-10 md:px-12">
+      <div className="w-full px-6 pb-20 pt-10 md:px-[3vw]">
         <motion.div
           variants={fadeUp}
           initial="hidden"

@@ -10,7 +10,7 @@ const MenuPage: React.FC = () => {
         <h1>Explore our Menu</h1>
       </div>
 
-      <div className="mx-auto w-full px-6 md:px-12">
+      <div className="mx-auto w-full px-6 md:px-[3vw]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-12">
           <Link to="/menu-steaks">
             <MenuCard title="Steaks" image="/png/steaks.png" />

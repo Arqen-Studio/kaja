@@ -17,7 +17,7 @@ const FooterSection: React.FC = () => {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="w-full flex flex-col md:flex-row md:justify-between items-start px-12 pt-16 pb-10 md:pt-8 md:pb-10 gap-20 md:gap-0">
+        <div className="w-full flex flex-col md:flex-row md:justify-between items-start px-[3vw] pt-16 pb-10 md:pt-8 md:pb-10 gap-20 md:gap-0">
           {[
             {
               title: "Contact",
@@ -53,7 +53,7 @@ const FooterSection: React.FC = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="flex w-full items-end justify-between px-12">
+        <div className="flex w-full items-end justify-between px-[3vw]">
           {kajaImages.map((src, index) => (
             <motion.img
               key={index}
@@ -78,7 +78,7 @@ const FooterSection: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="w-full px-12 pb-6 pt-2 flex flex-col md:flex-row justify-between text-base opacity-80"
+        className="w-full px-[3vw] pb-6 pt-2 flex flex-col md:flex-row justify-between text-base opacity-80"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1 }}
