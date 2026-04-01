@@ -135,8 +135,9 @@ const HeroSection = () => {
                 lines={[
                   "It is not simply a restaurant, but a ",
                   "complete evening experience where",
+                  "iconic architecture, contemporary",
                   "cuisine, and entertainment come",
-                  "lasting impression.",
+                  "together as one.",
                 ]}
                 align="center"
               />
