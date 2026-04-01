@@ -77,7 +77,7 @@ const Stories = () => {
             </div>
 
             <div className="mt-6 flex flex-col items-center  md:items-start mb-4">
-              <h3 className="heading font-light mb-3">Sea Food</h3>
+              <h3 className="heading font-extralight mb-3">Sea Food</h3>
               <p className="base-text max-w-[375px]">
                 Takahiko ‘Taka’ Kondo began his culinary journey in high school,
                 cooking at home and learning from food programs on television
@@ -103,7 +103,7 @@ const Stories = () => {
             </div>
 
             <div className="max-w-[120px] py-10 mt-4">
-              <h3 className="heading font-light text-center md:text-left">
+              <h3 className="heading font-extralight text-center md:text-left">
                 Best Food in Ubud
               </h3>
             </div>
@@ -130,7 +130,7 @@ const Stories = () => {
         <div className="border border-[#D6B283] border-[0.85px] w-full "></div>
         <Link to="/menu">
           <div className="flex justify-between items-center m-10 transition-transform duration-300 hover:translate-x-2">
-            <h1 className="heading font-light">Discover Our Menu</h1>
+            <h1 className="heading font-extralight">Discover Our Menu</h1>
             <MoveRight className="w-10 h-10" />
           </div>
         </Link>
