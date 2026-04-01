@@ -66,9 +66,9 @@ const FooterSection: React.FC = () => {
                   y: 0,
                   opacity: 1,
                   transition: {
-                    duration: 1.6,
+                    duration: 2.4,
                     ease: [0.22, 1, 0.36, 1],
-                    delay: index * 0.18,
+                    delay: index * 0.25,
                   },
                 },
               }}
