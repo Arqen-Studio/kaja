@@ -59,7 +59,7 @@ function HomeChefSection() {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto mb-10 flex w-full max-w-[1400px] flex-col items-center overflow-x-hidden px-6 md:px-12"
+      className="relative mx-auto mb-10 flex w-full flex-col items-center overflow-x-hidden px-6 md:px-12"
     >
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
