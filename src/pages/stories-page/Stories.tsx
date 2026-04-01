@@ -112,7 +112,7 @@ const Stories = () => {
       </div>
 
       <div className="max-w-[1400px] mb-10">
-        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche leading-[120%] tracking-[-2.8%] ">
+        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-extralight leading-[120%] tracking-[-2.8%] ">
           crafted to evoke wonder
         </h1>
         <div className="flex justify-between flex-col items-center md:flex-row gap-10">
