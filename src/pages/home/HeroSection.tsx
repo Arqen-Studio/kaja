@@ -79,7 +79,7 @@ const HeroSection = () => {
   const imageOpacity = useTransform(smoothProgress, [0.7, 0.9, 1], [1, 0.9, 0]);
 
   return (
-    <section ref={ref} className=" h-[240vh]">
+    <section ref={ref} className="mt-[10vh] h-[240vh]">
       <div className="sticky top-0 flex items-center h-screen overflow-x-hidden">
         <div className="mx-auto w-full px-6 md:px-12">
           <motion.h1

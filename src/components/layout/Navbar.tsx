@@ -89,9 +89,7 @@ const Navbar = () => {
                 isMobile
               />
 
-              {index !== arr.length - 1 && (
-                <div className="mx-3 h-px " />
-              )}
+              {index !== arr.length - 1 && <div className="mx-3 h-px " />}
             </div>
           ))}
         </div>

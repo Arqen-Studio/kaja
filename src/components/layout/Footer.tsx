@@ -1,12 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 const FooterSection: React.FC = () => {
+  const { theme } = useTheme();
   const kajaImages = [
-    "/png/k-dark.png",
-    "/png/a-dark.png",
-    "/png/j-dark.png",
-    "/png/a-dark.png",
+    { light: "/png/k-light.png", dark: "/png/k-dark.png" },
+    { light: "/png/a-light.png", dark: "/png/a-dark.png" },
+    { light: "/png/j-light.png", dark: "/png/j-dark.png" },
+    { light: "/png/a-light.png", dark: "/png/a-dark.png" },
   ];
 
   return (
@@ -46,7 +48,6 @@ const FooterSection: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* KAJA letters — full width, slide in from bottom one by one */}
       <motion.div
         className="w-full overflow-hidden"
         initial="hidden"
@@ -54,10 +55,10 @@ const FooterSection: React.FC = () => {
         viewport={{ once: false, amount: 0.3 }}
       >
         <div className="flex w-full items-end justify-between px-[3vw]">
-          {kajaImages.map((src, index) => (
+          {kajaImages.map((imageSet, index) => (
             <motion.img
               key={index}
-              src={src}
+              src={theme === "dark" ? imageSet.dark : imageSet.light}
               alt={`kaja-${index}`}
               className="h-[clamp(120px,30vw,440px)] w-full flex-1 object-fill"
               variants={{
