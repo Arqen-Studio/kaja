@@ -22,7 +22,10 @@ const IMAGES = [
 
 const vh =
   typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-const COL_TRAVEL_3 = [vh * 1.6, vh * 1.9, vh * 2.2] as const;
+// Use a higher cap for 3-col so row-3 images are reachable on large screens
+const vh3 =
+  typeof window !== "undefined" ? Math.min(window.innerHeight, 1600) : 1000;
+const COL_TRAVEL_3 = [vh3 * 1.6, vh3 * 1.9, vh3 * 2.2] as const;
 const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
 const COL_TRAVEL_1 = [vh * 1.7] as const;
 
@@ -147,7 +150,7 @@ function HomeMenuSection() {
         />
 
         <div className="absolute top-[8vh] left-0 right-0 z-20">
-          <div className="max-w-[950px] mx-auto px-4">
+          <div className="max-w-[950px] xl:max-w-[1200px] 2xl:max-w-[1600px] mx-auto px-4">
             <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
             <h2 className="heading text-center md:!text-left">Menu</h2>
 
