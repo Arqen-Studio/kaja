@@ -17,7 +17,7 @@ const HomeFooterSection: React.FC = () => {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="w-full grid md:grid-cols-2 lg:grid-cols-4 justify-items-center items-start p-10 pt-8 gap-8">
+        <div className="w-full grid md:grid-cols-2 lg:grid-cols-4 md:justify-items-center items-start p-10 pt-8 gap-8">
           {[
             {
               title: "Contact",

@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const IMAGES = [
   "/png/menu/menu (1).png",
@@ -17,19 +17,44 @@ const IMAGES = [
 
 // Cap vh at 800px so tall screens don't create a huge empty scroll gap
 const vh = typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-const COL_TRAVEL = [vh * 1.6, vh * 1.85, vh * 2.1];
+const COL_TRAVEL_3 = [vh * 1.6, vh * 1.85, vh * 2.1] as const;
+const COL_TRAVEL_2 = [vh * 1.85, vh * 2.1] as const;
+const COL_TRAVEL_1 = [vh * 2.1] as const;
 
 function MenuTile({
   src,
   index,
   scrollYProgress,
+  columns,
+  oneColTravel,
 }: {
   src: string;
   index: number;
   scrollYProgress: MotionValue<number>;
+  columns: 1 | 2 | 3;
+  oneColTravel: number;
 }) {
-  const col = index % 3;
-  const y = useTransform(scrollYProgress, [0, 1], [0, -COL_TRAVEL[col]]);
+  const col = index % columns;
+  const row = Math.floor(index / columns);
+
+  const travel =
+    columns === 3
+      ? COL_TRAVEL_3[col]
+      : columns === 2
+        ? COL_TRAVEL_2[col]
+        : oneColTravel || COL_TRAVEL_1[0];
+
+  // Stagger direction by column count:
+  // - 3 cols: right → middle → left
+  // - 2 cols: right → left
+  // - 1 col: top → bottom (one by one)
+  const colOrder = columns - 1 - col; // rightmost first
+  const start =
+    columns === 1
+      ? Math.min(0.06 + index * 0.06, 0.9)
+      : Math.min(0.06 + row * 0.06 + colOrder * 0.04, 0.85);
+
+  const y = useTransform(scrollYProgress, [start, 1], [0, -travel]);
 
   return (
     <motion.div style={{ y }} className="group">
@@ -45,15 +70,59 @@ function MenuTile({
 
 function HomeMenuSection() {
   const ref = useRef(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const [columns, setColumns] = useState<1 | 2 | 3>(3);
+  const [oneColTravel, setOneColTravel] = useState(vh * 6);
+
+  useEffect(() => {
+    const mqMd = window.matchMedia("(min-width: 768px)");
+    const mqSm = window.matchMedia("(min-width: 640px)");
+
+    const update = () => setColumns(mqMd.matches ? 3 : mqSm.matches ? 2 : 1);
+    update();
+
+    mqMd.addEventListener("change", update);
+    mqSm.addEventListener("change", update);
+    return () => {
+      mqMd.removeEventListener("change", update);
+      mqSm.removeEventListener("change", update);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
+  useEffect(() => {
+    if (columns !== 1) return;
+
+    const el = gridRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const gridHeight = el.scrollHeight;
+      const viewport = window.innerHeight || 800;
+      // Move enough so the bottom of the grid can pass through the viewport.
+      setOneColTravel(Math.max(vh * 6, gridHeight - viewport + vh * 0.8));
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, [columns]);
+
+  const sectionHeight =
+    columns === 1 ? "min(420vh, 4200px)" : columns === 2 ? "min(320vh, 3200px)" : "min(250vh, 2000px)";
+
   return (
     // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: "min(250vh, 2000px)" }} className="relative w-full">
+    <section ref={ref} style={{ height: sectionHeight }} className="relative w-full">
 
       {/* Sticky viewport window — clips images naturally, releases when section ends */}
       <div className="sticky top-0 h-screen overflow-hidden">
@@ -108,13 +177,15 @@ function HomeMenuSection() {
         {/* Images — start below text, scroll up through the viewport window as user scrolls */}
         <div className="absolute inset-x-0 top-[37vh] px-4 z-10">
           <div className="mx-auto max-w-[1315px]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {IMAGES.map((src, index) => (
                 <MenuTile
                   key={src}
                   src={src}
                   index={index}
                   scrollYProgress={scrollYProgress}
+                  columns={columns}
+                  oneColTravel={oneColTravel}
                 />
               ))}
             </div>
