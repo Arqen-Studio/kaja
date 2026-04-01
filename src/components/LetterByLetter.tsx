@@ -1,22 +1,19 @@
 import { motion, useInView, type Variants } from "framer-motion";
 import { useMemo, useRef } from "react";
 
+type InViewOptions = NonNullable<Parameters<typeof useInView>[1]>;
+
 type LetterByLetterProps = {
-  /** Full string; use `\n` for manual line breaks (ignored if `lines` is set) */
   text?: string;
-  /** One string per line (overrides `text` line split) */
   lines?: string[];
   className?: string;
   align?: "center" | "left" | "right";
-  /** When true, animation runs only while this block is in view */
   scrollToggle?: boolean;
-  /** Delay between each character on the same line */
   stagger?: number;
-  /** Delay between starting each line (after previous line’s first letter) */
   lineStagger?: number;
   delayChildren?: number;
   inViewAmount?: number | "some" | "all";
-  inViewMargin?: string;
+  inViewMargin?: InViewOptions["margin"];
 };
 
 export function LetterByLetter({
@@ -29,18 +26,24 @@ export function LetterByLetter({
   lineStagger = 0.18,
   delayChildren = 0.06,
   inViewAmount = 0.35,
+  inViewMargin,
 }: LetterByLetterProps) {
   const ref = useRef<HTMLSpanElement>(null);
+
   const isInView = useInView(ref, {
     amount: inViewAmount,
+    margin: inViewMargin,
     once: false,
   });
 
   const rowLines = useMemo(() => {
-    if (linesProp?.length)
+    if (linesProp?.length) {
       return linesProp.map((l) => l.trim()).filter(Boolean);
+    }
+
     const parts = text.split("\n").map((l) => l.trim());
     const nonEmpty = parts.filter(Boolean);
+
     return nonEmpty.length ? nonEmpty : [text];
   }, [text, linesProp]);
 
@@ -64,7 +67,9 @@ export function LetterByLetter({
   const lineContainer: Variants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: stagger },
+      transition: {
+        staggerChildren: stagger,
+      },
     },
   };
 
@@ -72,14 +77,21 @@ export function LetterByLetter({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.22, ease: "easeOut" },
+      transition: {
+        duration: 0.22,
+        ease: "easeOut",
+      },
     },
   };
 
   return (
     <motion.span
       ref={ref}
-      className={["block w-full", alignClass, className]
+      className={[
+        "block w-full break-normal",
+        alignClass,
+        className,
+      ]
         .filter(Boolean)
         .join(" ")}
       variants={rootContainer}
@@ -92,14 +104,27 @@ export function LetterByLetter({
           className="block w-full"
           variants={lineContainer}
         >
-          {[...line].map((char, i) => (
-            <motion.span
-              key={`${lineIndex}-${i}-${char}`}
-              variants={letter}
-              style={{ display: "inline" }}
+          {line.split(" ").map((word, wordIndex) => (
+            <span
+              key={`word-${lineIndex}-${wordIndex}`}
+              style={{
+                display: "inline-block",
+                whiteSpace: "nowrap", 
+              }}
             >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
+              {[...word].map((char, i) => (
+                <motion.span
+                  key={`char-${lineIndex}-${wordIndex}-${i}`}
+                  variants={letter}
+                  style={{ display: "inline-block" }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+
+              {/* space after word */}
+              <span style={{ display: "inline" }}>&nbsp;</span>
+            </span>
           ))}
         </motion.span>
       ))}

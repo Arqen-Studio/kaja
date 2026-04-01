@@ -1,5 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { LetterByLetter } from "../../components/LetterByLetter";
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -53,8 +54,14 @@ const HeroSection = () => {
     offset: ["start start", "end end"],
   });
 
-  const textY = useTransform(scrollYProgress, [0, 0.33], [0, -vh]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.4,
+  });
+
+  const textY = useTransform(smoothProgress, [0, 0.3], [0, -vh * 0.85]);
+  const textOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
 
   const fullScreenScale = Math.max(
     vw / imageSize.width,
@@ -62,33 +69,43 @@ const HeroSection = () => {
     1,
   );
   const imageScale = useTransform(
-    scrollYProgress,
-    [0.33, 0.66],
+    smoothProgress,
+    [0.18, 0.5],
     [1, fullScreenScale],
   );
 
-  const imageY = useTransform(scrollYProgress, [0.66, 1], [0, 0]);
+  const imageY = useTransform(smoothProgress, [0.5, 1], [0, -vh * 0.08]);
 
-  const imageOpacity = useTransform(scrollYProgress, [0.72, 0.9, 1], [1, 1, 0]);
+  const imageOpacity = useTransform(smoothProgress, [0.7, 0.9, 1], [1, 0.9, 0]);
 
   return (
-    <section ref={ref} className="h-[300vh]">
+    <section ref={ref} className="mt-[-10vh] h-[240vh]">
       <div className="sticky top-0 flex items-center h-screen overflow-x-hidden">
         <div className="mx-auto w-full px-6 md:px-[3vw]">
           <motion.h1
             style={{ y: textY, opacity: textOpacity }}
-            className="heading mx-auto mb-8 max-w-[378px] text-center"
+            className="heading mx-auto mb-8 max-w-[383px] text-center"
           >
-            Located in the heart of Ubud
+            <LetterByLetter
+              lines={["Located in the", "heart of Ubud"]}
+              align="center"
+            />
           </motion.h1>
 
           <div className="grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-4">
             <motion.p
               style={{ y: textY, opacity: textOpacity }}
-              className="base-text mx-auto hidden max-w-[227px] text-start md:mr-8 md:block"
+              className="base-text mx-auto hidden max-w-[230px] text-start md:mr-8 md:block"
             >
-              KAJA was created with a clear intention: to surprise, engage, and
-              leave a lasting impression.
+              <LetterByLetter
+                lines={[
+                  "KAJA was created with a",
+                  "clear intention: to surprise,",
+                  "engage, and leave a",
+                  "lasting impression.",
+                ]}
+                align="center"
+              />
             </motion.p>
 
             <motion.div
@@ -98,7 +115,7 @@ const HeroSection = () => {
                 y: imageY,
                 opacity: imageOpacity,
               }}
-              className="z-10 mx-auto flex h-[300px] w-[85vw] max-w-[444px] justify-center overflow-hidden origin-center"
+              className="z-10 mx-auto flex h-[300px] w-[85vw] max-w-[444px] justify-center overflow-hidden origin-center transform-gpu will-change-transform"
             >
               <video
                 src="/hero.mp4"
@@ -114,9 +131,15 @@ const HeroSection = () => {
               style={{ y: textY, opacity: textOpacity }}
               className="base-text mx-auto hidden max-w-[303px] text-center md:ml-6 md:block"
             >
-              It is not simply a restaurant, but a complete evening experience
-              where iconic architecture, contemporary cuisine, and entertainment
-              come together as one.
+              <LetterByLetter
+                lines={[
+                  "It is not simply a restaurant, but a ",
+                  "complete evening experience where",
+                  "cuisine, and entertainment come",
+                  "lasting impression.",
+                ]}
+                align="center"
+              />
             </motion.p>
           </div>
         </div>

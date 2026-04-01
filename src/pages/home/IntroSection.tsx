@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IntroSection = () => {
   const ref = useRef(null);
@@ -34,7 +35,7 @@ const IntroSection = () => {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="pt-24 relative overflow-hidden"
+      className="pt-24 pb-15 relative overflow-hidden"
     >
       <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 md:px-[3vw]">
         <motion.p
@@ -43,11 +44,17 @@ const IntroSection = () => {
             opacity: textOpacity,
             y: textExitY,
           }}
-          className="max-w-[607px] text-left sub-text text-[#32341D]"
+          className="max-w-[609px] text-left sub-text text-[#32341D]"
         >
-          Every element is crafted to evoke wonder, from the enveloping space
-          and lighting to the music, the service, and the way food and drinks
-          are presented and experienced.
+          <LetterByLetter
+            lines={[
+              "Every element is crafted to evoke wonder, from",
+              "the enveloping space and lighting to the music,",
+              " the service, and the way food and drinks are",
+              " presented and experienced.",
+            ]}
+            align="left"
+          />
         </motion.p>
 
         <motion.div
