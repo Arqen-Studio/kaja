@@ -62,11 +62,9 @@ function MenuTile({
     [0, columns === 1 ? 0 : -travel],
   );
 
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(0, start - 0.05), start + 0.12],
-    [0.15, 1],
-  );
+  // Fade in as image travels into frame; row 0 and single-col are always fully visible
+  const opacityFromY = useTransform(y, [0, -200], [0.12, 1]);
+  const opacity = row === 0 || columns === 1 ? 1 : opacityFromY;
 
   return (
     <motion.div style={{ y, opacity }} className="group">
