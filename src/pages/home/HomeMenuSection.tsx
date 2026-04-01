@@ -17,7 +17,7 @@ const IMAGES = [
 
 // Travel relative to viewport height so animation scales on all screen sizes
 const vh = typeof window !== "undefined" ? window.innerHeight : 900;
-const COL_TRAVEL = [vh * 1.7, vh * 2.1, vh * 2.6];
+const COL_TRAVEL = [vh * 1.1, vh * 1.3, vh * 1.5];
 
 function MenuTile({
   src,
@@ -53,7 +53,7 @@ function HomeMenuSection() {
 
   return (
     // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: "320vh" }} className="relative w-full">
+    <section ref={ref} style={{ height: "250vh" }} className="relative w-full">
 
       {/* Sticky viewport window — clips images naturally, releases when section ends */}
       <div className="sticky top-0 h-screen overflow-hidden">
