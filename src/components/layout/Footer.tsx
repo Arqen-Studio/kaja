@@ -10,14 +10,14 @@ const FooterSection: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto flex flex-col justify-between py-10 overflow-x-hidden">
+    <div className="w-full flex flex-col justify-between overflow-hidden">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="w-full grid grid-cols-1 md:grid-cols-4 md:justify-items-center items-start p-10 pt-16 md:pt-8 gap-20 md:gap-8">
+        <div className="w-full grid grid-cols-1 md:grid-cols-4 md:justify-items-center items-start px-10 pt-16 pb-10 md:pt-8 md:pb-10 gap-20 md:gap-8">
           {[
             {
               title: "Contact",
@@ -46,45 +46,39 @@ const FooterSection: React.FC = () => {
         </div>
       </motion.div>
 
+      {/* KAJA letters — full width, slide in from bottom one by one */}
       <motion.div
-        className="w-full px-4 mt-8 md:mt-0"
+        className="w-full overflow-hidden"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.4 }}
+        viewport={{ once: false, amount: 0.3 }}
       >
-        <motion.div className="flex w-full items-center justify-between gap-2 md:gap-6">
+        <div className="flex w-full items-end justify-between">
           {kajaImages.map((src, index) => (
             <motion.img
               key={index}
               src={src}
               alt={`kaja-${index}`}
-              className="h-[clamp(80px,14vw,220px)] w-full flex-1 object-contain"
+              className="h-[clamp(120px,30vw,440px)] w-full flex-1 object-contain"
               variants={{
-                hidden: { x: 200, opacity: 0 },
+                hidden: { y: 120, opacity: 0 },
                 visible: {
-                  x: 0,
+                  y: 0,
                   opacity: 1,
                   transition: {
-                    duration: 0.6,
+                    duration: 0.7,
                     ease: "easeOut",
-                    delay: index * 0.1,
-                  },
-                },
-                exit: {
-                  x: -200,
-                  opacity: 0,
-                  transition: {
-                    duration: 0.4,
+                    delay: index * 0.15,
                   },
                 },
               }}
             />
           ))}
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
-        className="w-full p-10 pb-6 flex flex-col md:flex-row  justify-between text-base opacity-80"
+        className="w-full px-10 pb-6 pt-2 flex flex-col md:flex-row justify-between text-base opacity-80"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1 }}
