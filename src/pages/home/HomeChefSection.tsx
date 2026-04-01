@@ -72,7 +72,7 @@ function HomeChefSection() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.5 }}
-        className="max-w-full px-1 py-6 text-center font-moche text-[clamp(1.5rem,6.5vw,109.5px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:py-10"
+        className="max-w-full px-1 py-6 text-center font-moche text-[clamp(1.5rem,6.5vw,109.5px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:pt-10 md:pb-0"
       >
         Meet our Dynamic Chef
       </motion.h1>
@@ -84,7 +84,7 @@ function HomeChefSection() {
         exit={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.6 }}
-        className="relative z-10 -mt-12 flex w-[80%] md:w-[clamp(260px,26vw,420px)] flex-col items-center border border-[#D6B283] md:z-50"
+        className="relative z-10 -mt-8 md:-mt-12 flex w-[80%] md:w-[clamp(200px,19vw,320px)] flex-col items-center border border-[#D6B283] md:z-50"
       >
         <img
           src="/png/chef.png"
