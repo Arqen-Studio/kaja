@@ -202,7 +202,7 @@ function HomeMenuSection() {
             <motion.div
               ref={gridRef}
               style={{ y: gridY }}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-6 md:gap-16"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-28"
             >
               {IMAGES.map((src, index) => (
                 <MenuTile
