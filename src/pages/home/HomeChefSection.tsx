@@ -66,7 +66,7 @@ function HomeChefSection() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.5 }}
-        className="hidden md:block max-w-full px-1 py-6 text-center font-moche font-normal text-[clamp(1.5rem,8vw,220px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:pt-10 md:pb-0"
+        className="hidden md:block w-full px-1 py-6 text-left font-moche font-normal text-[clamp(1.5rem,6.5vw,220px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:pt-10 md:pb-0"
       >
         Meet our Dynamic Chef
       </motion.h1>
