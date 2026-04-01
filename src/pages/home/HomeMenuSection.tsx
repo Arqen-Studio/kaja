@@ -67,10 +67,10 @@ function MenuTile({
   const approxRowH = vp * 0.72 + 112; // image height + gap
   const rowEntryY = row > 0 ? -(row * approxRowH + vp * 0.37 - vp) : 0;
 
-  // Fade in over 250px of travel inside the visible viewport
+  // Fade in over 400px of travel inside the visible viewport
   const opacityFromY = useTransform(
     y,
-    [rowEntryY + 30, rowEntryY - 250],
+    [rowEntryY + 50, rowEntryY - 400],
     [0, 1],
   );
   const opacity = row === 0 || columns === 1 ? 1 : opacityFromY;
