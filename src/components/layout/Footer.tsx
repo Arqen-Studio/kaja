@@ -54,7 +54,7 @@ const FooterSection: React.FC = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="flex w-full items-end justify-between px-[3vw]">
+        <div className="flex w-full items-end justify-between px-[5vw]">
           {kajaImages.map((imageSet, index) => (
             <motion.img
               key={index}
