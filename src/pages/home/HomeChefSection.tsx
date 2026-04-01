@@ -89,7 +89,7 @@ function HomeChefSection() {
         <img
           src="/png/chef.png"
           alt="chef"
-          className="h-auto w-full object-cover"
+          className="w-full aspect-[336/504] object-cover object-center"
         />
 
         <Link to="/stories" className="base-text py-4">
