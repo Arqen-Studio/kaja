@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 function HomeChefIntroSection() {
   return (
     <div className="flex items-center justify-center pt-3 pb-2 w-full overflow-hidden">
-      <div className="relative w-[78vw] max-w-[380px] aspect-square">
+      <div className="relative w-[70vw] max-w-[340px] aspect-square">
         {/* Circular text — slow infinite spin (rendered first, behind plate) */}
         <motion.img
           src="/png/circular-text.png"
