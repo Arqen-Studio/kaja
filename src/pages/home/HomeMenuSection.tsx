@@ -15,8 +15,8 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-// Cap vh at 900px so tall screens don't create a huge empty scroll gap
-const vh = typeof window !== "undefined" ? Math.min(window.innerHeight, 900) : 900;
+// Cap vh at 800px so tall screens don't create a huge empty scroll gap
+const vh = typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
 const COL_TRAVEL = [vh * 1.6, vh * 1.85, vh * 2.1];
 
 function MenuTile({
@@ -53,7 +53,7 @@ function HomeMenuSection() {
 
   return (
     // Outer section is tall — defines how long the scroll animation lasts
-    <section ref={ref} style={{ height: "min(250vh, 2250px)" }} className="relative w-full">
+    <section ref={ref} style={{ height: "min(250vh, 2000px)" }} className="relative w-full">
 
       {/* Sticky viewport window — clips images naturally, releases when section ends */}
       <div className="sticky top-0 h-screen overflow-hidden">
