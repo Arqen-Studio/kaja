@@ -61,14 +61,14 @@ const FooterSection: React.FC = () => {
               alt={`kaja-${index}`}
               className="h-[clamp(120px,30vw,440px)] w-full flex-1 object-contain"
               variants={{
-                hidden: { y: 120, opacity: 0 },
+                hidden: { y: 400, opacity: 0 },
                 visible: {
                   y: 0,
                   opacity: 1,
                   transition: {
-                    duration: 0.7,
-                    ease: "easeOut",
-                    delay: index * 0.15,
+                    duration: 0.9,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: index * 0.12,
                   },
                 },
               }}
