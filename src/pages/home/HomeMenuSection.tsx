@@ -17,9 +17,9 @@ const IMAGES = [
 
 // Cap vh at 800px so tall screens don't create a huge empty scroll gap
 const vh = typeof window !== "undefined" ? Math.min(window.innerHeight, 800) : 800;
-const COL_TRAVEL_3 = [vh * 1.6, vh * 1.85, vh * 2.1] as const;
-const COL_TRAVEL_2 = [vh * 1.85, vh * 2.1] as const;
-const COL_TRAVEL_1 = [vh * 2.1] as const;
+const COL_TRAVEL_3 = [vh * 1.3, vh * 1.5, vh * 1.7] as const;
+const COL_TRAVEL_2 = [vh * 1.5, vh * 1.7] as const;
+const COL_TRAVEL_1 = [vh * 1.7] as const;
 
 function MenuTile({
   src,
