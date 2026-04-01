@@ -19,7 +19,7 @@ function HomeChefSection() {
   });
 
   const x = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 100, damping: 18 });
+  const springX = useSpring(x, { stiffness: 30, damping: 20 });
 
   useEffect(() => {
     if (!isDesktop) {
@@ -39,7 +39,7 @@ function HomeChefSection() {
       const normalized = delta / maxMove;
 
       if (isInView) {
-        x.set(normalized * maxMove * 0.15);
+        x.set(normalized * maxMove * 0.5);
       }
     };
 
