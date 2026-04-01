@@ -54,13 +54,13 @@ const FooterSection: React.FC = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="flex w-full items-end justify-between px-[5vw]">
+        <div className="flex w-full items-end justify-between px-[3vw]">
           {kajaImages.map((imageSet, index) => (
             <motion.img
               key={index}
               src={theme === "dark" ? imageSet.dark : imageSet.light}
               alt={`kaja-${index}`}
-              className="h-[clamp(120px,30vw,440px)] w-full flex-1 object-fill"
+              className="h-[clamp(130px,60vw,440px)] w-full flex-1 object-fill"
               variants={{
                 hidden: { y: 400, opacity: 0 },
                 visible: {
