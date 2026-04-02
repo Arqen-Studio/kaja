@@ -169,7 +169,7 @@ const HeroSection = () => {
           {/* Dark overlay — fades in first to match reservation section colour */}
           <motion.div
             aria-hidden
-            style={{ opacity: overlayOpacity, backgroundColor: "var(--bg)" }}
+            style={{ opacity: overlayOpacity, backgroundColor: "#D6B283" }}
             className="absolute inset-0 w-full h-full pointer-events-none"
           />
           {/* Mask pattern — fades in after video is dark, low opacity so white BG is invisible */}
