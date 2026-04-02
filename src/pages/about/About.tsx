@@ -47,16 +47,16 @@ function About() {
 
           <div className="flex justify-center leading-none">
             <img
-              src="/png/hero-section.png"
+              src="/png/Hero-About.png"
               alt="chef"
               width={504}
               height={500}
-              className="h-[420px] w-[70vw] max-w-[560px] object-cover object-center xl:h-[460px] xl:max-w-[620px] 2xl:h-[500px] 2xl:max-w-[700px]"
+              className="w-[70vw] max-w-[504px] aspect-square object-cover object-center"
             />
           </div>
 
-          <p className="base-text mx-auto hidden max-w-[303px] text-center leading-relaxed lg:ml-8 lg:block lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]">
-            <LetterByLetter lines={["It is not simply a restaurant,", "but a complete evening experience", "where iconic architecture,", "contemporary cuisine, and", "entertainment come together as one."]} align="center" />
+          <p className="base-text mx-auto hidden max-w-[303px] text-start leading-relaxed lg:ml-8 lg:block lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]">
+            <LetterByLetter lines={["It is not simply a restaurant,", "but a complete evening experience", "where iconic architecture,", "contemporary cuisine, and", "entertainment come together as one."]} align="left" />
           </p>
         </div>
       </div>
