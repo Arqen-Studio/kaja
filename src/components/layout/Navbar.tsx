@@ -33,11 +33,20 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-[var(--bg)] ${
+      className={`w-full fixed top-0 left-0 z-[200] transition-all duration-300 ${
         visible ? "translate-y-0" : "-translate-y-full"
-      } ${scrolled ? "shadow-[0_2px_20px_rgba(0,0,0,0.25)]" : ""}`}
+      }`}
     >
-      <div className="hidden md:grid mx-auto w-full grid-cols-5 items-center px-[3vw] py-4 text-center">
+      {/* Smooth gradient fade — same style as menu section: solid at top, fades over 22vh below */}
+      <div
+        className="absolute inset-x-0 top-0 z-0 pointer-events-none"
+        style={{
+          height: "22vh",
+          background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
+        }}
+      />
+
+      <div className="relative z-10 hidden md:grid mx-auto w-full grid-cols-5 items-center px-[3vw] py-4 text-center">
         {leftNav.map((item) => (
           <NavLinkItem key={item.path} {...item} />
         ))}
@@ -66,12 +75,12 @@ const Navbar = () => {
       <button
         onClick={toggleTheme}
         aria-label="Toggle theme"
-        className="absolute left-[3vw] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
+        className="absolute left-[3vw] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
       >
         {dark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
       </button>
 
-      <div className="flex md:hidden items-center justify-between px-4 py-4">
+      <div className="relative z-10 flex md:hidden items-center justify-between px-4 py-4">
         <Link to="/">
           <img
             src="/png/logo.light.png"
