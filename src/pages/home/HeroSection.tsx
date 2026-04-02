@@ -82,10 +82,10 @@ const HeroSection = () => {
     [0.2, 0.9],
     ["brightness(1)", "brightness(0.15)"],
   );
-  // Dark bg overlay fades in first to kill the white
-  const overlayOpacity = useTransform(smoothProgress, [0.3, 0.75], [0, 0.88]);
-  // Mask fades in after video is already dark — low opacity so white BG is invisible
-  const maskOpacity = useTransform(smoothProgress, [0.6, 0.9], [0, 0.35]);
+  // Dark bg overlay fades in to match reservation section colour
+  const overlayOpacity = useTransform(smoothProgress, [0.3, 0.85], [0, 0.88]);
+  // Mask always visible — stays low opacity so white BG never dominates
+  const maskOpacity = useTransform(smoothProgress, [0, 0.5], [0.18, 0.28]);
 
   return (
     <section ref={ref} className="h-[240vh]">
