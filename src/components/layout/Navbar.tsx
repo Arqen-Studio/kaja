@@ -54,12 +54,12 @@ const Navbar = () => {
         <div className="flex justify-center">
           <Link to="/">
             <img
-              src="/png/logo.light.png"
+              src="/svg/logo-light.svg"
               alt="Logo"
               className="block dark:hidden w-[77px] h-[121px]"
             />
             <img
-              src="/png/logo.dark.png"
+              src="/svg/logo-dark.svg"
               alt="Logo"
               className="hidden dark:block w-[77px] h-[121px]"
             />
@@ -83,12 +83,12 @@ const Navbar = () => {
       <div className="relative z-10 flex md:hidden items-center justify-between px-4 py-4">
         <Link to="/">
           <img
-            src="/png/logo.light.png"
+            src="/svg/logo-light.svg"
             alt="Logo"
             className="block dark:hidden w-[60px]"
           />
           <img
-            src="/png/logo.dark.png"
+            src="/svg/logo-dark.svg"
             alt="Logo"
             className="hidden dark:block w-[60px]"
           />

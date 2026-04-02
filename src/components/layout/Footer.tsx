@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 
 const FooterSection: React.FC = () => {
-  const { theme } = useTheme();
+  const [dark, setDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
   const kajaImages = [
-    { light: "/png/k-light.png", dark: "/png/k-dark.png" },
-    { light: "/png/a-light.png", dark: "/png/a.png" },
-    { light: "/png/j-light.png", dark: "/png/j-dark.png" },
-    { light: "/png/a-light.png", dark: "/png/a-dark.png" },
+    { light: "/svg/K-light.svg", dark: "/svg/K-dark.svg" },
+    { light: "/svg/A-light.svg", dark: "/svg/A-dark.svg" },
+    { light: "/svg/J-light.svg", dark: "/svg/J-dark.svg" },
+    { light: "/svg/A-light.svg", dark: "/svg/A-dark.svg" },
   ];
 
   return (
@@ -58,9 +68,9 @@ const FooterSection: React.FC = () => {
           {kajaImages.map((imageSet, index) => (
             <motion.img
               key={index}
-              src={theme === "dark" ? imageSet.dark : imageSet.light}
+              src={dark ? imageSet.dark : imageSet.light}
               alt={`kaja-${index}`}
-              className="h-[clamp(92px,24vw,420px)] min-w-0 flex-1 object-contain object-bottom"
+              className="h-[clamp(92px,24vw,440px)] min-w-0 flex-1 object-contain object-bottom"
               variants={{
                 hidden: { y: 400, opacity: 0 },
                 visible: {
