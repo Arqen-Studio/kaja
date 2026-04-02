@@ -1,4 +1,3 @@
-import HeroSection from "../home/HeroSection";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -44,8 +43,33 @@ const revealFromLeftBehind = {
 function About() {
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="w-full">
-        <HeroSection />
+      <div className="mx-auto w-full max-w-[1700px] px-6 py-10 md:px-10 md:py-16 lg:px-14 xl:px-16 2xl:px-20">
+        <h1 className="heading mx-auto mb-8 max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
+          Located in the heart of Ubud
+        </h1>
+
+        <div className="mx-auto grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-6 lg:gap-10 xl:gap-14">
+          <p className="base-text mx-auto hidden max-w-[230px] text-start leading-relaxed lg:mr-10 lg:block lg:max-w-[260px] xl:mr-12 xl:max-w-[300px] 2xl:max-w-[340px]">
+            KAJA was created with a clear intention: to surprise, engage, and
+            leave a lasting impression.
+          </p>
+
+          <div className="flex justify-center leading-none">
+            <img
+              src="/png/hero-section.png"
+              alt="chef"
+              width={504}
+              height={500}
+              className="h-[420px] w-[70vw] max-w-[560px] object-cover object-center xl:h-[460px] xl:max-w-[620px] 2xl:h-[500px] 2xl:max-w-[700px]"
+            />
+          </div>
+
+          <p className="base-text mx-auto hidden max-w-[303px] text-center leading-relaxed lg:ml-8 lg:block lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]">
+            It is not simply a restaurant, but a complete evening experience
+            where iconic architecture, contemporary cuisine, and entertainment
+            come together as one.
+          </p>
+        </div>
       </div>
 
       <motion.div
@@ -186,8 +210,8 @@ function About() {
           >
             <p className="sub-text">
               Our vision is to establish KAJA as one of Bali’s iconic
-              destinations. A place that becomes part of Ubud’s identity alongside
-              its nature, culture, and spirit.
+              destinations. A place that becomes part of Ubud’s identity
+              alongside its nature, culture, and spirit.
             </p>
           </motion.div>
         </motion.div>

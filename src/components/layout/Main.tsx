@@ -6,10 +6,10 @@ function Main() {
   return (
     <div className="min-h-screen ">
       <Navbar />
-      <main className="flex-1 global-container">
+      <main className="global-container flex-1 pt-[92px] md:pt-[153px]">
         <Outlet />
       </main>
-      <FooterSection/>
+      <FooterSection />
     </div>
   );
 }

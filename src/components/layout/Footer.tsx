@@ -6,7 +6,7 @@ const FooterSection: React.FC = () => {
   const { theme } = useTheme();
   const kajaImages = [
     { light: "/png/k-light.png", dark: "/png/k-dark.png" },
-    { light: "/png/a-light.png", dark: "/png/a-dark.png" },
+    { light: "/png/a-light.png", dark: "/png/a.png" },
     { light: "/png/j-light.png", dark: "/png/j-dark.png" },
     { light: "/png/a-light.png", dark: "/png/a-dark.png" },
   ];

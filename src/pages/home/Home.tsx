@@ -8,6 +8,7 @@ import IntroSection from "./IntroSection";
 function Home() {
   return (
     <>
+    <div className="h-[4vh]" />
       <HeroSection />
       <IntroSection />
       <div className="h-[4vh]" />

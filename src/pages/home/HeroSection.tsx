@@ -76,7 +76,7 @@ const HeroSection = () => {
 
   const imageY = useTransform(smoothProgress, [0.5, 1], [0, -vh * 0.08]);
 
-  const imageOpacity = useTransform(smoothProgress, [0.7, 0.9, 1], [1, 0.9, 0]);
+  const imageOpacity = 1;
 
   return (
     <section ref={ref} className="mt-[10vh] h-[240vh]">
