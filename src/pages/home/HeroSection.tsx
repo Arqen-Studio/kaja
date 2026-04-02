@@ -5,6 +5,12 @@ import { LetterByLetter } from "../../components/LetterByLetter";
 const HeroSection = () => {
   const ref = useRef(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) v.play().catch(() => {});
+  }, []);
 
   const [vh, setVh] = useState(() =>
     typeof window !== "undefined"
@@ -83,7 +89,8 @@ const HeroSection = () => {
     ["brightness(1)", "brightness(0.15)"],
   );
   // Mask opacity — visible from start, builds on scroll
-  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.4, 1]);
+  // Cap at 0.5 — white bg never dominates; proper fix needs transparent mask from Figma
+  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.25, 0.5]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -156,6 +163,7 @@ const HeroSection = () => {
           className="absolute w-[clamp(400px,38vw,960px)] overflow-hidden transform-gpu will-change-transform"
         >
           <motion.video
+            ref={videoRef}
             src="/hero.mp4"
             style={{ filter: videoFilter }}
             className="w-full h-full object-cover"
@@ -163,6 +171,7 @@ const HeroSection = () => {
             muted
             loop
             playsInline
+            preload="auto"
           />
           {/* Mask — multiply makes white fully transparent, only gold pattern shows */}
           <motion.img
