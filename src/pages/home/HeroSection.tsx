@@ -90,9 +90,7 @@ const HeroSection = () => {
     ["brightness(1)", "brightness(0.8)"],
   );
   // Mask opacity — visible from start, builds on scroll
-  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 0.9]);
-  // Gold overlay — warms up dark gaps between mask lines to match reservation section
-  const goldOverlayOpacity = useTransform(smoothProgress, [0.5, 0.9], [0, 0.55]);
+  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 1]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -174,12 +172,6 @@ const HeroSection = () => {
             loop
             playsInline
             preload="auto"
-          />
-          {/* Gold colour overlay — warms dark gaps to match reservation section */}
-          <motion.div
-            aria-hidden
-            style={{ opacity: goldOverlayOpacity, backgroundColor: "#D6B283" }}
-            className="absolute inset-0 w-full h-full pointer-events-none"
           />
           {/* Inline SVG mask — gold pattern, transparent bg */}
           <motion.div
