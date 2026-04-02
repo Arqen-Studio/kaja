@@ -147,7 +147,7 @@ function HomeMenuSection() {
       ? "min(240vh, 2400px)"
       : columns === 2
         ? "min(320vh, 3200px)"
-        : "min(220vh, 2000px)";
+        : "min(210vh, 1900px)";
 
   return (
     <section
