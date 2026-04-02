@@ -35,9 +35,9 @@ const IntroSection = () => {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="pt-32 pb-28 min-h-[60vh] relative overflow-hidden"
+      className="min-h-[60vh] relative overflow-hidden flex items-center"
     >
-      <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 md:px-[3vw]">
+      <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 py-16 md:px-[3vw]">
         <motion.p
           style={{
             x: textX,
