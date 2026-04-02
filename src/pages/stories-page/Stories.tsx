@@ -97,18 +97,18 @@ const Stories = () => {
           <div className="flex flex-col items-center md:items-start text-center p-10 mt-6 mb-6 space-y-6">
             <Link
               to="/about#chef-introduction"
-              className="relative w-[200px] md:w-[300px]"
+              className="relative block w-[200px] h-[200px] md:w-[300px] md:h-[300px] overflow-hidden"
             >
               <img
                 src="/png/plate.png"
                 alt="Plate"
-                className="w-full h-full object-contain"
+                className="absolute inset-0 m-auto w-[60%] h-[60%] object-contain"
               />
 
               <img
                 src="/png/circular-text.png"
                 alt="circular text"
-                className="absolute left-1/2 top-1/2 h-[180%] md:w-[150%] md:h-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain animate-spin-slow pointer-events-none"
+                className="absolute inset-0 w-full h-full object-contain animate-spin-slow pointer-events-none"
               />
             </Link>
 
