@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { LetterByLetter } from "./LetterByLetter";
 
 interface Props {
   title: string;
@@ -25,7 +26,9 @@ const MenuCard: React.FC<Props> = ({ title, image, onClick }) => {
       />
 
       <div className="absolute inset-0 flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.65))]">
-        <h2 className="!font-normal heading m-0 text-[#D6B283]">{title}</h2>
+        <h2 className="!font-normal heading m-0 text-[#D6B283]">
+          <LetterByLetter lines={[title]} align="center" />
+        </h2>
 
         <div className="absolute bottom-[70px] justify-beween items-center flex gap-[18px] base-text text-[#D6B283]">
           {" "}

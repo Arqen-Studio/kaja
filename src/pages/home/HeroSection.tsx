@@ -169,7 +169,7 @@ const HeroSection = () => {
             playsInline
           />
           <motion.img
-            src="/png/mask_hero.png"
+            src="/png/mask.jpeg"
             aria-hidden
             style={{ opacity: overlayOpacity, filter: overlayFilter }}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none mix-blend-overlay"

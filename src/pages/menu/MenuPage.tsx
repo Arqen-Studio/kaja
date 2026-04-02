@@ -2,12 +2,13 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import MenuCard from "../../components/MenuCard";
+import { LetterByLetter } from "../../components/LetterByLetter";
 
 const MenuPage: React.FC = () => {
   return (
     <div className="menu-page pb-10">
       <div className="heading  py-16">
-        <h1>Explore our Menu</h1>
+        <h1><LetterByLetter lines={["Explore our Menu"]} align="center" /></h1>
       </div>
 
       <div className="mx-auto w-full px-6 md:px-[3vw]">

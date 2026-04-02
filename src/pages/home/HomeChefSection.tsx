@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
+import { LetterByLetter } from "../../components/LetterByLetter";
 import { useEffect, useRef, useState } from "react";
 
 function HomeChefSection() {
@@ -87,7 +88,7 @@ function HomeChefSection() {
         />
 
         <Link to="/stories" className="base-text py-4">
-          Discover Story
+          <LetterByLetter lines={["Discover Story"]} align="center" />
         </Link>
       </motion.div>
     </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { LetterByLetter } from "../../components/LetterByLetter";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./datepicker.css";
@@ -151,9 +152,7 @@ export default function ReservationPage() {
 
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-10 md:py-14">
         <h1 className="heading mb-6 text-balance sm:mb-8 md:mb-10">
-          A mesmerizing
-          <br />
-          evening is waiting
+          <LetterByLetter lines={["A mesmerizing", "evening is waiting"]} align="center" />
         </h1>
 
         <div className="mt-6 flex min-w-0 flex-col sm:mt-8 md:mt-12">

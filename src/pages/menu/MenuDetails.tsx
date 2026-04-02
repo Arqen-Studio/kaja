@@ -1,4 +1,5 @@
 import IntroSection from "../home/IntroSection";
+import { LetterByLetter } from "../../components/LetterByLetter";
 
 const MenuDetailPage = () => {
   const items = [
@@ -12,13 +13,12 @@ const MenuDetailPage = () => {
     <div className="min-h-screen">
       <div className="mx-auto max-w-6xl px-4 pb-0 pt-14 md:py-20">
         <h1 className="heading mx-auto mb-4 max-w-[378px] text-center">
-          Steaks Menu
+          <LetterByLetter lines={["Steaks Menu"]} align="center" />
         </h1>
 
         <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
           <p className="hidden md:block base-text mx-auto max-w-[230px] text-center md:mt-[35%] md:px-2">
-            KAJA was created with a clear intention: to surprise, engage, and
-            leave a lasting impression.
+            <LetterByLetter lines={["KAJA was created with a", "clear intention: to surprise,", "engage, and leave a", "lasting impression."]} align="center" />
           </p>
 
           <div className="flex justify-center leading-none md:justify-self-center">
@@ -32,15 +32,13 @@ const MenuDetailPage = () => {
           </div>
 
           <p className="md:block hidden base-text mx-auto max-w-[303px] text-center md:mt-[35%]">
-            It is not simply a restaurant, but a complete evening experience
-            where iconic architecture, contemporary cuisine, and entertainment
-            come together as one.
+            <LetterByLetter lines={["It is not simply a restaurant,", "but a complete evening experience", "where iconic architecture,", "contemporary cuisine, and", "entertainment come together as one."]} align="center" />
           </p>
         </div>
       </div>
 
       <div className="w-full flex flex-col items-center py-10">
-        <h2 className="heading mb-6">For meat lovers</h2>
+        <h2 className="heading mb-6"><LetterByLetter lines={["For meat lovers"]} align="center" /></h2>
 
         <div className="w-[60%] border-t border-[#e6d3a3]/30 mb-6"></div>
 

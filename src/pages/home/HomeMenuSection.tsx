@@ -4,6 +4,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import { LetterByLetter } from "../../components/LetterByLetter";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -165,10 +166,12 @@ function HomeMenuSection() {
         <div className="absolute top-[8vh] left-0 right-0 z-20">
           <div className="max-w-[950px] mx-auto px-4">
           <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
-            <h2 className="heading text-center md:!text-left">Menu</h2>
+            <h2 className="heading text-center md:!text-left">
+              <LetterByLetter lines={["Menu"]} align="left" />
+            </h2>
 
             <p className="sub-text text-center tracking-[-0.028em] md:text-left">
-              Dive into the wandering experience...
+              <LetterByLetter lines={["Dive into the wandering experience..."]} align="left" />
             </p>
 
             <Link

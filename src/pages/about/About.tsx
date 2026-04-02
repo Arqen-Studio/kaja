@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { LetterByLetter } from "../../components/LetterByLetter";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -45,13 +46,12 @@ function About() {
     <div className="flex w-full flex-col items-center">
       <div className="mx-auto w-full max-w-[1700px] px-6 py-10 md:px-10 md:py-16 lg:px-14 xl:px-16 2xl:px-20">
         <h1 className="heading mx-auto mb-8 max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
-          Located in the heart of Ubud
+          <LetterByLetter lines={["Located in the", "heart of Ubud"]} align="center" />
         </h1>
 
         <div className="mx-auto grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-6 lg:gap-10 xl:gap-14">
           <p className="base-text mx-auto hidden max-w-[230px] text-start leading-relaxed lg:mr-10 lg:block lg:max-w-[260px] xl:mr-12 xl:max-w-[300px] 2xl:max-w-[340px]">
-            KAJA was created with a clear intention: to surprise, engage, and
-            leave a lasting impression.
+            <LetterByLetter lines={["KAJA was created with a", "clear intention: to surprise,", "engage, and leave a", "lasting impression."]} align="left" />
           </p>
 
           <div className="flex justify-center leading-none">
@@ -65,26 +65,16 @@ function About() {
           </div>
 
           <p className="base-text mx-auto hidden max-w-[303px] text-center leading-relaxed lg:ml-8 lg:block lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]">
-            It is not simply a restaurant, but a complete evening experience
-            where iconic architecture, contemporary cuisine, and entertainment
-            come together as one.
+            <LetterByLetter lines={["It is not simply a restaurant,", "but a complete evening experience", "where iconic architecture,", "contemporary cuisine, and", "entertainment come together as one."]} align="center" />
           </p>
         </div>
       </div>
 
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="w-full max-w-[844px] px-4 pb-10 md:px-0"
-      >
+      <div className="w-full max-w-[844px] px-4 pb-10 md:px-0">
         <p className="heading">
-          KAJA is a contemporary, high-level destination restaurant offering a
-          fully immersive dining experience.
+          <LetterByLetter lines={["KAJA is a contemporary, high-level", "destination restaurant offering a", "fully immersive dining experience."]} align="left" />
         </p>
-      </motion.div>
+      </div>
 
       <div className="w-full self-stretch py-8">
         <motion.div
@@ -129,13 +119,9 @@ function About() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.6 }}
         >
-          <motion.p
-            className="base-text relative z-10 text-center"
-            variants={fadeUp}
-            transition={{ duration: 0.65, ease: "easeOut" }}
-          >
-            Restaurant planning
-          </motion.p>
+          <p className="base-text relative z-10 text-center">
+            <LetterByLetter lines={["Restaurant planning"]} align="center" />
+          </p>
 
           {/* Build tiles (block-by-block reveal) */}
           <motion.div
@@ -167,16 +153,11 @@ function About() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="mx-auto flex w-full max-w-[1111px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
-          <motion.div
-            className="relative z-10 flex w-full items-center p-6 md:max-w-[520px] md:pl-10"
-            variants={revealFromRightBehind}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.05 }}
-          >
+          <div className="relative z-10 flex w-full items-center p-6 md:max-w-[520px] md:pl-10">
             <p className="sub-text">
-              Our aim is to go beyond dining. We want guests to feel a sense of
-              awe from the moment they arrive.
+              <LetterByLetter lines={["Our aim is to go beyond dining.", "We want guests to feel a sense of", "awe from the moment they arrive."]} align="left" />
             </p>
-          </motion.div>
+          </div>
           <motion.img
             src="/png/aim.png"
             alt="vision"
@@ -203,17 +184,11 @@ function About() {
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
-          <motion.div
-            className="relative z-10 flex w-full items-center justify-center p-6 md:max-w-[520px] md:pr-10"
-            variants={revealFromLeftBehind}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.05 }}
-          >
+          <div className="relative z-10 flex w-full items-center justify-center p-6 md:max-w-[520px] md:pr-10">
             <p className="sub-text">
-              Our vision is to establish KAJA as one of Bali’s iconic
-              destinations. A place that becomes part of Ubud’s identity
-              alongside its nature, culture, and spirit.
+              <LetterByLetter lines={["Our vision is to establish KAJA", "as one of Bali’s iconic destinations.", "A place that becomes part of Ubud’s", "identity alongside its nature,", "culture, and spirit."]} align="left" />
             </p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>
