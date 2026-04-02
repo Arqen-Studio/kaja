@@ -156,11 +156,16 @@ const HeroSection = () => {
             scale: imageScale,
             originX: 0.5,
             originY: 1,
-            left: "calc(50% - clamp(200px, 19vw, 480px))",
+            left: vw < 768
+              ? `${vw * 0.075}px`
+              : "calc(50% - clamp(200px, 19vw, 480px))",
+            width: vw < 768
+              ? `${vw * 0.85}px`
+              : "clamp(400px,38vw,960px)",
             top: "clamp(190px, 21vh, 240px)",
             height: "calc(100vh - clamp(190px, 21vh, 240px))",
           }}
-          className="absolute w-[clamp(400px,38vw,960px)] overflow-hidden transform-gpu will-change-transform"
+          className="absolute overflow-hidden transform-gpu will-change-transform"
         >
           <motion.video
             ref={videoRef}
