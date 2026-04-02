@@ -31,15 +31,6 @@ const tile = {
   },
 } as const;
 
-const revealFromRightBehind = {
-  hidden: { opacity: 0, x: 220 },
-  visible: { opacity: 1, x: 0 },
-} as const;
-
-const revealFromLeftBehind = {
-  hidden: { opacity: 0, x: -220 },
-  visible: { opacity: 1, x: 0 },
-} as const;
 
 function About() {
   return (
