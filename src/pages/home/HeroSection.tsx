@@ -87,7 +87,7 @@ const HeroSection = () => {
   const videoFilter = useTransform(
     smoothProgress,
     [0.2, 0.9],
-    ["brightness(1)", "brightness(0.35)"],
+    ["brightness(1)", "brightness(0.5)"],
   );
   // Mask opacity — visible from start, builds on scroll
   const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 0.9]);
