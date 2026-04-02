@@ -15,14 +15,14 @@ const HeroSection = () => {
   const [vw, setVw] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
-  const [imageSize, setImageSize] = useState({ width: 560, height: 420 });
+  const [imageSize, setImageSize] = useState({ width: 518, height: 524 });
 
   const updateImageSize = () => {
     if (!imageWrapperRef.current) return;
     const bounds = imageWrapperRef.current.getBoundingClientRect();
     setImageSize({
-      width: bounds.width || 560,
-      height: bounds.height || 420,
+      width: bounds.width || 518,
+      height: bounds.height || 524,
     });
   };
 
@@ -68,35 +68,52 @@ const HeroSection = () => {
     vh / imageSize.height,
     1,
   );
+
+  // Scale starts later so text exits first
   const imageScale = useTransform(
     smoothProgress,
-    [0.18, 0.5],
+    [0.25, 0.6],
     [1, fullScreenScale],
   );
 
-  const imageY = useTransform(smoothProgress, [0.5, 1], [0, -vh * 0.08]);
-
-  const imageOpacity = 1;
+  // Video dims after mask is bright, mask appears faintly then quickly reaches full brightness
+  const videoFilter = useTransform(
+    smoothProgress,
+    [0.35, 0.85],
+    ["brightness(1)", "brightness(0.08)"],
+  );
+  const overlayOpacity = useTransform(smoothProgress, [0, 0.25], [0.15, 1]);
+  const overlayFilter = useTransform(
+    smoothProgress,
+    [0, 0.25],
+    ["brightness(0.35)", "brightness(1.2)"],
+  );
 
   return (
-    <section ref={ref} className="mt-[10vh] h-[240vh]">
-      <div className="sticky top-0 flex h-screen items-center overflow-x-hidden">
-        <div className="mx-auto w-full max-w-[1700px] px-6 md:px-10 lg:px-14 xl:px-16 2xl:px-20">
-          <motion.h1
-            style={{ y: textY, opacity: textOpacity }}
-            className="heading mx-auto mb-8 max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]"
-          >
-            <LetterByLetter
-              lines={["Located in the", "heart of Ubud"]}
-              align="center"
-            />
-          </motion.h1>
+    <section ref={ref} className="h-[240vh]">
+      <div className="sticky top-0 h-screen overflow-hidden relative">
 
-          <div className="grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-6 lg:gap-10 xl:gap-14">
-            <motion.p
-              style={{ y: textY, opacity: textOpacity }}
-              className="base-text mx-auto hidden max-w-[230px] text-start md:mr-8 md:block lg:mr-10 lg:max-w-[260px] xl:mr-12 xl:max-w-[300px] 2xl:max-w-[340px]"
-            >
+        {/* Heading — fades out on scroll */}
+        <motion.div
+          style={{ y: textY, opacity: textOpacity }}
+          className="absolute inset-0 pointer-events-none z-10"
+        >
+          {/* Heading */}
+          <div className="absolute inset-x-0 top-[clamp(80px,8vh,120px)]">
+            <h1 className="heading mx-auto max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
+              <LetterByLetter
+                lines={["Located in the", "heart of Ubud"]}
+                align="center"
+              />
+            </h1>
+          </div>
+
+          {/* Left text — anchored to left edge of video */}
+          <div
+            className="absolute hidden md:block top-[40%]"
+            style={{ right: "calc(50% + clamp(200px, 19vw, 480px) + 24px)" }}
+          >
+            <p className="base-text max-w-[230px] text-start lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
               <LetterByLetter
                 lines={[
                   "KAJA was created with a",
@@ -106,31 +123,15 @@ const HeroSection = () => {
                 ]}
                 align="center"
               />
-            </motion.p>
+            </p>
+          </div>
 
-            <motion.div
-              ref={imageWrapperRef}
-              style={{
-                scale: imageScale,
-                y: imageY,
-                opacity: imageOpacity,
-              }}
-              className="z-10 mx-auto flex h-[490px] w-[90vw] max-w-[504px] justify-center overflow-hidden origin-center transform-gpu will-change-transform xl:h-[460px] xl:max-w-[620px] 2xl:h-[500px] 2xl:max-w-[700px]"
-            >
-              <video
-                src="/hero.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </motion.div>
-
-            <motion.p
-              style={{ y: textY, opacity: textOpacity }}
-              className="base-text mx-auto hidden max-w-[303px] text-center md:ml-6 md:block lg:ml-8 lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]"
-            >
+          {/* Right text — anchored to right edge of video */}
+          <div
+            className="absolute hidden md:block top-[40%]"
+            style={{ left: "calc(50% + clamp(200px, 19vw, 480px) + 24px)" }}
+          >
+            <p className="base-text max-w-[303px] text-center lg:max-w-[340px] xl:max-w-[380px] 2xl:max-w-[420px]">
               <LetterByLetter
                 lines={[
                   "It is not simply a restaurant, but a ",
@@ -141,9 +142,40 @@ const HeroSection = () => {
                 ]}
                 align="center"
               />
-            </motion.p>
+            </p>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Video — bottom-anchored, scales from bottom to fullscreen */}
+        <motion.div
+          ref={imageWrapperRef}
+          style={{
+            scale: imageScale,
+            originX: 0.5,
+            originY: 1,
+            left: "calc(50% - clamp(200px, 19vw, 480px))",
+            top: "clamp(190px, 21vh, 240px)",
+            height: "calc(100vh - clamp(190px, 21vh, 240px))",
+          }}
+          className="absolute w-[clamp(400px,38vw,960px)] overflow-hidden transform-gpu will-change-transform"
+        >
+          <motion.video
+            src="/hero.mp4"
+            style={{ filter: videoFilter }}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <motion.img
+            src="/png/mask_hero.png"
+            aria-hidden
+            style={{ opacity: overlayOpacity, filter: overlayFilter }}
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none mix-blend-overlay"
+          />
+        </motion.div>
+
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ const IntroSection = () => {
     offset: ["start 80%", "end 20%"],
   });
 
-  const bgColor = useTransform(scrollYProgress, [0, 1], ["#32341D", "#D6B283"]);
+  const bgColor = useTransform(scrollYProgress, [0, 0.45], ["#32341D", "#D6B283"]);
 
   const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
@@ -35,7 +35,7 @@ const IntroSection = () => {
     <motion.section
       ref={ref}
       style={{ backgroundColor: bgColor }}
-      className="pt-24 pb-15 relative overflow-hidden"
+      className="pt-32 pb-28 min-h-[60vh] relative overflow-hidden"
     >
       <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 md:px-[3vw]">
         <motion.p
