@@ -76,13 +76,14 @@ const HeroSection = () => {
     [1, fullScreenScale],
   );
 
-  // Video dims slightly on scroll, mask stays at full brightness
+  // Video dims on scroll
   const videoFilter = useTransform(
     smoothProgress,
-    [0.2, 0.85],
-    ["brightness(1)", "brightness(0.3)"],
+    [0.2, 0.9],
+    ["brightness(1)", "brightness(0.15)"],
   );
-  const overlayOpacity = useTransform(smoothProgress, [0, 0.25], [0.15, 1]);
+  // Dark overlay fades in to match --bg (reservation section colour)
+  const overlayOpacity = useTransform(smoothProgress, [0.3, 0.85], [0, 0.92]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -163,11 +164,11 @@ const HeroSection = () => {
             loop
             playsInline
           />
-          <motion.img
-            src="/png/mask.png"
+          {/* Dark overlay — fades in to var(--bg) matching reservation section */}
+          <motion.div
             aria-hidden
-            style={{ opacity: overlayOpacity, mixBlendMode: "multiply" }}
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            style={{ opacity: overlayOpacity, backgroundColor: "var(--bg)" }}
+            className="absolute inset-0 w-full h-full pointer-events-none"
           />
         </motion.div>
 
