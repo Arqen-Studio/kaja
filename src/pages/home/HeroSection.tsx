@@ -83,7 +83,6 @@ const HeroSection = () => {
     ["brightness(1)", "brightness(0.3)"],
   );
   const overlayOpacity = useTransform(smoothProgress, [0, 0.25], [0.15, 1]);
-  const overlayFilter = "brightness(1.2)";
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -167,7 +166,7 @@ const HeroSection = () => {
           <motion.img
             src="/png/mask.jpeg"
             aria-hidden
-            style={{ opacity: overlayOpacity, filter: "brightness(1.2)", mixBlendMode: "multiply" }}
+            style={{ opacity: overlayOpacity, mixBlendMode: "multiply" }}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
         </motion.div>
