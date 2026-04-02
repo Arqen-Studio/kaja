@@ -90,9 +90,7 @@ const HeroSection = () => {
     ["brightness(1)", "brightness(0.15)"],
   );
   // Mask opacity — visible from start, builds on scroll
-  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 0.6]);
-  // Gold overlay fades in late to match reservation section colour
-  const goldOpacity = useTransform(smoothProgress, [0.6, 0.92], [0, 1]);
+  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 0.9]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -175,13 +173,7 @@ const HeroSection = () => {
             playsInline
             preload="auto"
           />
-          {/* Gold overlay — fades in at end to match reservation section */}
-          <motion.div
-            aria-hidden
-            style={{ opacity: goldOpacity, backgroundColor: "#D6B283" }}
-            className="absolute inset-0 w-full h-full pointer-events-none"
-          />
-          {/* Inline SVG mask — dark lines on gold bg at end, gold lines on video at start */}
+          {/* Inline SVG mask — gold pattern, transparent bg */}
           <motion.div
             aria-hidden
             style={{ opacity: maskOpacity }}
