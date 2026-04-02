@@ -82,8 +82,10 @@ const HeroSection = () => {
     [0.2, 0.9],
     ["brightness(1)", "brightness(0.15)"],
   );
-  // Dark overlay fades in to match --bg (reservation section colour)
-  const overlayOpacity = useTransform(smoothProgress, [0.3, 0.85], [0, 0.92]);
+  // Dark bg overlay fades in first to kill the white
+  const overlayOpacity = useTransform(smoothProgress, [0.3, 0.75], [0, 0.88]);
+  // Mask fades in after video is already dark — low opacity so white BG is invisible
+  const maskOpacity = useTransform(smoothProgress, [0.6, 0.9], [0, 0.35]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -164,11 +166,18 @@ const HeroSection = () => {
             loop
             playsInline
           />
-          {/* Dark overlay — fades in to var(--bg) matching reservation section */}
+          {/* Dark overlay — fades in first to match reservation section colour */}
           <motion.div
             aria-hidden
             style={{ opacity: overlayOpacity, backgroundColor: "var(--bg)" }}
             className="absolute inset-0 w-full h-full pointer-events-none"
+          />
+          {/* Mask pattern — fades in after video is dark, low opacity so white BG is invisible */}
+          <motion.img
+            src="/png/mask.png"
+            aria-hidden
+            style={{ opacity: maskOpacity }}
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
         </motion.div>
 
