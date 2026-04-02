@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { LetterByLetter } from "../../components/LetterByLetter";
+import HeroMask from "../../components/HeroMask";
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -173,13 +174,14 @@ const HeroSection = () => {
             playsInline
             preload="auto"
           />
-          {/* Mask — multiply makes white fully transparent, only gold pattern shows */}
-          <motion.img
-            src="/png/mask.png"
+          {/* Inline SVG mask — truly transparent background, no white flash */}
+          <motion.div
             aria-hidden
-            style={{ opacity: maskOpacity, mixBlendMode: "multiply" }}
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          />
+            style={{ opacity: maskOpacity }}
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
+            <HeroMask />
+          </motion.div>
         </motion.div>
 
       </div>
