@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 const FooterSection: React.FC = () => {
-  const [dark, setDark] = useState(() =>
-    document.documentElement.classList.contains("dark"),
-  );
+  const { theme } = useTheme();
+  const [dark, setDark] = useState(theme === "dark");
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -42,6 +42,7 @@ const FooterSection: React.FC = () => {
             {
               title: "Follow",
               lines: ["Facebook", "Instagram", "TikTok"],
+              link: "https://www.instagram.com/kajabynuma?igsh=MTh1eHJycTdhaW1jeA%3D%3D",
             },
             {
               title: "Language",
@@ -50,9 +51,21 @@ const FooterSection: React.FC = () => {
           ].map((section, i) => (
             <div key={i} className="base-text text-sm space-y-2">
               <p>{section.title}</p>
-              {section.lines.map((line, idx) => (
-                <p key={idx}>{line}</p>
-              ))}
+              {section.lines.map((line, idx) =>
+                "link" in section ? (
+                  <a
+                    key={idx}
+                    href={section.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-70 transition-opacity"
+                  >
+                    {line}
+                  </a>
+                ) : (
+                  <p key={idx}>{line}</p>
+                )
+              )}
             </div>
           ))}
         </div>

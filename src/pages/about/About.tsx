@@ -46,10 +46,9 @@ function About() {
           <p className="base-text mx-auto hidden max-w-[230px] text-center leading-relaxed lg:mr-10 lg:block lg:max-w-[260px] xl:mr-12 xl:max-w-[300px] 2xl:max-w-[340px]">
             <LetterByLetter
               lines={[
-                "KAJA was created with a",
-                "clear intention: to surprise,",
-                "engage, and leave a",
-                "lasting impression.",
+                "A destination created to",
+                "surprise, inspire, and stay with",
+                "you long after the evening ends.",
               ]}
               align="center"
             />
@@ -57,8 +56,8 @@ function About() {
 
           <div className="flex justify-center leading-none">
             <img
-              src="/png/Hero-About.png"
-              alt="chef"
+              src="/png/about.png"
+              alt="About Section"
               width={504}
               height={500}
               className="w-[70vw] max-w-[504px] aspect-square object-cover object-center"
@@ -68,11 +67,11 @@ function About() {
           <p className="base-text mx-auto hidden max-w-[303px] text-center leading-relaxed lg:ml-8 lg:block lg:max-w-[340px] xl:ml-10 xl:max-w-[380px] 2xl:max-w-[420px]">
             <LetterByLetter
               lines={[
-                "It is not simply a restaurant,",
-                "but a complete evening experience",
-                "where iconic architecture,",
-                "contemporary cuisine, and",
-                "entertainment come together as one.",
+                "Where contemporary ",
+                "Mediterranean cuisine, immersive ",
+                "architecture, and thoughtful ",
+                "entertainment come together as",
+                "one experience.",
               ]}
               align="center"
             />
@@ -84,9 +83,10 @@ function About() {
         <p className="heading">
           <LetterByLetter
             lines={[
-              "KAJA is a contemporary, high-level",
-              "destination restaurant offering a",
-              "fully immersive dining experience.",
+              "Contemporary Mediterranean ",
+              "cuisine, Italian craftsmanship, and ",
+              "immersive design united in one",
+              "unforgettable destination.",
             ]}
             align="center"
           />
@@ -159,7 +159,7 @@ function About() {
         </motion.div>
       </div>
 
-      <div className="w-full px-6 md:px-[3vw]">
+      <div className="w-full pb-10 px-6 md:px-[3vw]">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -168,22 +168,27 @@ function About() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="mx-auto flex w-full max-w-[1111px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
-          <div className="relative z-10 flex w-full items-center p-6 md:max-w-[520px] md:pl-10">
+          <div className="relative z-10 flex w-full items-center p-6 md:max-w-[600px] md:pl-10">
             <p className="sub-text">
+              <span className="block w-full  mb-8">
+                Every Arrival Should Feel Like Discovery
+              </span>
+
               <LetterByLetter
                 lines={[
-                  "Our aim is to go beyond dining.",
-                  "We want guests to feel a sense of",
-                  "awe from the moment they arrive.",
+                  "From the first step inside, guests are ",
+                  "invited into an environment where",
+                  "architecture, service, and cuisine unfold",
+                  "as a single journey.",
                 ]}
                 align="left"
               />
             </p>
           </div>
           <motion.img
-            src="/png/aim.png"
-            alt="vision"
-            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[591px]"
+            src="/png/about-2.png"
+            alt="aim"
+            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[520px]"
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
@@ -200,21 +205,21 @@ function About() {
           className="mx-auto flex w-full max-w-[1111px] flex-col overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
           <motion.img
-            src="/png/vision.png"
+            src="/png/about-3.png"
             alt="vision"
-            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[591px]"
+            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[520px]"
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
-          <div className="relative z-10 flex w-full items-center justify-center p-6 md:max-w-[520px] md:pr-10">
+          <div className="relative z-10 flex w-full items-center justify-center ml-6 py-12 md:max-w-[600px] md:pr-10">
             <p className="sub-text">
+              <span className="block w-full mb-8">A Future Icon of Ubud</span>
               <LetterByLetter
                 lines={[
-                  "Our vision is to establish KAJA",
-                  "as one of Bali’s iconic destinations.",
-                  "A place that becomes part of Ubud’s",
-                  "identity alongside its nature,",
-                  "culture, and spirit.",
+                  "Our vision is to be one of Bali's most",
+                  "memorable destinations; a place woven",
+                  "into Ubud's identity, celebrated for its",
+                  "creativity, atmosphere, and experiences.",
                 ]}
                 align="left"
               />
@@ -222,98 +227,41 @@ function About() {
           </div>
         </motion.div>
       </div>
-      <div id="chef-introduction" className="mx-auto w-full px-6 md:px-[3vw] py-10 md:py-20">
-        <h1 className="heading mx-auto mb-4 max-w-[378px] text-center">
-          <LetterByLetter lines={["Introducing our Chef"]} align="center" />
-        </h1>
-
-        <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
-          <p className="hidden md:block base-text mx-auto max-w-[230px] text-center md:mt-[35%] md:px-2">
-            <LetterByLetter
-              lines={[
-                "KAJA was created with a",
-                "clear intention: to surprise,",
-                "engage, and leave a",
-                "lasting impression.",
-              ]}
-              align="center"
-            />
-          </p>
-
-          <div className="flex justify-center leading-none md:justify-self-center">
-            <img
-              src="/png/chef.png"
-              alt="chef"
-              width={504}
-              height={492}
-              className="h-[492px] max-w-[504px] max-w-full object-cover object-[center_20]"
-            />
-          </div>
-
-          <p className="md:block hidden base-text mx-auto max-w-[303px] text-center md:mt-[35%]">
-            <LetterByLetter
-              lines={[
-                "It is not simply a restaurant,",
-                "but a complete evening experience",
-                "where iconic architecture,",
-                "contemporary cuisine, and",
-                "entertainment come together as one.",
-              ]}
-              align="center"
-            />
-          </p>
-        </div>
-      </div>
-      <div  className="max-w-[938px] pb-10 px-6 md:px-[3vw]">
-        <p className="heading ">
-          <LetterByLetter
-            lines={[
-              "Italian born Chef for a contemporary,",
-              "high-level destination restaurant",
-              "offering a fully immersive",
-              "dining experience.",
-            ]}
-            align="center"
-          />
-        </p>
-      </div>
+      <motion.h1
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.5 }}
+        className="hidden md:block w-full px-1 py-6 text-center font-moche font-normal text-[clamp(1.5rem,6.5vw,160px)] leading-[1.2] tracking-[-0.028em] whitespace-nowrap md:pt-10 md:pb-0"
+      >
+        Meet our Dynamic Chef
+      </motion.h1>
 
       <div className="max-w-7xl flex md:flex-row-reverse flex-col border border-[#32341D] dark:border-[#D6B283] mt-10 mb-20">
         <img
-          src="/png/chef.png"
+          src="/png/about-chef.png"
           alt="chef"
           className="max-full object-cover "
         />
-        <div className="flex flex-col md:items-start items-center  min-w-[100px] px-4 py-6 ml-4">
-          <div className="py-4 flex flex-col items-center md:items-start ">
+        <div className="flex flex-col md:items-start items-center  min-w-[100px] px-4 py-6 ml-4 mr-12">
+          <div className="py-4 flex flex-col items-center md:items-start mb-4 ">
             <h1 className="heading ">
-              <LetterByLetter lines={["Takahiko"]} align="left" />
+              <LetterByLetter lines={["Michail "]} align="left" />
             </h1>
             <h1 className="heading ">
-              <LetterByLetter lines={["Kondo"]} align="left" />
+              <LetterByLetter lines={["Pavourdjiev"]} align="left" />
             </h1>
           </div>
-          <p className="base-text text-center md:text-start leading-[120%] ">
-            <LetterByLetter
-              lines={[
-                "Takahiko ‘Taka’ Kondo began his culinary",
-                "journey in high school, cooking at home",
-                "and learning from food programs on",
-                "television before experimenting on his own.",
-                "His interest in art and fashion led him to",
-                "Italy in 2000, where a pivotal encounter",
-                "with Massimo Bottura revealed his blend of",
-                "passion, precision, and curiosity. Taka went",
-                "on to spend seventeen years at Bottura’s",
-                "three-Michelin-star Osteria Francescana in",
-                "Modena, becoming sous-chef in 2014. In 2022,",
-                "he became Executive Chef of the Michelin-starred",
-                "Gucci Osteria Florence. In 2025, he assumed",
-                "the role of Head Chef, leading the",
-                "restaurant’s culinary vision into its next chapter.",
-              ]}
-              align="left"
-            />
+          <p className="font-moche text-[16px] font-normal text-center md:text-start leading-[120%] max-w-[395px] pr-10">
+            Michail Pavourdjiev began his culinary journey with a passion for
+            hospitality and a deep appreciation for seafood. After graduating
+            with a degree in Restaurant and Hospitality Management, he built his
+            experience in some of London's respected kitchens. Over eight years
+            at Chicama, he rose from Chef de Partie to Head Chef, developing a
+            distinctive approach influenced by contemporary seafood cuisine and
+            global flavours. Today, he leads the culinary vision at KAJA,
+            bringing together creativity, precision, and a deep respect for
+            exceptional ingredients.
           </p>
         </div>
       </div>

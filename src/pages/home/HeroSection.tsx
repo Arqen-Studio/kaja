@@ -95,7 +95,6 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="h-[240vh]">
       <div className="sticky top-0 h-screen overflow-hidden relative">
-
         {/* Heading — fades out on scroll */}
         <motion.div
           style={{ y: textY, opacity: textOpacity }}
@@ -119,10 +118,11 @@ const HeroSection = () => {
             <p className="base-text max-w-[230px] text-start lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
               <LetterByLetter
                 lines={[
-                  "KAJA was created with a",
-                  "clear intention: to surprise,",
-                  "engage, and leave a",
-                  "lasting impression.",
+                  "Contemporary Mediterranean ",
+                  "cuisine shaped by Italian",
+                  "craftsmanship, elevated ",
+                  "ngredients, and creative ",
+                  "expression. ",
                 ]}
                 align="center"
               />
@@ -137,11 +137,11 @@ const HeroSection = () => {
             <p className="base-text max-w-[303px] text-center lg:max-w-[340px] xl:max-w-[380px] 2xl:max-w-[420px]">
               <LetterByLetter
                 lines={[
-                  "It is not simply a restaurant, but a ",
-                  "complete evening experience where",
-                  "iconic architecture, contemporary",
-                  "cuisine, and entertainment come",
-                  "together as one.",
+                  "More than a restaurant, KAJA is an ",
+                  "immersive destination where",
+                  "architecture, atmosphere,",
+                  "entertainment, and dining become",
+                  "one.",
                 ]}
                 align="center"
               />
@@ -156,12 +156,11 @@ const HeroSection = () => {
             scale: imageScale,
             originX: 0.5,
             originY: 1,
-            left: vw < 768
-              ? `${vw * 0.075}px`
-              : "calc(50% - clamp(200px, 19vw, 480px))",
-            width: vw < 768
-              ? `${vw * 0.85}px`
-              : "clamp(400px,38vw,960px)",
+            left:
+              vw < 768
+                ? `${vw * 0.075}px`
+                : "calc(50% - clamp(200px, 19vw, 480px))",
+            width: vw < 768 ? `${vw * 0.85}px` : "clamp(400px,38vw,960px)",
             top: "clamp(190px, 21vh, 240px)",
             height: "calc(100vh - clamp(190px, 21vh, 240px))",
           }}
@@ -169,7 +168,7 @@ const HeroSection = () => {
         >
           <motion.video
             ref={videoRef}
-            src="/hero.mp4"
+            src="/kaja.mp4"
             style={{ filter: videoFilter }}
             className="w-full h-full object-cover"
             autoPlay
@@ -187,7 +186,6 @@ const HeroSection = () => {
             <HeroMask />
           </motion.div>
         </motion.div>
-
       </div>
     </section>
   );

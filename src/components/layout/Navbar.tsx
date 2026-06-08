@@ -134,12 +134,13 @@ export default Navbar;
 type NavItem = {
   label: string;
   path: string;
+  href?: string;
   onClick?: () => void;
   isMobile?: boolean;
 };
 
 const leftNav: NavItem[] = [
-  { label: "RESERVATION", path: "/reservation" },
+  { label: "RESERVATION", path: "/reservation", href: "https://www.sevenrooms.com/explore/kajabynuma/reservations/create/search/" },
   { label: "ABOUT", path: "/about" },
 ];
 
@@ -148,16 +149,27 @@ const rightNav: NavItem[] = [
   { label: "STORIES", path: "/stories" },
 ];
 
-const NavLinkItem = ({ label, path, onClick, isMobile }: NavItem) => (
-  <NavLink
-    to={path}
-    onClick={onClick}
-    className={({ isActive }) =>
-      `navbar-text ${isMobile ? "block text-center py-3" : ""} ${
-        isActive ? "underline underline-offset-4" : ""
-      }`
-    }
-  >
-    {label}
-  </NavLink>
-);
+const NavLinkItem = ({ label, path, href, onClick, isMobile }: NavItem) =>
+  href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className={`navbar-text ${isMobile ? "block text-center py-3" : ""}`}
+    >
+      {label}
+    </a>
+  ) : (
+    <NavLink
+      to={path}
+      onClick={onClick}
+      className={({ isActive }) =>
+        `navbar-text ${isMobile ? "block text-center py-3" : ""} ${
+          isActive ? "underline underline-offset-4" : ""
+        }`
+      }
+    >
+      {label}
+    </NavLink>
+  );

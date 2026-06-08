@@ -13,7 +13,11 @@ const IntroSection = () => {
     offset: ["start 80%", "end 20%"],
   });
 
-  const bgColor = useTransform(scrollYProgress, [0, 0.45], ["#32341D", "#D6B283"]);
+  const bgColor = useTransform(
+    scrollYProgress,
+    [0, 0.45],
+    ["#32341D", "#D6B283"],
+  );
 
   const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
@@ -44,14 +48,14 @@ const IntroSection = () => {
             opacity: textOpacity,
             y: textExitY,
           }}
-          className="max-w-[609px] text-left sub-text text-[#32341D]"
+          className="max-w-[609px] text-left  sub-text text-[#32341D]"
         >
           <LetterByLetter
             lines={[
-              "Every element is crafted to evoke wonder, from",
-              "the enveloping space and lighting to the music,",
-              " the service, and the way food and drinks are",
-              " presented and experienced.",
+              "Every detail is designed to evoke wonder. From",
+              "the architecture and ambient lighting to the",
+              "music, service, and culinary journey, each ",
+              "moment unfolds with intention.",
             ]}
             align="left"
           />

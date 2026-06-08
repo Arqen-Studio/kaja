@@ -52,8 +52,8 @@ function HomeAboutSection() {
         >
           <h1 className="heading !text-left">About</h1>
 
-          <p className="sub-text tracking-[-0.028em]">
-            KAJA is a contemporary, high-level destination...
+          <p className="sub-text  tracking-[-0.028em]">
+            KAJA is a contemporary dining experience where...
           </p>
 
           <Link
