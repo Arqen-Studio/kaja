@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import IntroSection from "../home/IntroSection"
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 type MenuItem = { name: string; price: string };

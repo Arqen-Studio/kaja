@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { LetterByLetter } from "./LetterByLetter";
 
 interface Props {
   title: string;
