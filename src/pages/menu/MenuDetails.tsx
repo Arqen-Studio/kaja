@@ -15,7 +15,7 @@ const MENU_DATA: Record<string, CategoryData> = {
   appetizers: {
     title: "Appetizers Menu",
     subtitle: "Start with the finest",
-    image: "/png/appetizers-menu.png",
+    image: "/png/appetizer-menu.png",
     sectionTitle: "Designed to Awaken the Palate",
     items: [
       { name: "Burrata & Tomato", price: "$ 18.00" },
@@ -75,7 +75,7 @@ const MENU_DATA: Record<string, CategoryData> = {
   "shot-pods": {
     title: "Specials Menu",
     subtitle: "Chef's specials",
-    image: "/png/shotpods-menu.png",
+    image: "/png/shotpod-menu.png",
     sectionTitle: "A Ritual Worth Sharing",
     items: [
       { name: "Chef's Tasting Duo", price: "$ 35.00" },
