@@ -1,23 +1,40 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-import MenuCard from "../../components/MenuCard";
 import { LetterByLetter } from "../../components/LetterByLetter";
+
+const IMAGES = [
+  { src: "/png/appetizers.png", slug: "appetizers" },
+  { src: "/png/mains.png",      slug: "mains" },
+  { src: "/png/pizzas.png",     slug: "pizzas" },
+  { src: "/png/dessert.png",    slug: "desserts" },
+  { src: "/png/cocktails.png",  slug: "cocktails" },
+  { src: "/png/shot-pods.png",  slug: "shot-pods" },
+];
 
 const MenuPage: React.FC = () => {
   return (
     <div className="menu-page pb-10">
-      <div className="heading  py-16">
-        <h1><LetterByLetter lines={["Explore our Menu"]} align="center" /></h1>
+      <div className="heading py-16">
+        <h1 className="mb-5">
+          <LetterByLetter lines={["Crafted to Be Shared"]} align="center" />
+        </h1>
+
+        <p className="base-text max-w-[300px] mx-auto text-center">
+          A menu designed to surprise, inspire, and leave a lasting impression.
+        </p>
       </div>
 
       <div className="mx-auto w-full px-6 md:px-[3vw]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-12">
-          <Link to="/menu-steaks">
-            <MenuCard title="Steaks" image="/png/steaks.png" />
-          </Link>
-          <MenuCard title="Appetizers" image="/png/appetizers.png" />
-          <MenuCard title="Desserts" image="/png/desserts.png" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {IMAGES.map(({ src, slug }) => (
+            <Link key={slug} to={`/menu/${slug}`}>
+              <img
+                src={src}
+                alt={slug}
+                className="w-full aspect-[434/653] object-cover hover:opacity-90 transition-opacity"
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<Main />}>
           <Route index element={<Home />} />
           <Route path="/menu" element={<MenuPage />} />
+          <Route path="/menu/:category" element={<MenuDetailPage />} />
           <Route path="/menu-steaks" element={<MenuDetailPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/reservation" element={<ReservationPage />} />

@@ -20,18 +20,13 @@ const MenuCard: React.FC<Props> = ({ title, image, onClick }) => {
       <img
         src={image}
         alt={title}
-        className={`w-full h-full object-cover opacity-70 transition-transform duration-400 ease-in ${
+        className={`w-full h-full object-cover transition-transform duration-400 ease-in ${
           hover ? "scale-105" : "scale-100"
         }`}
       />
 
       <div className="absolute inset-0 flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.65))]">
-        <h2 className="!font-normal heading m-0 text-[#D6B283]">
-          <LetterByLetter lines={[title]} align="center" />
-        </h2>
-
-        <div className="absolute bottom-[70px] justify-beween items-center flex gap-[18px] base-text text-[#D6B283]">
-          {" "}
+<div className="absolute bottom-[70px] justify-between items-center flex gap-[18px] base-text text-[#D6B283]">
           <span>Explore more</span>
           <span>Explore more</span>
           <span className="lg:block hidden">Explore more</span>
