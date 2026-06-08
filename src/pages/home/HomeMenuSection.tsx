@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const IMAGES = [
   "/png/menu/menu (1).png",
@@ -16,28 +16,15 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-function MenuTile({
-  src,
-  index,
-  columns,
-}: {
-  src: string;
-  index: number;
-  columns: 1 | 2 | 3;
-}) {
+function MenuTile({ src, index, columns }: { src: string; index: number; columns: 1 | 2 | 3 }) {
   const col = index % columns;
-
   return (
     <motion.div
       className="group"
       initial={{ y: 80, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-        delay: col * 0.18,
-      }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: col * 0.18 }}
     >
       <img
         src={src}
@@ -50,75 +37,105 @@ function MenuTile({
 }
 
 function HomeMenuSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState<1 | 2 | 3>(3);
 
   useEffect(() => {
     const mqMd = window.matchMedia("(min-width: 768px)");
     const mqSm = window.matchMedia("(min-width: 640px)");
-
     const update = () => setColumns(mqMd.matches ? 3 : mqSm.matches ? 2 : 1);
     update();
-
     mqMd.addEventListener("change", update);
     mqSm.addEventListener("change", update);
-    return () => {
-      mqMd.removeEventListener("change", update);
-      mqSm.removeEventListener("change", update);
-    };
+    return () => { mqMd.removeEventListener("change", update); mqSm.removeEventListener("change", update); };
   }, []);
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Travel enough to show all 3 rows (each ~630px + gaps) from a start of 360px
+  const cardsY = useTransform(scrollYProgress, [0.05, 0.95], ["0px", "-1600px"]);
+
   return (
-    <section className="relative w-full py-16">
-      <img
-        src="/png/trees-dark.png"
-        alt="trees"
-        aria-hidden
-        className="absolute right-0 z-[16] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw] pointer-events-none"
-      />
+    <div ref={sectionRef} className="relative h-[420vh]">
+      <div className="sticky top-0 h-screen overflow-hidden relative">
 
-      <div className="max-w-[950px] mx-auto px-4 pb-12">
-        <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
-          <h2 className="heading text-center md:!text-left">
-            <LetterByLetter lines={["Menu"]} align="left" />
-          </h2>
+        {/* Trees decoration */}
+        <img
+          src="/png/trees-dark.png"
+          alt="trees"
+          aria-hidden
+          className="absolute right-0 z-[5] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw] pointer-events-none"
+        />
 
-          <p className="sub-text text-center tracking-[-0.028em] md:text-left">
-            <LetterByLetter lines={["Dive into contemporary mediterranenan flavours..."]} align="left" />
-          </p>
+        {/* Gradient fade — same as navbar */}
+        <div
+          className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
+          style={{
+            height: "22vh",
+            background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
+          }}
+        />
 
-          <Link
-            to="/menu"
-            className="mt-2 base-text leading-[100%] hover:opacity-75 flex items-center justify-center gap-2 md:justify-start"
-          >
-            <motion.span
-              animate={{ x: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              Discover Our Menu
-            </motion.span>
-            <motion.span
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
-              className="flex items-center"
-            >
-              <MoveRight className="h-8 w-6 shrink-0" aria-hidden strokeWidth={1} />
-            </motion.span>
-          </Link>
-        </div>
-      </div>
+        {/* Header text */}
+        <div className="absolute top-0 left-0 right-0 z-20">
+          <div className="max-w-[950px] mx-auto w-full px-4 pt-16 pb-10">
+            <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
+              <h2 className="heading text-center md:!text-left">
+                <LetterByLetter lines={["Menu"]} align="left" />
+              </h2>
 
-      <div className="px-6 md:px-12">
-        <div className="mx-auto max-w-[1315px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
-            {IMAGES.map((src, index) => (
-              <MenuTile key={src} src={src} index={index} columns={columns} />
-            ))}
+              <p
+                className="sub-text text-center tracking-[-0.028em] md:text-left"
+                style={{ opacity: 0.55 }}
+              >
+                <LetterByLetter
+                  lines={["Dive into contemporary mediterranenan flavours..."]}
+                  align="left"
+                />
+              </p>
+
+              <Link
+                to="/menu"
+                className="mt-2 base-text leading-[100%] hover:opacity-75 flex items-center justify-center gap-2 md:justify-start"
+              >
+                <motion.span
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  Discover Our Menu
+                </motion.span>
+                <motion.span
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+                  className="flex items-center"
+                >
+                  <MoveRight className="h-8 w-6 shrink-0" aria-hidden strokeWidth={1} />
+                </motion.span>
+              </Link>
+            </div>
           </div>
         </div>
+
+        {/* Cards — scroll up behind header */}
+        <motion.div
+          style={{ y: cardsY }}
+          className="absolute left-0 right-0 top-[360px] z-10 px-6 md:px-12"
+        >
+          <div className="mx-auto max-w-[1315px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
+              {IMAGES.map((src, index) => (
+                <MenuTile key={src} src={src} index={index} columns={columns} />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
       </div>
-    </section>
+    </div>
   );
 }
 
 export default HomeMenuSection;
-

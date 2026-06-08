@@ -101,7 +101,7 @@ const HeroSection = () => {
           className="absolute inset-0 pointer-events-none z-10"
         >
           {/* Heading */}
-          <div className="absolute inset-x-0 top-[clamp(80px,8vh,120px)]">
+          <div className="absolute inset-x-0 top-[clamp(80px,8vh,120px)] 2xl:top-[220px]">
             <h1 className="heading mx-auto max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
               <LetterByLetter
                 lines={["Located in the", "heart of Ubud"]}
@@ -118,11 +118,11 @@ const HeroSection = () => {
             <p className="base-text max-w-[230px] text-start lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
               <LetterByLetter
                 lines={[
-                  "Contemporary Mediterranean ",
+                  "Contemporary Mediterranean",
                   "cuisine shaped by Italian",
-                  "craftsmanship, elevated ",
-                  "ngredients, and creative ",
-                  "expression. ",
+                  "craftsmanship, elevated",
+                  "ingredients, and creative",
+                  "expression.",
                 ]}
                 align="center"
               />
@@ -161,8 +161,8 @@ const HeroSection = () => {
                 ? `${vw * 0.075}px`
                 : "calc(50% - clamp(200px, 19vw, 480px))",
             width: vw < 768 ? `${vw * 0.85}px` : "clamp(400px,38vw,960px)",
-            top: "clamp(190px, 21vh, 240px)",
-            height: "calc(100vh - clamp(190px, 21vh, 240px))",
+            top: "clamp(210px, 23vh, 270px)",
+            height: "calc(100vh - clamp(210px, 23vh, 270px))",
           }}
           className="absolute overflow-hidden transform-gpu will-change-transform"
         >

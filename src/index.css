@@ -86,12 +86,12 @@ body {
 @layer components {
   .heading {
     font-family: "Moche", sans-serif;
-    font-weight: 200;
+    font-weight: 100;
     font-style: normal;
     text-align: center;
     vertical-align: middle;
 
-    @apply text-[30px] leading-[100%] tracking-[0]
+    @apply text-[30px] leading-[120%] tracking-[0]
            md:text-[48px];
   }
   .sub-text {

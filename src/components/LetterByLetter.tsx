@@ -104,7 +104,7 @@ export function LetterByLetter({
           className="block w-full"
           variants={lineContainer}
         >
-          {line.split(" ").map((word, wordIndex) => (
+          {line.split(" ").map((word, wordIndex, words) => (
             <span
               key={`word-${lineIndex}-${wordIndex}`}
               style={{
@@ -122,8 +122,9 @@ export function LetterByLetter({
                 </motion.span>
               ))}
 
-              {/* space after word */}
-              <span style={{ display: "inline" }}>&nbsp;</span>
+              {wordIndex < words.length - 1 && (
+                <span style={{ display: "inline" }}>&nbsp;</span>
+              )}
             </span>
           ))}
         </motion.span>

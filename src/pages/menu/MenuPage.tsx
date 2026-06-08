@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IMAGES = [
@@ -26,14 +27,22 @@ const MenuPage: React.FC = () => {
 
       <div className="mx-auto w-full px-6 md:px-[3vw]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {IMAGES.map(({ src, slug }) => (
-            <Link key={slug} to={`/menu/${slug}`}>
-              <img
-                src={src}
-                alt={slug}
-                className="w-full aspect-[434/653] object-cover hover:opacity-90 transition-opacity"
-              />
-            </Link>
+          {IMAGES.map(({ src, slug }, index) => (
+            <motion.div
+              key={slug}
+              initial={{ y: 80, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.15 }}
+            >
+              <Link to={`/menu/${slug}`}>
+                <img
+                  src={src}
+                  alt={slug}
+                  className="w-full aspect-[434/653] object-cover hover:opacity-90 transition-opacity"
+                />
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
