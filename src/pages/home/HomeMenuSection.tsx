@@ -46,7 +46,7 @@ function MenuTile({
 
 function HomeMenuSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [columns, setColumns] = useState<1 | 2 | 3>(3);
+  const [_columns, setColumns] = useState<1 | 2 | 3>(3);
 
   useEffect(() => {
     const mqMd = window.matchMedia("(min-width: 768px)");
@@ -58,7 +58,7 @@ function HomeMenuSection() {
     return () => { mqMd.removeEventListener("change", update); mqSm.removeEventListener("change", update); };
   }, []);
 
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [_isDesktop, setIsDesktop] = useState(false);
   const [cardTranslate, setCardTranslate] = useState(-1600);
 
   useEffect(() => {
