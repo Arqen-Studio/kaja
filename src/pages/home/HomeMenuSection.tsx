@@ -58,15 +58,21 @@ function HomeMenuSection() {
     return () => { mqMd.removeEventListener("change", update); mqSm.removeEventListener("change", update); };
   }, []);
 
+  const [isDesktop, setIsDesktop] = useState(false);
   const [cardTranslate, setCardTranslate] = useState(-1600);
 
   useEffect(() => {
     const calc = () => {
+      const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const availW = Math.min(1315, window.innerWidth - 96);
-      const cardWidth = availW / 3 - 22;
+      setIsDesktop(vw >= 768);
+      const cols = vw >= 768 ? 3 : vw >= 640 ? 2 : 1;
+      const rows = Math.ceil(9 / cols);
+      const availW = Math.min(1315, vw - 48);
+      const gap = cols > 1 ? 32 : 16;
+      const cardWidth = (availW - gap * (cols - 1)) / cols;
       const cardHeight = cardWidth * (653 / 434);
-      const gridHeight = cardHeight * 3 + 80;
+      const gridHeight = cardHeight * rows + gap * (rows - 1);
       const cardsStart = 360;
       const translate = -(cardsStart + gridHeight - vh);
       setCardTranslate(Math.min(translate, -400));
@@ -84,7 +90,7 @@ function HomeMenuSection() {
   const cardsY = useTransform(scrollYProgress, [0.05, 0.95], ["0px", `${cardTranslate}px`]);
 
   return (
-    <div ref={sectionRef} className="relative h-[420vh] xl:h-[260vh]">
+    <div ref={sectionRef} className="relative h-[700vh] md:h-[420vh] xl:h-[260vh]">
       <div className="sticky top-0 h-screen overflow-hidden relative">
 
         {/* Trees decoration */}
