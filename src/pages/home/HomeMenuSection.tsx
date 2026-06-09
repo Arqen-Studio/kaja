@@ -4,7 +4,6 @@ import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
-
 const IMAGES = [
   "/png/menu/menu (1).png",
   "/png/menu/menu (2).png",
@@ -46,26 +45,12 @@ function MenuTile({
 
 function HomeMenuSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [_columns, setColumns] = useState<1 | 2 | 3>(3);
-
-  useEffect(() => {
-    const mqMd = window.matchMedia("(min-width: 768px)");
-    const mqSm = window.matchMedia("(min-width: 640px)");
-    const update = () => setColumns(mqMd.matches ? 3 : mqSm.matches ? 2 : 1);
-    update();
-    mqMd.addEventListener("change", update);
-    mqSm.addEventListener("change", update);
-    return () => { mqMd.removeEventListener("change", update); mqSm.removeEventListener("change", update); };
-  }, []);
-
-  const [_isDesktop, setIsDesktop] = useState(false);
   const [cardTranslate, setCardTranslate] = useState(-1600);
 
   useEffect(() => {
     const calc = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      setIsDesktop(vw >= 768);
       const cols = vw >= 768 ? 3 : vw >= 640 ? 2 : 1;
       const rows = Math.ceil(9 / cols);
       const availW = Math.min(1315, vw - 48);
