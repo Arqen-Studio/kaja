@@ -221,7 +221,7 @@ const MenuDetailPage = () => {
           <LetterByLetter lines={data.titleLines} align="center" />
         </h1>
 
-        <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
+        <div className="mx-auto mb-0 grid w-full max-w-[1400px] grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
           <p className="hidden md:block base-text mx-auto max-w-[303px] text-center md:mt-[35%] md:px-2">
             <LetterByLetter lines={data.leftText} align="center" />
           </p>
@@ -260,7 +260,8 @@ const MenuDetailPage = () => {
                     fontWeight: 300,
                     fontSize: "24px",
                     lineHeight: "100%",
-                    color: "rgba(214, 178, 131, 0.85)",
+                    color: "var(--text)",
+                    opacity: 0.85,
                   }}
                 >
                   {sec.section}
@@ -276,7 +277,7 @@ const MenuDetailPage = () => {
                       fontWeight: 400,
                       fontSize: "16px",
                       lineHeight: "300%",
-                      color: "#D6B283",
+                      color: "var(--text)",
                     }}
                   >
                     <span className="flex-1">
