@@ -4,6 +4,7 @@ import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
+
 const IMAGES = [
   "/png/menu/menu (1).png",
   "/png/menu/menu (2).png",
@@ -16,16 +17,23 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-function MenuTile({ src, index, columns }: { src: string; index: number; columns: 1 | 2 | 3 }) {
-  const col = index % columns;
+function MenuTile({
+  src,
+  index,
+  scrollYProgress,
+}: {
+  src: string;
+  index: number;
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  // Each card gets its own narrow reveal window, staggered by index
+  const start = 0.05 + index * 0.04;
+  const end = start + 0.12;
+  const y = useTransform(scrollYProgress, [start, end], [80, 0]);
+  const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+
   return (
-    <motion.div
-      className="group"
-      initial={{ y: 80, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: col * 0.18 }}
-    >
+    <motion.div className="group" style={{ y, opacity }}>
       <img
         src={src}
         alt={`menu-${index + 1}`}
@@ -50,16 +58,33 @@ function HomeMenuSection() {
     return () => { mqMd.removeEventListener("change", update); mqSm.removeEventListener("change", update); };
   }, []);
 
+  const [cardTranslate, setCardTranslate] = useState(-1600);
+
+  useEffect(() => {
+    const calc = () => {
+      const vh = window.innerHeight;
+      const availW = Math.min(1315, window.innerWidth - 96);
+      const cardWidth = availW / 3 - 22;
+      const cardHeight = cardWidth * (653 / 434);
+      const gridHeight = cardHeight * 3 + 80;
+      const cardsStart = 360;
+      const translate = -(cardsStart + gridHeight - vh);
+      setCardTranslate(Math.min(translate, -400));
+    };
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  // Travel enough to show all 3 rows (each ~630px + gaps) from a start of 360px
-  const cardsY = useTransform(scrollYProgress, [0.05, 0.95], ["0px", "-1600px"]);
+  const cardsY = useTransform(scrollYProgress, [0.05, 0.95], ["0px", `${cardTranslate}px`]);
 
   return (
-    <div ref={sectionRef} className="relative h-[420vh]">
+    <div ref={sectionRef} className="relative h-[420vh] xl:h-[260vh]">
       <div className="sticky top-0 h-screen overflow-hidden relative">
 
         {/* Trees decoration */}
@@ -127,7 +152,7 @@ function HomeMenuSection() {
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
               {IMAGES.map((src, index) => (
-                <MenuTile key={src} src={src} index={index} columns={columns} />
+                <MenuTile key={src} src={src} index={index} scrollYProgress={scrollYProgress} />
               ))}
             </div>
           </div>

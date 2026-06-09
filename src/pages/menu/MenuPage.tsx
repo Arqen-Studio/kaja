@@ -32,8 +32,8 @@ const MenuPage: React.FC = () => {
               key={slug}
               initial={{ y: 80, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.15 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.15 }}
             >
               <Link to={`/menu/${slug}`}>
                 <img

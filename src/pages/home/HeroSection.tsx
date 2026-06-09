@@ -101,7 +101,7 @@ const HeroSection = () => {
           className="absolute inset-0 pointer-events-none z-10"
         >
           {/* Heading */}
-          <div className="absolute inset-x-0 top-[clamp(80px,8vh,120px)] 2xl:top-[220px]">
+          <div className="absolute inset-x-0 top-[clamp(70px,8vh,160px)]">
             <h1 className="heading mx-auto max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
               <LetterByLetter
                 lines={["Located in the", "heart of Ubud"]}
@@ -110,12 +110,15 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Left text — anchored to left edge of video */}
+          {/* Left text — vertically centered on the video */}
           <div
-            className="absolute hidden md:block top-[40%]"
-            style={{ right: "calc(50% + clamp(200px, 19vw, 480px) + 24px)" }}
+            className="absolute hidden md:block -translate-y-1/2"
+            style={{
+              top: "56vh",
+              right: "calc(50% + clamp(200px, 19vw, 480px) + 56px)",
+            }}
           >
-            <p className="base-text max-w-[230px] text-start lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
+            <p className="base-text max-w-[230px] text-center lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
               <LetterByLetter
                 lines={[
                   "Contemporary Mediterranean",
@@ -129,15 +132,18 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right text — anchored to right edge of video */}
+          {/* Right text — vertically centered on the video */}
           <div
-            className="absolute hidden md:block top-[40%]"
-            style={{ left: "calc(50% + clamp(200px, 19vw, 480px) + 24px)" }}
+            className="absolute hidden md:block -translate-y-1/2"
+            style={{
+              top: "56vh",
+              left: "calc(50% + clamp(200px, 19vw, 480px) + 56px)",
+            }}
           >
             <p className="base-text max-w-[303px] text-center lg:max-w-[340px] xl:max-w-[380px] 2xl:max-w-[420px]">
               <LetterByLetter
                 lines={[
-                  "More than a restaurant, KAJA is an ",
+                  "More than a restaurant, KAJA is an",
                   "immersive destination where",
                   "architecture, atmosphere,",
                   "entertainment, and dining become",
@@ -161,8 +167,8 @@ const HeroSection = () => {
                 ? `${vw * 0.075}px`
                 : "calc(50% - clamp(200px, 19vw, 480px))",
             width: vw < 768 ? `${vw * 0.85}px` : "clamp(400px,38vw,960px)",
-            top: "clamp(210px, 23vh, 270px)",
-            height: "calc(100vh - clamp(210px, 23vh, 270px))",
+            top: "clamp(200px, 25vh, 440px)",
+            height: "calc(100vh - clamp(200px, 25vh, 440px))",
           }}
           className="absolute overflow-hidden transform-gpu will-change-transform"
         >
