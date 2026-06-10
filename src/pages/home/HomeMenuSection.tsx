@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+// useTransform kept for cardsY
 import { LetterByLetter } from "../../components/LetterByLetter";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,30 +17,16 @@ const IMAGES = [
   "/png/menu/menu (9).png",
 ];
 
-function MenuTile({
-  src,
-  index,
-  scrollYProgress,
-}: {
-  src: string;
-  index: number;
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-}) {
-  // Each card gets its own narrow reveal window, staggered by index
-  const start = 0.05 + index * 0.04;
-  const end = start + 0.12;
-  const y = useTransform(scrollYProgress, [start, end], [80, 0]);
-  const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-
+function MenuTile({ src, index }: { src: string; index: number }) {
   return (
-    <motion.div className="group" style={{ y, opacity }}>
+    <div className="group">
       <img
         src={src}
         alt={`menu-${index + 1}`}
         className="w-full aspect-[434/653] object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
-    </motion.div>
+    </div>
   );
 }
 
@@ -143,7 +130,7 @@ function HomeMenuSection() {
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
               {IMAGES.map((src, index) => (
-                <MenuTile key={src} src={src} index={index} scrollYProgress={scrollYProgress} />
+                <MenuTile key={src} src={src} index={index} />
               ))}
             </div>
           </div>
