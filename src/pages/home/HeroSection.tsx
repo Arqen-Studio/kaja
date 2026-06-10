@@ -1,7 +1,6 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { LetterByLetter } from "../../components/LetterByLetter";
-import HeroMask from "../../components/HeroMask";
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -89,8 +88,6 @@ const HeroSection = () => {
     [0.2, 0.9],
     ["brightness(1)", "brightness(0.8)"],
   );
-  // Mask opacity — visible from start, builds on scroll
-  const maskOpacity = useTransform(smoothProgress, [0, 0.85], [0.2, 1]);
 
   return (
     <section ref={ref} className="h-[240vh]">
@@ -183,14 +180,6 @@ const HeroSection = () => {
             playsInline
             preload="auto"
           />
-          {/* Inline SVG mask — gold pattern, transparent bg */}
-          <motion.div
-            aria-hidden
-            style={{ opacity: maskOpacity }}
-            className="absolute inset-0 w-full h-full pointer-events-none"
-          >
-            <HeroMask />
-          </motion.div>
         </motion.div>
       </div>
     </section>
