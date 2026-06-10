@@ -33,7 +33,7 @@ const FooterSection: React.FC = () => {
           {[
             {
               title: "Contact",
-              lines: ["+00 123 456 7890", "support@kaja.com"],
+              lines: ["+62 858 7604 7835", "info@kajabynuma.com"],
             },
             {
               title: "Location",
@@ -41,12 +41,8 @@ const FooterSection: React.FC = () => {
             },
             {
               title: "Follow",
-              lines: ["Facebook", "Instagram", "TikTok"],
+              lines: ["Instagram", "Tiktok"],
               link: "https://www.instagram.com/kajabynuma?igsh=MTh1eHJycTdhaW1jeA%3D%3D",
-            },
-            {
-              title: "Language",
-              lines: ["English", "Italian"],
             },
           ].map((section, i) => (
             <div key={i} className="base-text text-sm space-y-2">
