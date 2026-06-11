@@ -32,14 +32,14 @@ function HomeAboutSection() {
           src="/png/home-about-left.png"
           alt="about-image-1"
           style={{ opacity: imgOpacity }}
-          className="relative z-10"
+          className="relative z-10 h-full w-[40%] object-cover flex-shrink-0"
         />
 
         <motion.img
           src="/png/home-about-right.png"
           alt="about-image-2"
           style={{ opacity: imgOpacity }}
-          className="hidden md:block relative z-10"
+          className="hidden md:block relative z-10 h-full w-[20%] object-cover flex-shrink-0"
         />
 
         <motion.div
