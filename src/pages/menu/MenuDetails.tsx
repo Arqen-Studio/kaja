@@ -191,19 +191,19 @@ const MENU_DATA: Record<string, CategoryData> = {
       {
         section: "Cocktail Pods",
         items: [
-          { name: "Margarita", price: "80" },
-          { name: "Mojito", price: "80" },
-          { name: "Espresso Martini", price: "80" },
-          { name: "Daiquiri", price: "80" },
-          { name: "Lychee Martini", price: "80" },
-          { name: "Cosmopolitan", price: "80" },
+          { name: "Margarita", price: "80", description: "Jose Cuervo Especial, Triple Sec, Lime Juice, Simple Syrup, Sodium Alginate, Calcium Lactate" },
+          { name: "Mojito", price: "95", description: "Light Rum, Simple Syrup, Lime Juice, Sodium Alginate, Calcium Lactate" },
+          { name: "Espresso Martini", price: "80", description: "Vodka, Coffee Liqueur, Espresso, Sodium Alginate, Calcium Lactate" },
+          { name: "Daiquiri", price: "80", description: "Light Rum, Triple Sec, Lime Juice, Simple Syrup, Sodium Alginate, Calcium Lactate" },
+          { name: "Lychee Martini", price: "80", description: "Vodka, Lychee Fruit, Lychee Liqueur, Lime Juice, Simple Syrup, Sodium Alginate, Calcium Lactate" },
+          { name: "Cosmopolitan", price: "80", description: "Vodka, Triple Sec, Lime Juice, Simple Syrup, Cranberry Juice, Sodium Alginate, Calcium Lactate" },
         ],
       },
       {
         section: "Mocktail Pods",
         items: [
-          { name: "Trilogy", price: "35" },
-          { name: "First Light", price: "35" },
+          { name: "Triloguy", price: "35", description: "Yuzu Jam, Calamansi Puree, Spiced Syrup, Lemon Juice, Sodium Alginate, Calcium Lactate" },
+          { name: "First Light", price: "35", description: "Hibiscus Syrup, Lemon Juice, Peach Cordial, Sodium Alginate, Calcium Lactate" },
         ],
       },
     ],
