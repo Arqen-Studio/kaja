@@ -62,25 +62,25 @@ const Stories = () => {
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
         {/* Mobile: horizontal scroll. Desktop: 2-col grid */}
-        <div className="flex md:grid md:grid-cols-2 gap-6 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible px-6 scroll-smooth snap-x snap-mandatory pb-4 md:pb-0">
-          <div className="flex-shrink-0 w-[85vw] md:w-auto snap-start">
+        <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible scroll-smooth snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden">
+          <div className="flex-shrink-0 snap-start pl-6 md:pl-0" style={{ width: "clamp(260px, 80vw, 600px)" }}>
             <img
               src="/png/seafood.png"
               alt="seafood"
               className="w-full object-cover"
-              style={{ height: "420px", objectFit: "cover" }}
+              style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
             />
             <h1 className="heading !text-left mt-6">Sea Food</h1>
             <p className="base-text mt-4">
               Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
             </p>
           </div>
-          <div className="flex-shrink-0 w-[85vw] md:w-auto snap-start flex flex-col md:items-end">
+          <div className="flex-shrink-0 snap-start pr-6 md:pr-0 flex flex-col md:items-end" style={{ width: "clamp(260px, 80vw, 600px)" }}>
             <img
               src="/png/ocean-plate.png"
               alt="ocean plate"
               className="w-full object-cover"
-              style={{ height: "420px", objectFit: "cover" }}
+              style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
             />
             <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
           </div>
