@@ -102,8 +102,8 @@ const Stories = () => {
         <div className="flex justify-between flex-col items-center md:flex-row gap-10">
           <div className="max-w-[590px]">
             <img
-              src="/png/architecture.png"
-              alt="architecture"
+              src="/png/seafood.png"
+              alt="seafood"
               className="w-full py-6"
             />
             <h1 className="heading">
