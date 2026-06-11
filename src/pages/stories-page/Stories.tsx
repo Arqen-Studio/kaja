@@ -58,7 +58,7 @@ const Stories = () => {
 
 
       <div className="w-full mb-25">
-        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16 px-6">
+        <h1 className="text-[7vw] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16 px-6 whitespace-nowrap">
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
         {/* overflow-hidden wrapper prevents page-level horizontal scroll */}
