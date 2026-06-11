@@ -33,33 +33,35 @@ const FooterSection: React.FC = () => {
           {[
             {
               title: "Contact",
-              lines: ["+62 858 7604 7835", "info@kajabynuma.com"],
+              lines: [{ label: "+62 858 7604 7835" }, { label: "info@kajabynuma.com" }],
             },
             {
               title: "Location",
-              lines: ["Ubud, Bali"],
+              lines: [{ label: "Ubud, Bali" }],
             },
             {
               title: "Follow",
-              lines: ["Instagram", "Tiktok"],
-              link: "https://www.instagram.com/kajabynuma?igsh=MTh1eHJycTdhaW1jeA%3D%3D",
+              lines: [
+                { label: "Instagram", href: "https://www.instagram.com/kajabynuma?igsh=MTh1eHJycTdhaW1jeA%3D%3D" },
+                { label: "Tiktok", href: "https://www.tiktok.com/@kajabynuma?_r=1&_t=ZN-975nL06IOfu" },
+              ],
             },
           ].map((section, i) => (
             <div key={i} className="base-text text-sm space-y-2">
               <p>{section.title}</p>
               {section.lines.map((line, idx) =>
-                "link" in section ? (
+                "href" in line ? (
                   <a
                     key={idx}
-                    href={section.link}
+                    href={line.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block hover:opacity-70 transition-opacity"
                   >
-                    {line}
+                    {line.label}
                   </a>
                 ) : (
-                  <p key={idx}>{line}</p>
+                  <p key={idx}>{line.label}</p>
                 )
               )}
             </div>

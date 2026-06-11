@@ -293,8 +293,8 @@ const MenuDetailPage = () => {
                         fontWeight: 300,
                         fontSize: "14px",
                         lineHeight: "140%",
-                        color: "#D6B283",
-                        opacity: 0.65,
+                        color: "var(--text)",
+                        // opacity: 0.65,
                         display: "block",
                         maxWidth: "75%",
                       }}>
