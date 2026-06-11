@@ -120,11 +120,11 @@ const MENU_DATA: Record<string, CategoryData> = {
       {
         section: "",
         items: [
-          { name: "Burnt Cheesecake", price: "90" },
-          { name: "Warm Chocolate Soufflé", price: "90" },
-          { name: "Tiramisù", price: "95" },
-          { name: "Carrot Cake", price: "90" },
-          { name: "Lemon Meringue Tart", price: "90" },
+          { name: "Burnt Cheesecake", price: "90", description: "Dark Chocolate and Coffee Sauce" },
+          { name: "Warm Chocolate Soufflé", price: "90", description: "Vanilla Ice Cream" },
+          { name: "Tiramisù", price: "95", description: "Coconut Almond Sponge" },
+          { name: "Carrot Cake", price: "90", description: "Spiced Carrot Cake · Citrus Cream Cheese · Candied Ginger · Salted Caramel" },
+          { name: "Lemon Meringue Tart", price: "90", description: "Italian Meringue Dome · Cucumber Ice Cream" },
         ],
       },
     ],
