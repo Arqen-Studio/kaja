@@ -56,44 +56,6 @@ const Stories = () => {
         </p>
       </div>
 
-      <div className="flex w-full py-10 px-6 md:px-[3vw]">
-        <div className="mx-auto max-w-6xl flex md:flex-row flex-col gap-10 justify-center items-start">
-          <div className="flex-1">
-            <img
-              src="/png/seafood.png"
-              alt="food"
-              className="w-full object-cover"
-              style={{ height: "420px", objectFit: "cover" }}
-            />
-            <div className="mt-6 flex flex-col items-start mb-4">
-              <h3 className="heading font-extralight mb-3">
-                <LetterByLetter lines={["Sea Food"]} align="left" />
-              </h3>
-              <p className="base-text max-w-[350px]">
-                Seafood plays a central role in KAJA's culinary identity,
-                inspiring dishes that balance Mediterranean tradition with
-                contemporary technique. From delicate crudos and vibrant
-                ceviches to carefully sourced fish and shellfish, each creation
-                reflects our commitment to freshness, craftsmanship, and
-                unforgettable flavour.
-              </p>
-            </div>
-          </div>
-          <div className="flex-1 flex flex-col">
-            <img
-              src="/png/ocean-plate.png"
-              alt="Ocean To Plate"
-              className="object-contain"
-              style={{ width: "394px", height: "572px", maxWidth: "100%" }}
-            />
-            <div className="mt-6 flex flex-col items-center md:items-start mb-4">
-              <h3 className="heading font-extralight mb-3">
-                Ocean To Plate
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-[1400px] mb-25">
         <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-extralight leading-[120%] tracking-[-2.8%] ">
