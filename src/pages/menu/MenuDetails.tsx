@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
-type MenuItem = { name: string; price: string };
+type MenuItem = { name: string; price: string; description?: string };
 type MenuSection = { section: string; items: MenuItem[] };
 type CategoryData = {
   title: string;
@@ -28,26 +28,26 @@ const MENU_DATA: Record<string, CategoryData> = {
       {
         section: "Cold & Raw",
         items: [
-          { name: "Tuna Crudo", price: "130" },
-          { name: "Scallop Ceviche", price: "145" },
-          { name: "Yellowtail Tiradito", price: "110" },
-          { name: "Salmon Crudo", price: "125" },
-          { name: "Beef Carpaccio", price: "195" },
-          { name: "Beetroot Beef Tartare", price: "135" },
-          { name: "Burrata", price: "175" },
-          { name: "House Guacamole", price: "90" },
-          { name: "Torched Tuna", price: "120" },
+          { name: "Tuna Crudo", price: "130", description: "Watermelon gazpacho · pickled watermelon skin · mint" },
+          { name: "Scallop Ceviche", price: "145", description: "Coconut yuzu tiger's milk · grilled peppers · cassava chips" },
+          { name: "Yellowtail Tiradito", price: "110", description: "Sesame ponzu · fine cucumber brunoise" },
+          { name: "Salmon Crudo", price: "125", description: "Truffle ponzu · orange segments · pickled red onion · sesame seeds" },
+          { name: "Beef Carpaccio", price: "195", description: "Coconut yuzu tiger's milk · grilled peppers · cassava chips" },
+          { name: "Beetroot Beef Tartare", price: "135", description: "Beetroot ravioli · horseradish cream · pickled mustard seeds" },
+          { name: "Burrata", price: "175", description: "Sundried tomato · tomato water · basil pesto & oil · toasted almonds" },
+          { name: "House Guacamole", price: "90", description: "Pomelo pearls · tomato jam · micro coriander · pink quinoa crackers" },
+          { name: "Torched Tuna", price: "120", description: "Passionfruit sauce · nikkei aioli · pickled daikon & carrot" },
         ],
       },
       {
         section: "Hot Starters",
         items: [
-          { name: "Sea Lollipop", price: "95" },
-          { name: "Miso Aubergine", price: "110" },
-          { name: "Truffle Arancini", price: "110" },
-          { name: "Grilled Prawn", price: "170" },
-          { name: "Yuzu Scallop", price: "190" },
-          { name: "Slow Braised Oxtail", price: "195" },
+          { name: "Sea Lollipop", price: "95", description: "Squid & prawn · okonomi sauce" },
+          { name: "Miso Aubergine", price: "110", description: "Tomato sauce · fresh mozzarella · herb croutons · toasted walnuts" },
+          { name: "Truffle Arancini", price: "110", description: "Fresh mozzarella · aji amarillo mayo · micro basil" },
+          { name: "Grilled Prawn", price: "170", description: "Truffle cauliflower purée · tobiko · fried leeks" },
+          { name: "Yuzu Scallop", price: "190", description: "Yuzu beurre blanc · salmon roe · fennel fronds" },
+          { name: "Slow Braised Oxtail", price: "195", description: "Crispy plantain · red chilli relish · fresh coriander" },
         ],
       },
     ],
@@ -269,23 +269,35 @@ const MenuDetailPage = () => {
               ) : null}
               <ul className="flex flex-col w-full">
                 {sec.items.map((item, idx) => (
-                  <li
-                    key={item.name}
-                    className="flex justify-between"
-                    style={{
-                      fontFamily: "Moche, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "16px",
-                      lineHeight: "300%",
-                      color: "var(--text)",
-                    }}
-                  >
-                    <span className="flex-1">
-                      <LetterByLetter text={item.name} align="left" stagger={0.03} delayChildren={idx * 0.06} />
-                    </span>
-                    <span className="flex-shrink-0">
-                      <LetterByLetter text={item.price} align="right" stagger={0.03} delayChildren={idx * 0.06 + 0.1} />
-                    </span>
+                  <li key={item.name} className="flex flex-col mb-3">
+                    <div
+                      className="flex justify-between"
+                      style={{
+                        fontFamily: "Moche, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        lineHeight: "200%",
+                        color: "var(--text)",
+                      }}
+                    >
+                      <span className="flex-1">
+                        <LetterByLetter text={item.name} align="left" stagger={0.03} delayChildren={idx * 0.06} />
+                      </span>
+                      <span className="flex-shrink-0">
+                        <LetterByLetter text={item.price} align="right" stagger={0.03} delayChildren={idx * 0.06 + 0.1} />
+                      </span>
+                    </div>
+                    {item.description && (
+                      <span style={{
+                        fontFamily: "Moche, sans-serif",
+                        fontWeight: 300,
+                        fontSize: "14px",
+                        lineHeight: "100%",
+                        color: "#D6B283",
+                      }}>
+                        {item.description}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
