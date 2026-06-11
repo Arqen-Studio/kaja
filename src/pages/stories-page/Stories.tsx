@@ -66,7 +66,7 @@ const Stories = () => {
             <img
               src="/png/seafood.png"
               alt="seafood"
-              className="w-full h-auto"
+              style={{ width: "590.5px", height: "572px", objectFit: "cover" }}
             />
             <h1 className="heading !text-left mt-6">Sea Food</h1>
             <p className="base-text mt-4">
