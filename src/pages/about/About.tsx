@@ -11,25 +11,6 @@ const fadeIn = {
   visible: { opacity: 1 },
 } as const;
 
-const tileContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.03,
-      delayChildren: 0.08,
-    },
-  },
-} as const;
-
-const tile = {
-  hidden: { opacity: 1, scale: 1, filter: "blur(0px)" },
-  visible: {
-    opacity: 0,
-    scale: 0.9,
-    filter: "blur(2px)",
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-} as const;
 
 function About() {
   return (
