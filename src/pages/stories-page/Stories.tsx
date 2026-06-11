@@ -60,17 +60,15 @@ const Stories = () => {
       </div>
 
       <div className="flex w-full py-10 px-6 md:px-[3vw]">
-        <div className="mx-auto max-w-6xl flex md:flex-row flex-col gap-10 justify-center items-center ">
-          <div>
-            <div>
-              <img
-                src="/png/seafood.png"
-                alt="food"
-                className="w-full max-w-[520px] object-cover"
-              />
-            </div>
-
-            <div className="mt-6 flex flex-col items-center  md:items-start mb-4">
+        <div className="mx-auto max-w-6xl flex md:flex-row flex-col gap-10 justify-center items-start">
+          <div className="flex-1">
+            <img
+              src="/png/seafood.png"
+              alt="food"
+              className="w-full object-cover"
+              style={{ height: "420px", objectFit: "cover" }}
+            />
+            <div className="mt-6 flex flex-col items-start mb-4">
               <h3 className="heading font-extralight mb-3">
                 <LetterByLetter lines={["Sea Food"]} align="left" />
               </h3>
@@ -84,11 +82,12 @@ const Stories = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className="flex-1">
             <img
               src="/png/ocean-plate.png"
               alt="Ocean To Plate"
-              className="w-full max-w-[520px] object-cover"
+              className="w-full object-cover"
+              style={{ height: "420px", objectFit: "cover" }}
             />
             <div className="mt-6 flex flex-col items-center md:items-start mb-4">
               <h3 className="heading font-extralight mb-3">
