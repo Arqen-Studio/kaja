@@ -82,12 +82,12 @@ const Stories = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 flex flex-col">
             <img
               src="/png/ocean-plate.png"
               alt="Ocean To Plate"
-              className="w-full object-cover"
-              style={{ height: "420px", objectFit: "cover" }}
+              className="object-contain"
+              style={{ width: "394px", height: "572px", maxWidth: "100%" }}
             />
             <div className="mt-6 flex flex-col items-center md:items-start mb-4">
               <h3 className="heading font-extralight mb-3">
