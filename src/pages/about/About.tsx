@@ -127,18 +127,10 @@ function About() {
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
-          <div className="relative z-10 flex w-full items-center justify-center ml-6 py-12 md:max-w-[600px] md:pr-10">
-            <p className="sub-text">
+          <div className="relative z-10 flex w-full items-center justify-center px-6 py-10 md:ml-6 md:py-12 md:max-w-[600px] md:pr-10">
+            <p className="sub-text w-full">
               <span className="block w-full mb-8">A Future Icon of Ubud</span>
-              <LetterByLetter
-                lines={[
-                  "Our vision is to be one of Bali's most",
-                  "memorable destinations; a place woven",
-                  "into Ubud's identity, celebrated for its",
-                  "creativity, atmosphere, and experiences.",
-                ]}
-                align="left"
-              />
+              Our vision is to be one of Bali's most memorable destinations; a place woven into Ubud's identity, celebrated for its creativity, atmosphere, and experiences.
             </p>
           </div>
         </motion.div>
@@ -159,16 +151,16 @@ function About() {
           alt="chef"
           className="max-full object-cover "
         />
-        <div className="flex flex-col md:items-start items-center  min-w-[100px] px-4 py-6 ml-4 mr-12">
-          <div className="py-4 flex flex-col items-center md:items-start mb-4 ">
-            <h1 className="heading ">
-              <LetterByLetter lines={["Michail "]} align="left" />
+        <div className="flex flex-col md:items-start items-start min-w-[100px] px-6 py-6 md:ml-4 md:mr-12">
+          <div className="py-4 flex flex-col items-start mb-4">
+            <h1 className="heading !text-left">
+              <LetterByLetter lines={["Michail"]} align="left" />
             </h1>
-            <h1 className="heading ">
+            <h1 className="heading !text-left">
               <LetterByLetter lines={["Pavourdjiev"]} align="left" />
             </h1>
           </div>
-          <p className="font-moche text-[16px] font-normal text-center md:text-start leading-[120%] max-w-[395px] pr-10">
+          <p className="font-moche text-[16px] font-normal text-left leading-[140%] max-w-[395px] md:pr-10">
             Michail Pavourdjiev began his culinary journey with a passion for
             hospitality and a deep appreciation for seafood. After graduating
             with a degree in Restaurant and Hospitality Management, he built his
