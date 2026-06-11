@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IMAGES = [
-  { src: "/png/appetizers.png", slug: "appetizers" },
-  { src: "/png/mains.png",      slug: "mains" },
-  { src: "/png/pizzas.png",     slug: "pizzas" },
-  { src: "/png/dessert.png",    slug: "desserts" },
-  { src: "/png/cocktails.png",  slug: "cocktails" },
-  { src: "/png/shot-pods.png",  slug: "shot-pods" },
+  { src: "/png/menu/appetizers.png", slug: "appetizers" },
+  { src: "/png/menu/mains.png",      slug: "mains" },
+  { src: "/png/menu/pizzas.png",     slug: "pizzas" },
+  { src: "/png/menu/dessert.png",    slug: "desserts" },
+  { src: "/png/menu/cocktails.png",  slug: "cocktails" },
+  { src: "/png/menu/shot-pods.png",  slug: "shot-pods" },
 ];
 
 const MenuPage: React.FC = () => {
