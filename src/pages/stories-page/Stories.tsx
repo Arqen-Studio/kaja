@@ -70,24 +70,24 @@ const Stories = () => {
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
             <div className="flex-shrink-0 w-6 md:hidden" aria-hidden="true" />
-            <div className="flex-shrink-0 snap-start md:w-auto" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 snap-start md:!w-full" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/seafood.png"
                 alt="seafood"
-                className="w-full object-cover"
-                style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
+                className="w-full object-cover h-[clamp(280px,55vw,572px)] md:h-[572px]"
+                style={{ objectFit: "cover" }}
               />
               <h1 className="heading !text-left mt-6">Sea Food</h1>
               <p className="base-text mt-4">
                 Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
               </p>
             </div>
-            <div className="flex-shrink-0 snap-start md:w-auto flex flex-col md:items-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 snap-start md:!w-full flex flex-col md:items-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/ocean-plate.png"
                 alt="ocean plate"
-                className="w-full object-cover"
-                style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
+                className="w-full object-cover h-[clamp(280px,55vw,572px)] md:h-[572px]"
+                style={{ objectFit: "cover" }}
               />
               <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
             </div>
