@@ -75,7 +75,7 @@ function About() {
       </div>
 
 
-      <div className="w-full pb-10 px-6 md:px-[3vw]">
+      <div className="w-full pb-10 pt-16 md:pt-24 px-6 md:px-[3vw]">
         <motion.div
           variants={fadeUp}
           initial="hidden"
