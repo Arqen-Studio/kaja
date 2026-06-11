@@ -61,8 +61,8 @@ const Stories = () => {
         <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16">
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
-        <div className="flex justify-between flex-col items-start md:flex-row gap-10 px-6 md:px-[3vw]">
-          <div className="flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-[3vw]">
+          <div>
             <img
               src="/png/seafood.png"
               alt="seafood"
@@ -74,12 +74,12 @@ const Stories = () => {
               Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
             </p>
           </div>
-          <div className="flex-1 flex flex-col">
+          <div>
             <img
               src="/png/ocean-plate.png"
               alt="ocean plate"
-              className="w-full"
-              style={{ maxHeight: "572px", objectFit: "contain", objectPosition: "top left" }}
+              className="w-full object-cover"
+              style={{ height: "572px", objectFit: "cover" }}
             />
             <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
           </div>
