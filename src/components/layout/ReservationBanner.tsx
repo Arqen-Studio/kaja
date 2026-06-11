@@ -16,7 +16,8 @@ function ReservationBanner() {
           style={{
             fontFamily: "Moche, sans-serif",
             fontWeight: 300,
-            fontSize: "clamp(24px, 3.5vw, 48px)",
+            fontSize: "clamp(16px, 4.5vw, 48px)",
+            whiteSpace: "nowrap",
             letterSpacing: "0",
             lineHeight: "100%",
             color: "#D6B283",
