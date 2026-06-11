@@ -294,6 +294,7 @@ const MenuDetailPage = () => {
                         fontSize: "14px",
                         lineHeight: "100%",
                         color: "#D6B283",
+                        opacity: 0.65,
                       }}>
                         {item.description}
                       </span>
