@@ -29,14 +29,14 @@ function HomeAboutSection() {
     <div ref={ref} className="max-w-[950px] py-16 mx-auto">
       <div className="w-full flex md:flex-row flex-col md:h-[322px] justify-center gap-4 border border-[#32341D] dark:border-[#D6B283] overflow-hidden relative">
         <motion.img
-          src="/png/about-image-1.png"
+          src="/png/home-about-left.png"
           alt="about-image-1"
           style={{ opacity: imgOpacity }}
           className="relative z-10"
         />
 
         <motion.img
-          src="/png/about-image-2.png"
+          src="/png/home-about-right.png"
           alt="about-image-2"
           style={{ opacity: imgOpacity }}
           className="hidden md:block relative z-10"
