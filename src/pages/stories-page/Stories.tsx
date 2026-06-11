@@ -58,7 +58,7 @@ const Stories = () => {
 
 
       <div className="max-w-[1400px] mb-25">
-        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-light leading-[120%] tracking-[-2.8%] mb-16">
+        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16">
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
         <div className="flex justify-between flex-col items-center md:flex-row gap-10">
