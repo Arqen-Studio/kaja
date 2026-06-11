@@ -50,9 +50,8 @@ const Stories = () => {
         </div>
       </div>
       <div className="max-w-[938px] pb-10 px-6 w-full">
-        <p className="heading !text-center">
-          Exploring the people, creativity, and inspiration behind the KAJA
-          experience.
+        <p className="heading !text-center" style={{ fontSize: "clamp(18px, 4.5vw, 60px)" }}>
+          Exploring the people, creativity, and inspiration behind the KAJA experience.
         </p>
       </div>
 
