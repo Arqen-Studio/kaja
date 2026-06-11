@@ -57,32 +57,42 @@ const Stories = () => {
       </div>
 
 
-      <div className="max-w-[1400px] mb-25">
-        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16">
+      <div className="w-full mb-25">
+        <h1 className="text-[70px] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16 px-6">
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
-        {/* Mobile: horizontal scroll. Desktop: 2-col grid */}
-        <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible scroll-smooth snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden">
-          <div className="flex-shrink-0 snap-start pl-6 md:pl-0" style={{ width: "clamp(260px, 80vw, 600px)" }}>
-            <img
-              src="/png/seafood.png"
-              alt="seafood"
-              className="w-full object-cover"
-              style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
-            />
-            <h1 className="heading !text-left mt-6">Sea Food</h1>
-            <p className="base-text mt-4">
-              Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
-            </p>
-          </div>
-          <div className="flex-shrink-0 snap-start pr-6 md:pr-0 flex flex-col md:items-end" style={{ width: "clamp(260px, 80vw, 600px)" }}>
-            <img
-              src="/png/ocean-plate.png"
-              alt="ocean plate"
-              className="w-full object-cover"
-              style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
-            />
-            <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
+        {/* overflow-hidden wrapper prevents page-level horizontal scroll */}
+        <div className="w-full overflow-hidden">
+          {/* Mobile: horizontal scroll carousel. Desktop: 2-col grid */}
+          <div
+            className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollPaddingLeft: "1.5rem" }}
+          >
+            {/* leading spacer — visible only on mobile to give left breathing room */}
+            <div className="flex-shrink-0 w-6 md:hidden" aria-hidden="true" />
+            <div className="flex-shrink-0 snap-start md:w-auto" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+              <img
+                src="/png/seafood.png"
+                alt="seafood"
+                className="w-full object-cover"
+                style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
+              />
+              <h1 className="heading !text-left mt-6">Sea Food</h1>
+              <p className="base-text mt-4">
+                Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
+              </p>
+            </div>
+            <div className="flex-shrink-0 snap-start md:w-auto flex flex-col md:items-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+              <img
+                src="/png/ocean-plate.png"
+                alt="ocean plate"
+                className="w-full object-cover"
+                style={{ height: "clamp(280px, 55vw, 572px)", objectFit: "cover" }}
+              />
+              <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
+            </div>
+            {/* trailing spacer */}
+            <div className="flex-shrink-0 w-6 md:hidden" aria-hidden="true" />
           </div>
         </div>
       </div>
