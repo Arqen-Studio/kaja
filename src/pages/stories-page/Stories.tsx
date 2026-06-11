@@ -73,7 +73,7 @@ const Stories = () => {
               Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
             </p>
           </div>
-          <div>
+          <div className="flex flex-col items-end">
             <img
               src="/png/ocean-plate.png"
               alt="ocean plate"
