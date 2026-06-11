@@ -24,7 +24,13 @@ const MenuCard: React.FC<Props> = ({ title, image, onClick }) => {
         }`}
       />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.65))]" />
+      <div className="absolute inset-0 flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.65))]">
+        <div className="absolute bottom-[70px] justify-between items-center flex gap-[18px] base-text text-[#D6B283]">
+          <span>Explore more</span>
+          <span>Explore more</span>
+          <span className="lg:block hidden">Explore more</span>
+        </div>
+      </div>
     </div>
   );
 };
