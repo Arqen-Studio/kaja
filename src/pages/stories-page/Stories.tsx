@@ -4,7 +4,7 @@ const Stories = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="mx-auto w-full px-6 md:px-[3vw] py-10 md:py-16">
-        <h1 className="heading mx-auto mb-4 max-w-[380px] text-center">
+        <h1 className="heading mx-auto mb-4 max-w-[380px] text-center !text-center">
           <LetterByLetter
             lines={["Inside the", "World of KAJA"]}
             align="center"
@@ -49,8 +49,8 @@ const Stories = () => {
           </p>
         </div>
       </div>
-      <div className="max-w-[938px] pb-10 px-6 ">
-        <p className="heading ">
+      <div className="max-w-[938px] pb-10 px-6 w-full">
+        <p className="heading !text-center">
           Exploring the people, creativity, and inspiration behind the KAJA
           experience.
         </p>
@@ -58,7 +58,7 @@ const Stories = () => {
 
 
       <div className="w-full mb-25">
-        <h1 className="text-[7vw] md:text-[109.5px] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16 px-6 whitespace-nowrap">
+        <h1 className="text-[6vw] text-center font-moche font-normal leading-[120%] tracking-[-2.8%] mt-12 mb-16 px-6 whitespace-nowrap">
           <LetterByLetter lines={["crafted to evoke wonder"]} align="center" />
         </h1>
         {/* overflow-hidden wrapper prevents page-level horizontal scroll */}
