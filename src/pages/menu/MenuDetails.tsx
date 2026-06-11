@@ -292,9 +292,11 @@ const MenuDetailPage = () => {
                         fontFamily: "Moche, sans-serif",
                         fontWeight: 300,
                         fontSize: "14px",
-                        lineHeight: "100%",
+                        lineHeight: "140%",
                         color: "#D6B283",
                         opacity: 0.65,
+                        display: "block",
+                        maxWidth: "75%",
                       }}>
                         {item.description}
                       </span>
