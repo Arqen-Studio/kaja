@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const Stories = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-16">
-      <div className="mx-auto w-full px-6 md:px-[3vw] py-10 md:py-20">
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="mx-auto w-full px-6 md:px-[3vw] py-4 md:py-10">
         <h1 className="heading mx-auto mb-4 max-w-[380px] text-center">
           <LetterByLetter
             lines={["Inside the", "World of KAJA"]}
