@@ -1,7 +1,4 @@
-import { MoveRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { LetterByLetter } from "../../components/LetterByLetter";
-import { motion } from "framer-motion";
 
 const Stories = () => {
   return (
@@ -123,39 +120,6 @@ const Stories = () => {
             </h1>
           </div>
         </div>
-      </div>
-      <div className="w-full items-center mt-20">
-        <div className="border border-[#D6B283] border-[0.85px] w-full "></div>
-        <Link to="/menu">
-          <div className="flex justify-between items-center m-10 transition-transform duration-300 hover:translate-x-2">
-            <h1 className="heading font-extralight">
-              <motion.span
-                animate={{ x: [0, 10, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="inline-block"
-              >
-                <LetterByLetter lines={["Discover Our Menu"]} align="left" />
-              </motion.span>
-            </h1>
-            <motion.span
-              animate={{ x: [0, 10, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="inline-block"
-            >
-              {" "}
-              <MoveRight className="w-10 h-10" />
-            </motion.span>
-          </div>
-        </Link>
-        <div className="border border-[#D6B283] border-[0.85px] w-full  mb-10"></div>
       </div>
     </div>
   );
