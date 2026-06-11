@@ -107,11 +107,11 @@ const Stories = () => {
               className="w-full py-6"
             />
             <h1 className="heading">
-              <LetterByLetter
-                lines={["Architecture meets Atmosphere"]}
-                align="center"
-              />
+              Sea Food
             </h1>
+            <p className="base-text mt-4 max-w-[590px]">
+              Seafood plays a central role in KAJA's culinary identity, inspiring dishes that balance Mediterranean tradition with contemporary technique. From delicate crudos and vibrant ceviches to carefully sourced fish and shellfish, each creation reflects our commitment to freshness, craftsmanship, and unforgettable flavour.
+            </p>
           </div>
           <div>
             <img src="/png/ocean-plate.png" alt="nature" className="py-5" />
