@@ -66,8 +66,7 @@ const Stories = () => {
             <img
               src="/png/seafood.png"
               alt="seafood"
-              className="w-full object-cover"
-              style={{ height: "572px", objectFit: "cover" }}
+              className="w-full h-auto"
             />
             <h1 className="heading !text-left mt-6">Sea Food</h1>
             <p className="base-text mt-4">
@@ -78,8 +77,7 @@ const Stories = () => {
             <img
               src="/png/ocean-plate.png"
               alt="ocean plate"
-              className="w-full object-cover"
-              style={{ height: "572px", objectFit: "cover" }}
+              className="w-full h-auto"
             />
             <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
           </div>
