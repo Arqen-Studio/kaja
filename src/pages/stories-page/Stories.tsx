@@ -78,8 +78,8 @@ const Stories = () => {
             <img
               src="/png/ocean-plate.png"
               alt="ocean plate"
-              className="w-full object-cover"
-              style={{ height: "572px", objectFit: "cover" }}
+              className="w-full object-contain"
+              style={{ height: "572px", objectFit: "contain", objectPosition: "top" }}
             />
             <h1 className="heading !text-left mt-6">Ocean To Plate</h1>
           </div>
