@@ -84,33 +84,18 @@ const Stories = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center md:items-start text-center p-10 mt-6 mb-6 space-y-6">
-            <Link
-              to="/about#chef-introduction"
-              className="relative block w-[200px] h-[200px] md:w-[300px] md:h-[300px] overflow-hidden"
-            >
-              <img
-                src="/png/plate.png"
-                alt="Plate"
-                className="absolute inset-0 m-auto w-[60%] h-[60%] object-contain"
-              />
-
-              <img
-                src="/png/circular-text.png"
-                alt="circular text"
-                className="absolute inset-0 w-full h-full object-contain animate-spin-slow pointer-events-none"
-              />
-            </Link>
-
-            <div className="max-w-[120px] py-10 mt-4">
-              <h3 className="heading font-extralight text-center md:text-left">
-                <LetterByLetter
-                  lines={["More", "Than A", " Meal"]}
-                  align="left"
-                />
+          <div>
+            <img
+              src="/png/ocean-plate.png"
+              alt="Ocean To Plate"
+              className="w-full max-w-[520px] object-cover"
+            />
+            <div className="mt-6 flex flex-col items-center md:items-start mb-4">
+              <h3 className="heading font-extralight mb-3">
+                Ocean To Plate
               </h3>
             </div>
-          </div>{" "}
+          </div>
         </div>
       </div>
 
