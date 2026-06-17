@@ -88,8 +88,12 @@ function HomeChefSection() {
           className="w-full aspect-[300/487] object-cover object-center"
         />
 
-        <Link to="/stories" className="base-text py-4">
-          <LetterByLetter lines={["Discover Story"]} align="center" />
+        <Link
+          to="/about"
+          className="font-moche font-normal tracking-widest text-[#FCF7F5] flex items-center justify-center whitespace-nowrap"
+          style={{ width: "336px", height: "44px", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "14px" }}
+        >
+          DISCOVER THE STORY
         </Link>
       </motion.div>
     </div>
