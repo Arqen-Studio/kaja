@@ -69,7 +69,7 @@ const Stories = () => {
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
             <div className="flex-shrink-0 w-6 md:hidden" aria-hidden="true" />
-            <div className="flex-shrink-0 snap-start md:!w-full" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 snap-start md:justify-self-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/raw.png"
                 alt="raw"
