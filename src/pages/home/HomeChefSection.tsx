@@ -73,7 +73,7 @@ function HomeChefSection() {
       </motion.h1>
 
       <motion.div
-        style={{ x: isDesktop ? springX : 0, width: "336px", height: "504px" }}
+        style={{ x: isDesktop ? springX : 0, width: "clamp(280px, 24vw, 480px)", height: "clamp(420px, 36vw, 720px)" }}
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         exit={{ x: -100, opacity: 0 }}
@@ -90,7 +90,7 @@ function HomeChefSection() {
         <Link
           to="/about"
           className="font-moche font-normal tracking-widest text-[#FCF7F5] flex items-center justify-center whitespace-nowrap"
-          style={{ width: "336px", height: "56px", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "16px" }}
+          style={{ width: "clamp(280px, 24vw, 480px)", height: "clamp(44px, 4vw, 72px)", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "clamp(13px, 1vw, 18px)" }}
         >
           DISCOVER THE STORY
         </Link>
