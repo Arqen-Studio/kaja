@@ -9,12 +9,12 @@ const IntroSection = () => {
     offset: ["start 80%", "end 20%"],
   });
 
-  const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const textX = useTransform(scrollYProgress, [0, 0.4], [-60, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.08], [0, 1]);
   const textExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
 
-  const rightX = useTransform(scrollYProgress, [0, 0.4], [100, 0]);
-  const rightOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const rightX = useTransform(scrollYProgress, [0, 0.4], [60, 0]);
+  const rightOpacity = useTransform(scrollYProgress, [0, 0.08], [0, 1]);
   const rightExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
 
   return (

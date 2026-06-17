@@ -13,14 +13,14 @@ function HomeAboutSection() {
 
   const imgOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.8, 1],
+    [0, 0.08, 0.9, 1],
     [0, 1, 1, 0],
   );
 
-  const contentX = useTransform(scrollYProgress, [0, 0.3], [-120, 0]);
+  const contentX = useTransform(scrollYProgress, [0, 0.3], [-60, 0]);
   const contentOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.8, 1],
+    [0, 0.08, 0.9, 1],
     [0, 1, 1, 0],
   );
   const contentY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
