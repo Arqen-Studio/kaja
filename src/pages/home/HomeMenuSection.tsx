@@ -73,14 +73,6 @@ function HomeMenuSection() {
           className="absolute right-0 z-[5] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw] pointer-events-none"
         />
 
-        {/* Gradient fade — same as navbar */}
-        <div
-          className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
-          style={{
-            height: "22vh",
-            background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
-          }}
-        />
 
         {/* Header text */}
         <div className="absolute top-0 left-0 right-0 z-20">
