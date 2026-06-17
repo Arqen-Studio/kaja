@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
-import { LetterByLetter } from "../../components/LetterByLetter";
 import { useEffect, useRef, useState } from "react";
 
 function HomeChefSection() {
