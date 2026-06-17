@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-// Disable browser's native scroll restoration so we control it fully
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
 }
@@ -9,13 +8,14 @@ if ("scrollRestoration" in window.history) {
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!hash) {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
       window.scrollTo(0, 0);
       return;
     }
 
-    // Keep hash targets visible below the fixed navbar.
     const id = hash.replace("#", "");
     const target = document.getElementById(id);
     if (!target) return;
