@@ -20,7 +20,7 @@ const IntroSection = () => {
   return (
     <motion.section
       ref={ref}
-      className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D]"
+      className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D] dark:bg-[#D6B283]"
     >
       <div className="mx-auto flex flex-col md:flex-row w-full items-center justify-center gap-12 px-6 py-16 md:px-[3vw]">
         <motion.p
@@ -61,7 +61,7 @@ const IntroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: "clamp(295px, 28vw, 650px)", height: "clamp(44px, 4.5vw, 90px)", gap: "8px", paddingLeft: "48px", paddingRight: "48px" }}
-            className="bg-[#D6B283] text-[#32341D] border border-[#D6B283] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest whitespace-nowrap"
+            className="bg-[#D6B283] dark:bg-[#32341D] text-[#32341D] dark:text-[#D6B283] border border-[#D6B283] dark:border-[#32341D] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest whitespace-nowrap"
           >
             MAKE A RESERVATION
           </a>
