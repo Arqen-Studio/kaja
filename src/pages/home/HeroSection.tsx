@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
@@ -57,8 +57,14 @@ const HeroSection = () => {
     offset: ["start start", "end end"],
   });
 
-  const textY = useTransform(scrollYProgress, [0, 0.3], [0, -vh * 0.85]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.4,
+  });
+
+  const textY = useTransform(smoothProgress, [0, 0.3], [0, -vh * 0.85]);
+  const textOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
 
   const fullScreenScale = Math.max(
     vw / imageSize.width,
@@ -68,13 +74,13 @@ const HeroSection = () => {
 
   // Scale starts later so text exits first
   const imageScale = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0.25, 0.6],
     [1, fullScreenScale],
   );
 
   const videoFilter = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0.2, 0.9],
     ["brightness(1)", "brightness(0.8)"],
   );
