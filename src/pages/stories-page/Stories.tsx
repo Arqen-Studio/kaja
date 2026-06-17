@@ -82,7 +82,7 @@ const Stories = () => {
               <img
                 src="/png/fire.png"
                 alt="fire"
-                className="w-full object-cover h-[clamp(280px,55vw,572px)] md:h-[572px]"
+                className="w-full object-cover h-[clamp(280px,55vw,590px)] md:h-[590px]"
                 style={{ objectFit: "cover" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
