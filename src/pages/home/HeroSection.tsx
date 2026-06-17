@@ -79,85 +79,83 @@ const HeroSection = () => {
     ["brightness(1)", "brightness(0.8)"],
   );
 
+  // Mobile: simple static layout, no scroll effects
+  if (vw < 768) {
+    return (
+      <section className="flex flex-col items-center px-6 pt-32 pb-10 gap-8">
+        <h1 className="heading text-center">
+          <LetterByLetter lines={["Located in the", "heart of Ubud"]} align="center" />
+        </h1>
+        <div className="w-full overflow-hidden">
+          <video
+            ref={videoRef}
+            src="/kaja.mp4"
+            className="w-full object-cover"
+            style={{ aspectRatio: "9/16", maxHeight: "70vh" }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+        </div>
+      </section>
+    );
+  }
+
+  // Desktop: full sticky scroll effect
   return (
-    <section ref={ref} className={vw < 768 ? "" : "h-[240vh]"}>
-      <div className={vw < 768 ? "relative overflow-hidden" : "sticky top-0 h-screen overflow-hidden relative"}>
+    <section ref={ref} className="h-[240vh]">
+      <div className="sticky top-0 h-screen overflow-hidden relative">
         {/* Heading — fades out on scroll */}
         <motion.div
           style={{ y: textY, opacity: textOpacity }}
           className="absolute inset-0 pointer-events-none z-10"
         >
-          {/* Heading */}
           <div className="absolute inset-x-0 top-[clamp(70px,8vh,160px)]">
             <h1 className="heading mx-auto max-w-[383px] text-center xl:max-w-[460px] 2xl:max-w-[520px]">
-              <LetterByLetter
-                lines={["Located in the", "heart of Ubud"]}
-                align="center"
-              />
+              <LetterByLetter lines={["Located in the", "heart of Ubud"]} align="center" />
             </h1>
           </div>
 
-          {/* Left text — vertically centered on the video */}
           <div
             className="absolute hidden md:block -translate-y-1/2"
-            style={{
-              top: "56vh",
-              right: "calc(50% + clamp(200px, 19vw, 480px) + 56px)",
-            }}
+            style={{ top: "56vh", right: "calc(50% + clamp(200px, 19vw, 480px) + 56px)" }}
           >
             <p className="base-text max-w-[230px] text-center lg:max-w-[260px] xl:max-w-[300px] 2xl:max-w-[340px]">
               <LetterByLetter
-                lines={[
-                  "Contemporary Mediterranean",
-                  "cuisine shaped by Italian",
-                  "craftsmanship, elevated",
-                  "ingredients, and creative",
-                  "expression.",
-                ]}
+                lines={["Contemporary Mediterranean", "cuisine shaped by Italian", "craftsmanship, elevated", "ingredients, and creative", "expression."]}
                 align="center"
               />
             </p>
           </div>
 
-          {/* Right text — vertically centered on the video */}
           <div
             className="absolute hidden md:block -translate-y-1/2"
-            style={{
-              top: "56vh",
-              left: "calc(50% + clamp(200px, 19vw, 480px) + 56px)",
-            }}
+            style={{ top: "56vh", left: "calc(50% + clamp(200px, 19vw, 480px) + 56px)" }}
           >
             <p className="base-text max-w-[303px] text-center lg:max-w-[340px] xl:max-w-[380px] 2xl:max-w-[420px]">
               <LetterByLetter
-                lines={[
-                  "More than a restaurant, KAJA is an",
-                  "immersive destination where",
-                  "architecture, atmosphere,",
-                  "entertainment, and dining become",
-                  "one.",
-                ]}
+                lines={["More than a restaurant, KAJA is an", "immersive destination where", "architecture, atmosphere,", "entertainment, and dining become", "one."]}
                 align="center"
               />
             </p>
           </div>
         </motion.div>
 
-        {/* Video — bottom-anchored, scales from bottom to fullscreen (desktop only) */}
+        {/* Video — bottom-anchored, scales to fullscreen on scroll */}
         <motion.div
           ref={imageWrapperRef}
           style={{
-            scale: vw < 768 ? 1 : imageScale,
+            scale: imageScale,
             originX: 0.5,
             originY: 1,
-            left:
-              vw < 768
-                ? `${vw * 0.075}px`
-                : "calc(50% - clamp(200px, 19vw, 480px))",
-            width: vw < 768 ? `${vw * 0.85}px` : "clamp(400px,38vw,960px)",
+            left: "calc(50% - clamp(200px, 19vw, 480px))",
+            width: "clamp(400px,38vw,960px)",
             top: "clamp(200px, 25vh, 440px)",
             height: "calc(100vh - clamp(200px, 25vh, 440px))",
           }}
-          className={`overflow-hidden ${vw >= 768 ? "absolute transform-gpu will-change-transform" : "relative mx-auto"}`}
+          className="absolute overflow-hidden transform-gpu will-change-transform"
         >
           <motion.video
             ref={videoRef}
