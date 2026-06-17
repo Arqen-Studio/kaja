@@ -26,7 +26,7 @@ function HomeAboutSection() {
   const contentY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
 
   return (
-    <div ref={ref} className="max-w-[1300px] py-16 mx-auto px-6 md:px-10">
+    <div ref={ref} className="max-w-[1300px] py-6 md:py-16 mx-auto px-6 md:px-10">
       <div className="w-full flex md:flex-row flex-col justify-center gap-4 border border-[#32341D] dark:border-[#D6B283] overflow-hidden relative">
         <motion.img
           src="/png/about-image-1.png"
