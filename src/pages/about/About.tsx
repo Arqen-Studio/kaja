@@ -123,7 +123,7 @@ function About() {
           <motion.img
             src="/png/about-3.png"
             alt="vision"
-            className="relative z-20 h-full w-full object-cover object-[60%_30%] md:max-w-[520px]"
+            className="relative z-20 h-full w-full object-cover object-center md:max-w-[593px]"
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
