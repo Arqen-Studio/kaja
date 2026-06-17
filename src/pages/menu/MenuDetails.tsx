@@ -90,6 +90,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Pizza", "Menu"],
     subtitle: "Wood-fired perfection",
     image: "/png/menu/pizza-menu.png",
+    imageHeight: 756,
     sectionTitle: "Tradition Meets Creativity",
     leftText: ["Inspired by Italian tradition and", "elevated through premium", "ingredients, our pizzas balance", "simplicity with craftsmanship."],
     rightText: ["From carefully selected toppings to", "perfectly baked crusts, every detail", "is considered."],
