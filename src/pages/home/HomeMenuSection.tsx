@@ -17,14 +17,14 @@ const IMAGES = [
 
 function MenuTile({ src, index }: { src: string; index: number }) {
   return (
-    <div className="group">
+    <Link to="/menu" className="group block">
       <img
         src={src}
         alt={`menu-${index + 1}`}
         className="w-full aspect-[434/653] object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
-    </div>
+    </Link>
   );
 }
 
