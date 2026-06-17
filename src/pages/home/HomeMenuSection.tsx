@@ -96,7 +96,7 @@ function HomeMenuSection() {
               >
                 <LetterByLetter
                   lines={["Dive into contemporary mediterranenan flavours..."]}
-                  align="left"
+                  align="center"
                 />
               </p>
 
