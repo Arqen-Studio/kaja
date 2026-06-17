@@ -85,7 +85,7 @@ function HomeMenuSection() {
         {/* Header text */}
         <div className="absolute top-0 left-0 right-0 z-20">
           <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pt-16 pb-10">
-            <div className="flex max-w-[373px] flex-col items-center gap-6 md:items-start">
+            <div className="flex max-w-[373px] flex-col items-center gap-6 mx-auto md:mx-0 md:items-start">
               <h2 className="heading text-center md:!text-left">
                 <LetterByLetter lines={["Menu"]} align="left" />
               </h2>
