@@ -142,11 +142,11 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Video — bottom-anchored, scales from bottom to fullscreen */}
+        {/* Video — bottom-anchored, scales from bottom to fullscreen (desktop only) */}
         <motion.div
           ref={imageWrapperRef}
           style={{
-            scale: imageScale,
+            scale: vw < 768 ? 1 : imageScale,
             originX: 0.5,
             originY: 1,
             left:
