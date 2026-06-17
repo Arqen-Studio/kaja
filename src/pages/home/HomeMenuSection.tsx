@@ -34,12 +34,12 @@ function HomeMenuSection() {
       {/* Trees decoration */}
       <div
         aria-hidden
-        className="absolute z-0 pointer-events-none select-none"
+        className="absolute z-0 pointer-events-none select-none hidden md:block"
         style={{
           width: "852px",
           height: "554px",
-          top: "601px",
-          left: "657px",
+          top: "0px",
+          right: "0px",
           opacity: 0.15,
           backgroundColor: "#32341D",
           maskImage: "url(/png/trees-dark.png)",
