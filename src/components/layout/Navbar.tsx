@@ -1,19 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [dark, setDark] = useState(() =>
-    document.documentElement.classList.contains("dark"),
-  );
   const lastY = useRef(0);
-
-  const toggleTheme = () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    setDark(isDark);
-  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -69,15 +61,6 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Theme toggle — fixed top-left, above navbar grid */}
-      <button
-        onClick={toggleTheme}
-        aria-label="Toggle theme"
-        className="absolute left-[3vw] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
-      >
-        {dark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
-      </button>
-
       <div className="relative z-10 flex md:hidden items-center justify-between px-4 py-4">
         <Link to="/">
           <img
@@ -93,9 +76,6 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-4">
-          <button onClick={toggleTheme} aria-label="Toggle theme" className="opacity-60 hover:opacity-100 transition-opacity">
-            {dark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
-          </button>
           <button onClick={() => setIsOpen((prev) => !prev)} className="text-">
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
