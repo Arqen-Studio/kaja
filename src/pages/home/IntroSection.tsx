@@ -60,7 +60,7 @@ const IntroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: "295px", height: "44px", gap: "8px", paddingLeft: "48px", paddingRight: "48px" }}
-            className="bg-[#D6B283] text-[#32341D] border border-[#D6B283] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest"
+            className="bg-[#D6B283] text-[#32341D] border border-[#D6B283] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest whitespace-nowrap"
           >
             MAKE A RESERVATION
           </a>
