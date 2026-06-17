@@ -111,7 +111,7 @@ const HeroSection = () => {
 
   // Desktop: full sticky scroll effect
   return (
-    <section ref={ref} className="h-[240vh] xl:h-[300vh]">
+    <section ref={ref} className="h-[240vh] xl:h-[260vh]">
       <div className="sticky top-0 h-screen overflow-hidden relative">
         {/* Heading — fades out on scroll */}
         <motion.div
