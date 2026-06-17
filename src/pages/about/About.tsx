@@ -82,7 +82,7 @@ function About() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.35 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex w-full max-w-[1111px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
+          className="mx-auto flex w-full max-w-[1182px] h-[425px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
           <div className="relative z-10 flex w-full items-center p-6 md:max-w-[600px] md:pl-10">
             <p className="sub-text">
@@ -104,7 +104,7 @@ function About() {
           <motion.img
             src="/png/about-2.png"
             alt="aim"
-            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[520px]"
+            className="relative z-20 h-full w-full object-cover object-[60%_30%] md:max-w-[520px]"
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
@@ -118,12 +118,12 @@ function About() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.35 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex w-full max-w-[1111px] flex-col overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
+          className="mx-auto flex w-full max-w-[1182px] h-[425px] flex-col overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
           <motion.img
             src="/png/about-3.png"
             alt="vision"
-            className="relative z-20 h-auto w-full object-cover object-[60%_30%] md:max-w-[520px]"
+            className="relative z-20 h-full w-full object-cover object-[60%_30%] md:max-w-[520px]"
             variants={fadeIn}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 }}
           />
