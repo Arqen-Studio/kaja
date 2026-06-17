@@ -1,16 +1,6 @@
 import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0 },
-} as const;
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-} as const;
-
 
 function About() {
   return (
