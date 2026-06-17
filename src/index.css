@@ -51,6 +51,10 @@
   --slot-bg: #f5f0e8;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 html,
 body,
 #root {
