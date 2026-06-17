@@ -7,7 +7,9 @@ export function ScrollToTop() {
   useEffect(() => {
     if (!hash) {
       window.scrollTo(0, 0);
-      return;
+      // Re-assert after a short delay in case layout shifts push the scroll position
+      const t = setTimeout(() => window.scrollTo(0, 0), 80);
+      return () => clearTimeout(t);
     }
 
     // Keep hash targets visible below the fixed navbar.
