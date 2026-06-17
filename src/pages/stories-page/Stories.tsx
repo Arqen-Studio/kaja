@@ -74,16 +74,16 @@ const Stories = () => {
                 src="/png/raw.png"
                 alt="raw"
                 className="object-cover"
-                style={{ width: "590px", height: "590px" }}
+                style={{ width: "clamp(260px, 41vw, 590px)", height: "clamp(260px, 41vw, 590px)" }}
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
-            <div className="flex-shrink-0 snap-start md:!w-[394px] flex flex-col md:justify-self-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 snap-start flex flex-col md:justify-self-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/fire.png"
                 alt="fire"
                 className="object-cover"
-                style={{ width: "394px", height: "572px" }}
+                style={{ width: "clamp(200px, 27vw, 394px)", height: "clamp(290px, 39vw, 572px)" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
