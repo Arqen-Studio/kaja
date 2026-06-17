@@ -73,7 +73,8 @@ const Stories = () => {
               <img
                 src="/png/raw.png"
                 alt="raw"
-                className="w-full object-cover h-[clamp(280px,45vw,572px)]"
+                className="object-cover"
+                style={{ width: "590px", height: "590px" }}
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
