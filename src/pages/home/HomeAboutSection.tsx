@@ -31,8 +31,8 @@ function HomeAboutSection() {
         <motion.img
           src="/png/about-image-1.png"
           alt="about-image-1"
-          style={{ opacity: imgOpacity, width: "60%", aspectRatio: "571/425" }}
-          className="relative z-10 object-cover flex-shrink-0"
+          style={{ opacity: imgOpacity, aspectRatio: "571/425" }}
+          className="relative z-10 object-cover flex-shrink-0 w-full md:w-[60%]"
         />
 
         <motion.div
