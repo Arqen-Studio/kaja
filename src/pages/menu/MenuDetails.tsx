@@ -8,6 +8,7 @@ type CategoryData = {
   titleLines: string[];
   subtitle: string;
   image: string;
+  imageHeight?: number;
   sectionTitle: string;
   leftText: string[];
   rightText: string[];
@@ -184,6 +185,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Shot", "Pods"],
     subtitle: "A ritual worth sharing",
     image: "/png/menu/shotpod-menu.png",
+    imageHeight: 675,
     sectionTitle: "A Ritual Worth Sharing",
     leftText: ["Playful, unexpected, and made", "for sharing, Shot Pods bring a", "distinctive sense of occasion to", "every gathering."],
     rightText: ["More than a drink, they are a", "moment of connection designed to", "spark conversation and celebration."],
@@ -232,7 +234,8 @@ const MenuDetailPage = () => {
               alt={data.title}
               width={504}
               height={492}
-              className="h-[492px] max-w-[504px] max-w-full object-cover object-[center_20]"
+              className="max-w-[504px] max-w-full object-cover object-[center_20]"
+              style={{ height: `${data.imageHeight ?? 492}px` }}
             />
           </div>
 
