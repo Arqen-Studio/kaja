@@ -135,6 +135,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Cocktail", "Menu"],
     subtitle: "Crafted to sip",
     image: "/png/menu/cocktail-menu.png",
+    imageHeight: 756,
     sectionTitle: "Mixed with Creativity and Intention",
     leftText: ["Inspired by global influences", "and crafted with precision, each", "cocktail offers its own unique", "expression."],
     rightText: ["Designed to complement the", "atmosphere, cuisine, and energy of", "KAJA throughout the evening."],
