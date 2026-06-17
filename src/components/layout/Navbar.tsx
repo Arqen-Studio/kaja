@@ -31,7 +31,7 @@ const Navbar = () => {
       <div
         className="absolute inset-x-0 top-0 z-0 pointer-events-none"
         style={{
-          height: "22vh",
+          height: "14vh",
           background: isOpen
             ? "var(--bg)"
             : "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
