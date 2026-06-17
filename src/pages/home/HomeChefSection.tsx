@@ -90,7 +90,7 @@ function HomeChefSection() {
         <Link
           to="/about"
           className="font-moche font-normal tracking-widest text-[#FCF7F5] flex items-center justify-center whitespace-nowrap"
-          style={{ width: "336px", height: "56px", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "14px" }}
+          style={{ width: "336px", height: "56px", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "16px" }}
         >
           DISCOVER THE STORY
         </Link>
