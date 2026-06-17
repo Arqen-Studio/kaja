@@ -1,46 +1,27 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function HomeAboutSection() {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 80%", "end 20%"],
-  });
-
-  const imgOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [0, 1, 1, 0],
-  );
-
-  const contentX = useTransform(scrollYProgress, [0, 0.3], [-120, 0]);
-  const contentOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [0, 1, 1, 0],
-  );
-  const contentY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
-
   return (
-    <div ref={ref} className="max-w-[1300px] py-4 md:py-8 mx-auto px-6 md:px-10">
+    <div className="max-w-[1300px] py-4 md:py-8 mx-auto px-6 md:px-10">
       <div className="w-full flex md:flex-row flex-col justify-center gap-4 border border-[#32341D] dark:border-[#D6B283] overflow-hidden relative">
         <motion.img
           src="/png/about-image-1.png"
           alt="about-image-1"
-          style={{ opacity: imgOpacity, aspectRatio: "571/425" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          style={{ aspectRatio: "571/425" }}
           className="relative z-10 object-cover flex-shrink-0 w-full md:w-[60%]"
         />
 
         <motion.div
-          style={{
-            x: contentX,
-            opacity: contentOpacity,
-            y: contentY,
-          }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
           className="flex flex-col items-center md:items-start justify-center p-10 space-y-8 relative z-0"
         >
           <h1 className="heading !text-left">About</h1>

@@ -1,33 +1,16 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IntroSection = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 80%", "end 20%"],
-  });
-
-  const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const textExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
-
-  const rightX = useTransform(scrollYProgress, [0, 0.4], [100, 0]);
-  const rightOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const rightExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
-
   return (
-    <motion.section
-      ref={ref}
-      className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D] dark:bg-[#D6B283]"
-    >
+    <section className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D] dark:bg-[#D6B283]">
       <div className="mx-auto flex flex-col md:flex-row w-full items-center justify-center gap-12 px-6 py-16 md:px-[3vw]">
         <motion.p
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           style={{
-            x: textX,
-            opacity: textOpacity,
-            y: textExitY,
             fontFamily: "Moche",
             fontWeight: 400,
             fontSize: "clamp(24px, 1.8vw, 42px)",
@@ -49,11 +32,10 @@ const IntroSection = () => {
         </motion.p>
 
         <motion.div
-          style={{
-            x: rightX,
-            opacity: rightOpacity,
-            y: rightExitY,
-          }}
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
           className="flex flex-col items-center"
         >
           <a
@@ -67,7 +49,7 @@ const IntroSection = () => {
           </a>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
