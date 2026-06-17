@@ -80,8 +80,8 @@ const HeroSection = () => {
   );
 
   return (
-    <section ref={ref} className="h-[240vh]">
-      <div className="sticky top-0 h-screen overflow-hidden relative">
+    <section ref={ref} className={vw < 768 ? "" : "h-[240vh]"}>
+      <div className={vw < 768 ? "relative overflow-hidden" : "sticky top-0 h-screen overflow-hidden relative"}>
         {/* Heading — fades out on scroll */}
         <motion.div
           style={{ y: textY, opacity: textOpacity }}
@@ -157,7 +157,7 @@ const HeroSection = () => {
             top: "clamp(200px, 25vh, 440px)",
             height: "calc(100vh - clamp(200px, 25vh, 440px))",
           }}
-          className="absolute overflow-hidden transform-gpu will-change-transform"
+          className={`overflow-hidden ${vw >= 768 ? "absolute transform-gpu will-change-transform" : "relative mx-auto"}`}
         >
           <motion.video
             ref={videoRef}
