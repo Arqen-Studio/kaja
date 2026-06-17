@@ -45,7 +45,7 @@ function HomeMenuSection() {
       const cardWidth = (availW - gap * (cols - 1)) / cols;
       const cardHeight = cardWidth * (653 / 434);
       const gridHeight = cardHeight * rows + gap * (rows - 1);
-      const cardsStart = 360;
+      const cardsStart = vw < 768 ? 220 : 360;
       const translate = -(cardsStart + gridHeight - vh);
       setCardTranslate(Math.min(translate, -400));
     };
@@ -122,7 +122,7 @@ function HomeMenuSection() {
         {/* Cards — scroll up behind header */}
         <motion.div
           style={{ y: cardsY }}
-          className="absolute left-0 right-0 top-[360px] z-10 px-6 md:px-12"
+          className="absolute left-0 right-0 top-[220px] md:top-[360px] z-10 px-6 md:px-12"
         >
           <div className="mx-auto max-w-[1315px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
