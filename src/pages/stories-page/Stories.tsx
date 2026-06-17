@@ -73,7 +73,7 @@ const Stories = () => {
               <img
                 src="/png/raw.png"
                 alt="raw"
-                className="w-full object-cover"
+                className="w-full object-cover h-[clamp(280px,45vw,572px)]"
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
@@ -81,7 +81,7 @@ const Stories = () => {
               <img
                 src="/png/fire.png"
                 alt="fire"
-                className="w-full object-cover"
+                className="w-full object-cover h-[clamp(280px,45vw,572px)]"
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
