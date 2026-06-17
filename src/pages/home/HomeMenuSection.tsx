@@ -34,8 +34,13 @@ function HomeMenuSection() {
       {/* Trees decoration */}
       <div
         aria-hidden
-        className="absolute right-0 z-[5] h-[clamp(18rem,52vw,36rem)] w-[min(58vw,28rem)] sm:w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:w-[48vw] top-20 pointer-events-none select-none opacity-[0.07]"
+        className="absolute z-0 pointer-events-none select-none"
         style={{
+          width: "852px",
+          height: "554px",
+          top: "601px",
+          left: "657px",
+          opacity: 0.05,
           backgroundColor: "#32341D",
           maskImage: "url(/png/trees-dark.png)",
           WebkitMaskImage: "url(/png/trees-dark.png)",
@@ -43,8 +48,8 @@ function HomeMenuSection() {
           WebkitMaskSize: "contain",
           maskRepeat: "no-repeat",
           WebkitMaskRepeat: "no-repeat",
-          maskPosition: "right top",
-          WebkitMaskPosition: "right top",
+          maskPosition: "center",
+          WebkitMaskPosition: "center",
         }}
       />
 
@@ -85,7 +90,7 @@ function HomeMenuSection() {
       </div>
 
       {/* Cards */}
-      <div className="px-6 md:px-12 pb-16">
+      <div className="relative z-[1] px-6 md:px-12 pb-16">
         <div className="mx-auto max-w-[1315px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-10">
             {IMAGES.map((src, index) => (
