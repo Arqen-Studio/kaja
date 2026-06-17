@@ -22,6 +22,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Appetizers", "Menu"],
     subtitle: "Start with the finest",
     image: "/png/menu/appetizer-menu.png",
+    imageHeight: 756,
     sectionTitle: "Designed to Awaken the Palate",
     leftText: ["Fresh ingredients, vibrant", "flavours, and thoughtful", "composition come together to", "create the perfect beginning."],
     rightText: ["Designed to be shared,", "explored, and enjoyed, each", "dish invites guests deeper", "into the KAJA experience."],
