@@ -50,7 +50,7 @@ function HomeAboutSection() {
           </p>
 
           <Link
-            to="/about#target-section"
+            to="/about"
             className="mt-2 base-text leading-[100%] flex items-center gap-2"
           >
             <motion.span
