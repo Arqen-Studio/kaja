@@ -40,7 +40,7 @@ function HomeMenuSection() {
           height: "554px",
           top: "0px",
           right: "-100px",
-          opacity: 0.07,
+          opacity: 0.06,
           backgroundColor: "#32341D",
           maskImage: "url(/png/trees-dark.png)",
           WebkitMaskImage: "url(/png/trees-dark.png)",
