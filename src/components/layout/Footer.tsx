@@ -48,7 +48,7 @@ const FooterSection: React.FC = () => {
             },
           ].map((section, i) => (
             <div key={i} className="base-text text-sm space-y-2">
-              <p className="font-bold">{section.title}</p>
+              <p className="font-black">{section.title}</p>
               {section.lines.map((line, idx) =>
                 "href" in line ? (
                   <a
