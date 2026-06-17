@@ -31,7 +31,7 @@ function HomeAboutSection() {
         <motion.img
           src="/png/about-image-1.png"
           alt="about-image-1"
-          style={{ opacity: imgOpacity, width: "clamp(300px, 44%, 750px)", height: "clamp(225px, 33vw, 560px)" }}
+          style={{ opacity: imgOpacity, width: "60%", aspectRatio: "571/425" }}
           className="relative z-10 object-cover flex-shrink-0"
         />
 
@@ -41,7 +41,7 @@ function HomeAboutSection() {
             opacity: contentOpacity,
             y: contentY,
           }}
-          className="flex flex-col items-center md:items-start p-10 space-y-8 relative z-0"
+          className="flex flex-col items-center md:items-start justify-center p-10 space-y-8 relative z-0"
         >
           <h1 className="heading !text-left">About</h1>
 
