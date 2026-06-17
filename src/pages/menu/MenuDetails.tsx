@@ -114,6 +114,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Dessert", "Menu"],
     subtitle: "Sweet finales",
     image: "/png/menu/dessert-menu.png",
+    imageHeight: 770,
     sectionTitle: "A Sweet Ending to the Journey",
     leftText: ["Refined, indulgent, and", "beautifully balanced, our", "desserts are designed to leave a", "lasting impression."],
     rightText: ["A thoughtful finale that brings", "together creativity, texture, and", "flavour in every bite."],
