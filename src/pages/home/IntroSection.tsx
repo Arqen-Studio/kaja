@@ -22,7 +22,7 @@ const IntroSection = () => {
       ref={ref}
       className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D]"
     >
-      <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 py-16 md:px-[3vw]">
+      <div className="mx-auto flex flex-col md:flex-row w-full items-center justify-center gap-12 px-6 py-16 md:px-[3vw]">
         <motion.p
           style={{
             x: textX,
