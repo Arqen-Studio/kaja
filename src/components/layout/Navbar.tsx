@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
 
       <div className="relative z-10 flex md:hidden items-center justify-between px-4 py-4">
-        <Link to="/" className={isOpen ? "invisible" : ""}>
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <img
             src="/svg/logo-light.svg"
             alt="Logo"
