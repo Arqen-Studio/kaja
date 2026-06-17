@@ -40,7 +40,7 @@ const FooterSection: React.FC = () => {
               lines: [{ label: "Ubud, Bali" }],
             },
             {
-              title: "Follow",
+              title: "Follow Us",
               lines: [
                 { label: "Instagram", href: "https://www.instagram.com/kajabynuma?igsh=MTh1eHJycTdhaW1jeA%3D%3D" },
                 { label: "Tiktok", href: "https://www.tiktok.com/@kajabynuma?_r=1&_t=ZN-975nL06IOfu" },
@@ -48,7 +48,7 @@ const FooterSection: React.FC = () => {
             },
           ].map((section, i) => (
             <div key={i} className="base-text text-sm space-y-2">
-              <p>{section.title}</p>
+              <p className="font-bold">{section.title}</p>
               {section.lines.map((line, idx) =>
                 "href" in line ? (
                   <a
