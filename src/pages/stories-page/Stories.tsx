@@ -64,7 +64,7 @@ const Stories = () => {
         <div className="w-full overflow-hidden">
           {/* Mobile: horizontal scroll carousel. Desktop: 2-col grid */}
           <div
-            className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
+            className="flex md:grid md:grid-cols-[3fr_2fr] gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
             style={{ scrollPaddingLeft: "1.5rem" }}
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
@@ -82,7 +82,7 @@ const Stories = () => {
               <img
                 src="/png/fire.png"
                 alt="fire"
-                className="w-full object-cover h-[clamp(280px,55vw,590px)] md:h-[590px]"
+                className="w-full object-cover h-[clamp(280px,55vw,572px)] md:h-[572px]"
                 style={{ objectFit: "cover" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
