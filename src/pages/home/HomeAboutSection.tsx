@@ -11,7 +11,6 @@ function HomeAboutSection() {
     offset: ["start 80%", "end 20%"],
   });
 
-  const contentX = useTransform(scrollYProgress, [0, 0.3], [-60, 0]);
   const contentY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
 
   return (
@@ -25,10 +24,7 @@ function HomeAboutSection() {
         />
 
         <motion.div
-          style={{
-            x: contentX,
-            y: contentY,
-          }}
+          style={{ y: contentY }}
           className="flex flex-col items-center md:items-start justify-center p-10 space-y-8 relative z-0"
         >
           <h1 className="heading !text-left">About</h1>
