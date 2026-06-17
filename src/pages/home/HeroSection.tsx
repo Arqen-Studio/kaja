@@ -58,9 +58,9 @@ const HeroSection = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.4,
+    stiffness: 140,
+    damping: 28,
+    mass: 0.3,
   });
 
   const textY = useTransform(smoothProgress, [0, 0.3], [0, -vh * 0.85]);
@@ -111,7 +111,7 @@ const HeroSection = () => {
 
   // Desktop: full sticky scroll effect
   return (
-    <section ref={ref} className="h-[240vh]">
+    <section ref={ref} className="h-[240vh] xl:h-[300vh]">
       <div className="sticky top-0 h-screen overflow-hidden relative">
         {/* Heading — fades out on scroll */}
         <motion.div
