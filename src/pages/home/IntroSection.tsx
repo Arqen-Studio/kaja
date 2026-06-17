@@ -33,8 +33,9 @@ const IntroSection = () => {
             fontSize: "clamp(24px, 1.8vw, 42px)",
             lineHeight: "120%",
             color: "#FCF7F5",
+            maxWidth: "clamp(609px, 45vw, 1100px)",
           }}
-          className="text-left" style={{ maxWidth: "clamp(609px, 45vw, 1100px)" }}
+          className="text-left"
         >
           <LetterByLetter
             lines={[
