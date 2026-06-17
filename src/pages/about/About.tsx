@@ -71,7 +71,7 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex w-full max-w-[1182px] h-[425px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
+          className="mx-auto flex w-full max-w-[1182px] h-auto md:h-[425px] flex-col-reverse overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
           <div className="relative z-10 flex w-full items-center p-6 md:max-w-[600px] md:pl-10">
             <p className="sub-text">
@@ -104,7 +104,7 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="mx-auto flex w-full max-w-[1182px] h-[425px] flex-col overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
+          className="mx-auto flex w-full max-w-[1182px] h-auto md:h-[425px] flex-col overflow-hidden border border-[#32341D] dark:border-[#D6B283] md:flex-row"
         >
           <img
             src="/png/about-3.png"
