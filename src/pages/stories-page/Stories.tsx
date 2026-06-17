@@ -64,7 +64,7 @@ const Stories = () => {
         <div className="w-full overflow-hidden">
           {/* Mobile: horizontal scroll carousel. Desktop: 2-col grid */}
           <div
-            className="flex md:grid md:grid-cols-2 gap-3 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
+            className="flex md:grid md:grid-cols-2 gap-1 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
             style={{ scrollPaddingLeft: "2.5rem" }}
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
@@ -74,7 +74,7 @@ const Stories = () => {
                 src="/png/raw.png"
                 alt="raw"
                 className="object-cover"
-                style={{ width: "clamp(260px, 41vw, 850px)", height: "clamp(260px, 41vw, 850px)" }}
+                style={{ width: "clamp(260px, 41vw, 980px)", height: "clamp(260px, 41vw, 980px)" }}
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
@@ -83,7 +83,7 @@ const Stories = () => {
                 src="/png/fire.png"
                 alt="fire"
                 className="object-cover"
-                style={{ width: "clamp(200px, 27vw, 560px)", height: "clamp(290px, 39vw, 813px)" }}
+                style={{ width: "clamp(200px, 27vw, 660px)", height: "clamp(290px, 39vw, 958px)" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
