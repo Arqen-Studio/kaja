@@ -91,13 +91,10 @@ function HomeMenuSection() {
               </h2>
 
               <p
-                className="sub-text text-center tracking-[-0.028em] md:text-left"
+                className="sub-text text-center md:text-left tracking-[-0.028em] w-full"
                 style={{ opacity: 0.55 }}
               >
-                <LetterByLetter
-                  lines={["Dive into contemporary mediterranenan flavours..."]}
-                  align="center"
-                />
+                Dive into contemporary mediterranenan flavours...
               </p>
 
               <Link
