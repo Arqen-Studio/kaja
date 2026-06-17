@@ -42,13 +42,13 @@ function HomeMenuSection() {
       {/* Header */}
       <div className="max-w-[1300px] mx-auto w-full px-6 md:px-10 pt-8 md:pt-16 pb-10">
         <div className="flex max-w-[373px] flex-col items-center gap-6 mx-auto md:mx-0 md:items-start">
-          <h2 className="heading text-center md:!text-left">
+          <h2 className="heading text-center md:!text-left" style={{ color: "#32341D" }}>
             <LetterByLetter lines={["Menu"]} align="left" />
           </h2>
 
           <p
             className="sub-text text-center md:text-left tracking-[-0.028em] w-full"
-            style={{ opacity: 0.55 }}
+            style={{ color: "#32341D" }}
           >
             Dive into contemporary mediterranenan flavours...
           </p>
@@ -56,6 +56,7 @@ function HomeMenuSection() {
           <Link
             to="/menu"
             className="mt-2 base-text leading-[100%] hover:opacity-75 flex items-center justify-center gap-2 md:justify-start"
+            style={{ color: "#32341D" }}
           >
             <motion.span
               animate={{ x: [0, 10, 0] }}
