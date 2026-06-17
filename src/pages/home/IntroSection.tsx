@@ -61,7 +61,8 @@ const IntroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: "clamp(295px, 28vw, 650px)", height: "clamp(44px, 4.5vw, 90px)", gap: "8px", paddingLeft: "48px", paddingRight: "48px" }}
-            className="bg-[#D6B283] dark:bg-[#32341D] text-[#32341D] dark:text-[#D6B283] border border-[#D6B283] dark:border-[#32341D] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest whitespace-nowrap"
+            className="bg-[#D6B283] dark:bg-[#32341D] text-[#32341D] dark:text-[#D6B283] border border-[#D6B283] dark:border-[#32341D] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal tracking-widest whitespace-nowrap"
+            style={{ fontSize: "clamp(12px, 1.1vw, 22px)" }}
           >
             MAKE A RESERVATION
           </a>
