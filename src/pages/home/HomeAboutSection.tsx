@@ -11,20 +11,36 @@ function HomeAboutSection() {
     offset: ["start 80%", "end 20%"],
   });
 
+  const imgOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 1, 1, 0],
+  );
+
+  const contentX = useTransform(scrollYProgress, [0, 0.3], [-120, 0]);
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 1, 1, 0],
+  );
   const contentY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
 
   return (
     <div ref={ref} className="max-w-[1300px] py-4 md:py-8 mx-auto px-6 md:px-10">
       <div className="w-full flex md:flex-row flex-col justify-center gap-4 border border-[#32341D] dark:border-[#D6B283] overflow-hidden relative">
-        <img
+        <motion.img
           src="/png/about-image-1.png"
           alt="about-image-1"
-          style={{ aspectRatio: "571/425" }}
+          style={{ opacity: imgOpacity, aspectRatio: "571/425" }}
           className="relative z-10 object-cover flex-shrink-0 w-full md:w-[60%]"
         />
 
         <motion.div
-          style={{ y: contentY }}
+          style={{
+            x: contentX,
+            opacity: contentOpacity,
+            y: contentY,
+          }}
           className="flex flex-col items-center md:items-start justify-center p-10 space-y-8 relative z-0"
         >
           <h1 className="heading !text-left">About</h1>
