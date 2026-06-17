@@ -60,7 +60,7 @@ function About() {
         </div>
       </div>
 
-      <div className="w-full pb-10 md:px-0">
+      <div className="w-full pb-10 px-6 md:px-0">
         <p className="heading">
           <LetterByLetter
             lines={[
