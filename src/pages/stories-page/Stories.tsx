@@ -11,9 +11,9 @@ const Stories = () => {
           />
         </h1>
 
-        <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-4 md:pb-0">
+        <div className="mx-auto mb-0 grid w-full grid-cols-1 items-start lg:grid-cols-[1fr_auto_1fr] lg:gap-4 lg:pb-0">
           <p
-            className="hidden md:block base-text mx-auto max-w-[300px] text-center md:mt-[35%] mr-5 px-3
+            className="hidden lg:block base-text mx-auto max-w-[300px] text-center lg:mt-[35%] mr-5 px-3
           "
           >
             <LetterByLetter
@@ -36,7 +36,7 @@ const Stories = () => {
             />
           </div>
 
-          <p className="md:block hidden base-text mx-auto max-w-[303px] text-center md:mt-[35%] ml-5 px-3">
+          <p className="lg:block hidden base-text mx-auto max-w-[303px] text-center lg:mt-[35%] ml-5 px-3">
             <LetterByLetter
               lines={[
                 "From culinary craftsmanship,",
