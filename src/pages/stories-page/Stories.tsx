@@ -74,7 +74,7 @@ const Stories = () => {
                 src="/png/raw.png"
                 alt="raw"
                 className="object-cover"
-                style={{ width: "clamp(260px, 41vw, 590px)", height: "clamp(260px, 41vw, 590px)" }}
+                style={{ width: "clamp(260px, 41vw, 850px)", height: "clamp(260px, 41vw, 850px)" }}
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
@@ -83,7 +83,7 @@ const Stories = () => {
                 src="/png/fire.png"
                 alt="fire"
                 className="object-cover"
-                style={{ width: "clamp(200px, 27vw, 394px)", height: "clamp(290px, 39vw, 572px)" }}
+                style={{ width: "clamp(200px, 27vw, 560px)", height: "clamp(290px, 39vw, 813px)" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
