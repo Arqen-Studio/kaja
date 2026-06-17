@@ -31,8 +31,8 @@ const Stories = () => {
               src="/png/stories.png"
               alt="chef"
               width={504}
-              height={492}
-              className="h-[492px] max-w-[504px] max-w-full object-cover object-[center_20]"
+              height={756}
+              className="h-[756px] max-w-[504px] max-w-full object-cover object-[center_20]"
             />
           </div>
 

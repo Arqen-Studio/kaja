@@ -40,8 +40,8 @@ function About() {
               src="/png/about.png"
               alt="About Section"
               width={504}
-              height={500}
-              className="w-[70vw] max-w-[504px] aspect-square object-cover object-center"
+              height={756}
+              className="w-[70vw] max-w-[504px] object-cover object-center"
             />
           </div>
 
