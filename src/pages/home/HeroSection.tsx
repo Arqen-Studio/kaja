@@ -4,7 +4,6 @@ import { LetterByLetter } from "../../components/LetterByLetter";
 
 const HeroSection = () => {
   const ref = useRef(null);
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -20,18 +19,12 @@ const HeroSection = () => {
   const [vw, setVw] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
-  const [imageSize, setImageSize] = useState({ width: 518, height: 524 });
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     const vv = window.visualViewport;
     const update = () => {
       setVh(vv?.height ?? window.innerHeight);
       setVw(window.innerWidth);
-      if (imageWrapperRef.current) {
-        const b = imageWrapperRef.current.getBoundingClientRect();
-        if (b.width > 0) setImageSize({ width: b.width, height: b.height });
-      }
     };
     update();
     window.addEventListener("resize", update);
@@ -57,11 +50,10 @@ const HeroSection = () => {
   const textY = useTransform(smoothProgress, [0, 0.3], [0, -vh * 0.85]);
   const textOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
 
-  const fullScreenScale = Math.max(
-    vw / imageSize.width,
-    vh / imageSize.height,
-    1,
-  );
+  // Compute video wrapper dimensions directly from the CSS clamp values
+  const imgW = Math.min(960, Math.max(400, 0.38 * vw));
+  const imgH = vh - Math.min(440, Math.max(200, 0.25 * vh));
+  const fullScreenScale = Math.max(vw / imgW, vh / imgH, 1);
 
   // Scale uses raw scrollYProgress — no spring lag, guaranteed to reach full scale
   const imageScale = useTransform(
@@ -136,7 +128,6 @@ const HeroSection = () => {
 
         {/* Video — bottom-anchored, scales to fullscreen on scroll */}
         <motion.div
-          ref={imageWrapperRef}
           style={{
             scale: imageScale,
             originX: 0.5,
