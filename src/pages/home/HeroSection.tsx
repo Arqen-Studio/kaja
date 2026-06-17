@@ -4,7 +4,6 @@ import { LetterByLetter } from "../../components/LetterByLetter";
 
 const HeroSection = () => {
   const ref = useRef(null);
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -21,28 +20,14 @@ const HeroSection = () => {
   const [vw, setVw] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
-  const [imageSize, setImageSize] = useState({ width: 518, height: 524 });
-
-  const updateImageSize = () => {
-    if (!imageWrapperRef.current) return;
-    const bounds = imageWrapperRef.current.getBoundingClientRect();
-    setImageSize({
-      width: bounds.width || 518,
-      height: bounds.height || 524,
-    });
-  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     const vv = window.visualViewport;
-
     const update = () => {
       setVh(vv?.height ?? window.innerHeight);
       setVw(window.innerWidth);
-      updateImageSize();
     };
-
     update();
     window.addEventListener("resize", update);
     vv?.addEventListener("resize", update);
@@ -66,11 +51,11 @@ const HeroSection = () => {
   const textY = useTransform(smoothProgress, [0, 0.3], [0, -vh * 0.85]);
   const textOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
 
-  const fullScreenScale = Math.max(
-    vw / imageSize.width,
-    vh / imageSize.height,
-    1,
-  );
+  // Mirror the CSS clamp() values used for the video wrapper
+  const videoWidth = Math.min(Math.max(400, 0.38 * vw), 960);
+  const videoTop = Math.min(Math.max(200, 0.25 * vh), 440);
+  const videoHeight = Math.max(vh - videoTop, 1);
+  const fullScreenScale = Math.max(vw / videoWidth, vh / videoHeight, 1);
 
   // Scale starts later so text exits first
   const imageScale = useTransform(
@@ -151,7 +136,6 @@ const HeroSection = () => {
 
         {/* Video — bottom-anchored, scales to fullscreen on scroll */}
         <motion.div
-          ref={imageWrapperRef}
           style={{
             scale: imageScale,
             originX: 0.5,
