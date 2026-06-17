@@ -7,7 +7,7 @@ function ReservationBanner() {
       href="https://www.sevenrooms.com/explore/kajabynuma/reservations/create/search/"
       target="_blank"
       rel="noopener noreferrer"
-      className="group block w-full border-t border-b border-[#32341D] mt-28 mb-20 hover:opacity-75 transition-opacity duration-300"
+      className="group block w-full border-t border-b border-[#32341D] mt-36 mb-10 hover:opacity-75 transition-opacity duration-300"
     >
       <div className="flex items-center justify-between px-6 md:px-[3vw] py-8 md:py-10">
         <motion.span
