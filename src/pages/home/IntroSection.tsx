@@ -9,12 +9,6 @@ const IntroSection = () => {
     offset: ["start 80%", "end 20%"],
   });
 
-  const bgColor = useTransform(
-    scrollYProgress,
-    [0, 0.45],
-    ["#32341D", "#D6B283"],
-  );
-
   const textX = useTransform(scrollYProgress, [0, 0.4], [-100, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const textExitY = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
@@ -26,8 +20,7 @@ const IntroSection = () => {
   return (
     <motion.section
       ref={ref}
-      style={{ backgroundColor: bgColor }}
-      className="min-h-[60vh] relative overflow-hidden flex items-center"
+      className="min-h-[60vh] relative overflow-hidden flex items-center bg-[#32341D]"
     >
       <div className="mx-auto flex flex-col md:flex-row w-full items-center md:items-start justify-center gap-12 px-6 py-16 md:px-[3vw]">
         <motion.p
@@ -35,8 +28,13 @@ const IntroSection = () => {
             x: textX,
             opacity: textOpacity,
             y: textExitY,
+            fontFamily: "Moche",
+            fontWeight: 400,
+            fontSize: "24px",
+            lineHeight: "120%",
+            color: "#FCF7F5",
           }}
-          className="max-w-[609px] text-left  sub-text text-[#32341D]"
+          className="max-w-[609px] text-left"
         >
           <LetterByLetter
             lines={[
@@ -55,22 +53,17 @@ const IntroSection = () => {
             opacity: rightOpacity,
             y: rightExitY,
           }}
-          className="flex flex-col items-center gap-4 max-w-[277px]"
+          className="flex flex-col items-center"
         >
           <a
             href="https://www.sevenrooms.com/explore/kajabynuma/reservations/create/search/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full h-[44px] bg-[#32341D] text-[#D6B283] base-text px-[3vw] border border-[#32341D] shadow-md flex items-center justify-center hover:opacity-80 transition-opacity"
+            style={{ width: "295px", height: "44px", gap: "8px", paddingLeft: "48px", paddingRight: "48px" }}
+            className="bg-[#D6B283] text-[#32341D] border border-[#D6B283] flex items-center justify-center hover:opacity-80 transition-opacity font-moche font-normal text-sm tracking-widest"
           >
-            MAKE RESERVATION
+            MAKE A RESERVATION
           </a>
-
-          <img
-            src="/png/stone.png"
-            alt="Decoration"
-            className="w-full object-contain"
-          />
         </motion.div>
       </div>
     </motion.section>
