@@ -57,17 +57,17 @@ const HeroSection = () => {
   const videoHeight = Math.max(vh - videoTop, 1);
   const fullScreenScale = Math.max(vw / videoWidth, vh / videoHeight, 1);
 
-  // Scale starts later so text exits first
+  // Scale uses raw scroll (no spring lag) so it reliably reaches fullscreen
   const imageScale = useTransform(
-    smoothProgress,
-    [0.25, 0.6],
+    scrollYProgress,
+    [0.2, 0.65],
     [1, fullScreenScale],
   );
 
   const videoFilter = useTransform(
-    smoothProgress,
+    scrollYProgress,
     [0.2, 0.9],
-    ["brightness(1)", "brightness(0.8)"],
+    ["brightness(1)", "brightness(0.7)"],
   );
 
   // Mobile: simple static layout, no scroll effects
@@ -97,7 +97,7 @@ const HeroSection = () => {
   // Desktop: full sticky scroll effect
   return (
     <section ref={ref} className="h-[240vh]">
-      <div className="sticky top-0 h-screen overflow-hidden relative">
+      <div className="sticky top-0 h-screen relative" style={{ overflow: "clip" }}>
         {/* Heading — fades out on scroll */}
         <motion.div
           style={{ y: textY, opacity: textOpacity }}
