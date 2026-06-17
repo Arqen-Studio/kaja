@@ -79,12 +79,13 @@ function HomeChefSection() {
         exit={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.6 }}
-        className="relative z-10 mt-8 md:-mt-[min(3.3vw,55px)] flex w-[48%] sm:w-[clamp(160px,15vw,360px)] flex-col items-center border border-[#D6B283] sm:z-50"
+        className="relative z-10 mt-8 md:-mt-[min(3.3vw,55px)] flex flex-col items-center border border-[#32341D] sm:z-50"
+        style={{ width: "336px", height: "504px" }}
       >
         <img
           src="/png/chef.png"
           alt="chef"
-          className="w-full aspect-[300/487] object-cover object-center"
+          className="w-full flex-1 object-cover object-center"
         />
 
         <Link
