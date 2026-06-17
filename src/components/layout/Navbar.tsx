@@ -32,7 +32,9 @@ const Navbar = () => {
         className="absolute inset-x-0 top-0 z-0 pointer-events-none"
         style={{
           height: "22vh",
-          background: "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
+          background: isOpen
+            ? "var(--bg)"
+            : "linear-gradient(to bottom, var(--bg) 45%, transparent 100%)",
         }}
       />
 
