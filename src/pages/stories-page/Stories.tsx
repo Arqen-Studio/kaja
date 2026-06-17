@@ -64,12 +64,12 @@ const Stories = () => {
         <div className="w-full overflow-hidden">
           {/* Mobile: horizontal scroll carousel. Desktop: 2-col grid */}
           <div
-            className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
-            style={{ scrollPaddingLeft: "1.5rem" }}
+            className="flex md:grid md:grid-cols-2 gap-3 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollPaddingLeft: "2.5rem" }}
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
-            <div className="flex-shrink-0 w-6 md:hidden" aria-hidden="true" />
-            <div className="flex-shrink-0 snap-start md:!w-auto md:justify-self-end" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 w-10 md:hidden" aria-hidden="true" />
+            <div className="flex-shrink-0 snap-start md:!w-auto md:justify-self-start" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/raw.png"
                 alt="raw"
