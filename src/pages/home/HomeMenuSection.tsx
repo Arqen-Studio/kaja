@@ -30,7 +30,7 @@ function MenuTile({ src, index }: { src: string; index: number }) {
 
 function HomeMenuSection() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       {/* Trees decoration */}
       <div
         aria-hidden
@@ -39,7 +39,7 @@ function HomeMenuSection() {
           width: "852px",
           height: "554px",
           top: "0px",
-          right: "0px",
+          right: "-100px",
           opacity: 0.07,
           backgroundColor: "#32341D",
           maskImage: "url(/png/trees-dark.png)",
