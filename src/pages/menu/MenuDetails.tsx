@@ -58,6 +58,7 @@ const MENU_DATA: Record<string, CategoryData> = {
     titleLines: ["Mains", "Menu"],
     subtitle: "The heart of the meal",
     image: "/png/menu/mains-menu.png",
+    imageHeight: 756,
     sectionTitle: "The Heart of the Experience",
     leftText: ["Crafted from exceptional", "ingredients and guided by", "contemporary technique, our", "signature dishes celebrate", "flavour at its fullest."],
     rightText: ["Each plate reflects KAJA's", "passion for creativity,", "precision, and memorable", "dining experiences."],
