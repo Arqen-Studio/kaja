@@ -77,11 +77,11 @@ const Stories = () => {
               />
               <h1 className="heading !text-left mt-6">RAW</h1>
             </div>
-            <div className="flex-shrink-0 snap-start md:!w-full flex flex-col" style={{ width: "clamp(260px, 78vw, 600px)" }}>
+            <div className="flex-shrink-0 snap-start md:w-fit flex flex-col" style={{ width: "clamp(260px, 78vw, 600px)" }}>
               <img
                 src="/png/fire.png"
                 alt="fire"
-                className="w-full object-cover h-[clamp(280px,45vw,572px)]"
+                className="w-auto object-cover h-[clamp(280px,45vw,572px)]"
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
