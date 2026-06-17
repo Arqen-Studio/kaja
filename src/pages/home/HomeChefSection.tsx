@@ -84,17 +84,17 @@ function HomeChefSection() {
         <img
           src="/png/chef.png"
           alt="chef"
-          className="w-full flex-1 object-cover object-center"
+          className="w-full h-full object-cover object-center"
         />
-
-        <Link
-          to="/about"
-          className="font-moche font-normal tracking-widest text-[#FCF7F5] flex items-center justify-center whitespace-nowrap"
-          style={{ width: "clamp(280px, 24vw, 480px)", height: "clamp(44px, 4vw, 72px)", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "clamp(13px, 1vw, 18px)" }}
-        >
-          DISCOVER THE STORY
-        </Link>
       </motion.div>
+
+      <Link
+        to="/about"
+        className="font-moche font-normal tracking-widest text-[#FCF7F5] flex items-center justify-center whitespace-nowrap mt-0"
+        style={{ width: "clamp(280px, 24vw, 480px)", height: "clamp(44px, 4vw, 72px)", background: "#32341D", border: "1px solid #FCF7F5", gap: "8px", paddingLeft: "48px", paddingRight: "48px", fontSize: "clamp(13px, 1vw, 18px)" }}
+      >
+        DISCOVER THE STORY
+      </Link>
     </div>
   );
 }
