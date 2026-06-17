@@ -32,11 +32,20 @@ function HomeMenuSection() {
   return (
     <div className="relative">
       {/* Trees decoration */}
-      <img
-        src="/png/trees-dark.png"
-        alt="trees"
+      <div
         aria-hidden
-        className="absolute right-0 z-[5] h-[clamp(18rem,52vw,36rem)] w-auto max-w-[min(58vw,28rem)] select-none object-contain object-right-top top-20 opacity-[0.04] dark:opacity-[0.03] sm:max-w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:max-w-[48vw] pointer-events-none"
+        className="absolute right-0 z-[5] h-[clamp(18rem,52vw,36rem)] w-[min(58vw,28rem)] sm:w-[min(52vw,32rem)] md:h-[clamp(22rem,48vw,40rem)] lg:w-[48vw] top-20 pointer-events-none select-none opacity-[0.07]"
+        style={{
+          backgroundColor: "#32341D",
+          maskImage: "url(/png/trees-dark.png)",
+          WebkitMaskImage: "url(/png/trees-dark.png)",
+          maskSize: "contain",
+          WebkitMaskSize: "contain",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+          maskPosition: "right top",
+          WebkitMaskPosition: "right top",
+        }}
       />
 
       {/* Header */}
