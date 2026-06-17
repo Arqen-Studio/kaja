@@ -81,7 +81,8 @@ const Stories = () => {
               <img
                 src="/png/fire.png"
                 alt="fire"
-                className="w-auto object-cover h-[clamp(280px,45vw,572px)]"
+                className="object-cover"
+                style={{ width: "394px", height: "572px" }}
               />
               <h1 className="heading !text-left mt-6">FIRE</h1>
             </div>
