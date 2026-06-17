@@ -61,7 +61,7 @@ function About() {
       </div>
 
       <div className="w-full pb-10 px-6 md:px-0">
-        <p className="heading">
+        <p className="heading" style={{ fontSize: "clamp(18px, 4.5vw, 60px)" }}>
           <LetterByLetter
             lines={[
               "Contemporary Mediterranean ",
