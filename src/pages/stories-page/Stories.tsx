@@ -64,7 +64,7 @@ const Stories = () => {
         <div className="w-full overflow-hidden">
           {/* Mobile: horizontal scroll carousel. Desktop: 2-col grid */}
           <div
-            className="flex md:grid md:grid-cols-[3fr_2fr] gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
+            className="flex md:grid md:grid-cols-2 gap-4 md:gap-10 md:px-[8vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden"
             style={{ scrollPaddingLeft: "1.5rem" }}
           >
             {/* leading spacer — visible only on mobile to give left breathing room */}
