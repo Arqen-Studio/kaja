@@ -23,7 +23,7 @@ function About() {
           />
         </h1>
 
-        <div className="mx-auto grid w-full grid-cols-1 items-center md:grid-cols-[1fr_auto_1fr] md:gap-6 lg:gap-10 xl:gap-14">
+        <div className="mx-auto grid w-full grid-cols-1 items-center lg:grid-cols-[1fr_auto_1fr] lg:gap-10 xl:gap-14">
           <p className="base-text mx-auto hidden max-w-[230px] text-center lg:mr-10 lg:block lg:max-w-[260px] xl:mr-12 xl:max-w-[300px] 2xl:max-w-[340px]">
             <LetterByLetter
               lines={[
