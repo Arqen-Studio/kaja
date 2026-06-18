@@ -111,7 +111,7 @@ function About() {
             alt="vision"
             className="relative z-20 h-full w-full object-cover object-center md:max-w-[593px]"
           />
-          <div className="relative z-10 flex w-full items-center justify-center px-6 py-10 md:ml-6 md:py-12 md:max-w-[600px] md:pr-10">
+          <div className="relative z-10 flex w-full items-center justify-center p-6 md:ml-6 md:py-12 md:max-w-[600px] md:pr-10">
             <p className="sub-text w-full">
               <span className="block w-full mb-8">A Future Icon of Ubud</span>
               Our vision is to be one of Bali's most memorable destinations; a place woven into Ubud's identity, celebrated for its creativity, atmosphere, and experiences.
