@@ -251,7 +251,7 @@ const MenuDetailPage = () => {
       </div>
 
       <div className="w-full flex flex-col items-center py-10">
-        <h2 className="heading mb-16">
+        <h2 className="heading mb-16 px-6">
           <LetterByLetter lines={[data.sectionTitle]} align="center" />
         </h2>
 
