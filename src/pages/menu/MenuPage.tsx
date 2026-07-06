@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IMAGES = [
-  { src: "/png/menu/appetizers.png", slug: "appetizers" },
-  { src: "/png/menu/mains.png",      slug: "mains" },
-  { src: "/png/menu/pizzas.png",     slug: "pizzas" },
-  { src: "/png/menu/dessert.png",    slug: "desserts" },
-  { src: "/png/menu/cocktails.png",  slug: "cocktails" },
-  { src: "/png/menu/shot-pods.png",  slug: "shot-pods" },
+  { src: "/png/menu/appetizers.png", slug: "appetizers", label: "Appetizers" },
+  { src: "/png/menu/mains.png",      slug: "mains",      label: "Mains" },
+  { src: "/png/menu/pizzas.png",     slug: "pizzas",     label: "Pizzas" },
+  { src: "/png/menu/dessert.png",    slug: "desserts",   label: "Desserts" },
+  { src: "/png/menu/cocktails.png",  slug: "cocktails",  label: "Cocktails" },
+  { src: "/png/menu/shot-pods.png",  slug: "shot-pods",  label: "Shot Pods" },
 ];
 
 const MenuPage: React.FC = () => {
@@ -27,7 +27,7 @@ const MenuPage: React.FC = () => {
 
       <div className="mx-auto w-full px-6 md:px-[3vw]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {IMAGES.map(({ src, slug }, index) => (
+          {IMAGES.map(({ src, slug, label }, index) => (
             <motion.div
               key={slug}
               initial={{ y: 80, opacity: 0 }}
@@ -35,12 +35,17 @@ const MenuPage: React.FC = () => {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.15 }}
             >
-              <Link to={`/menu/${slug}`}>
+              <Link to={`/menu/${slug}`} className="relative block group">
                 <img
                   src={src}
                   alt={slug}
-                  className="w-full aspect-[434/653] object-cover hover:opacity-90 transition-opacity"
+                  className="w-full aspect-[434/653] object-cover group-hover:opacity-90 transition-opacity"
                 />
+                <div className="absolute top-0 left-0 px-4 py-3" style={{ background: "rgba(50,52,29,0.55)" }}>
+                  <span className="font-moche font-normal text-[#FCF7F5]" style={{ fontSize: "clamp(18px, 3vw, 28px)" }}>
+                    {label}
+                  </span>
+                </div>
               </Link>
             </motion.div>
           ))}
