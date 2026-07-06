@@ -1,6 +1,5 @@
 import HeroSection from "./HeroSection";
 import HomeAboutSection from "./HomeAboutSection";
-import HomeChefIntroSection from "./HomeChefIntroSection";
 import HomeChefSection from "./HomeChefSection";
 import HomeMenuSection from "./HomeMenuSection";
 import IntroSection from "./IntroSection";

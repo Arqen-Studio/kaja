@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { LetterByLetter } from "../../components/LetterByLetter";
 
 const IMAGES = [
-  { src: "/png/menu/appetizers.png", slug: "appetizers", label: "Appetizers" },
-  { src: "/png/menu/mains.png",      slug: "mains",      label: "Mains" },
-  { src: "/png/menu/pizzas.png",     slug: "pizzas",     label: "Pizzas" },
-  { src: "/png/menu/dessert.png",    slug: "desserts",   label: "Desserts" },
-  { src: "/png/menu/cocktails.png",  slug: "cocktails",  label: "Cocktails" },
-  { src: "/png/menu/shot-pods.png",  slug: "shot-pods",  label: "Shot Pods" },
+  { src: "/png/menu/appetizers.png", slug: "appetizers" },
+  { src: "/png/menu/mains.png",      slug: "mains" },
+  { src: "/png/menu/pizzas.png",     slug: "pizzas" },
+  { src: "/png/menu/dessert.png",    slug: "desserts" },
+  { src: "/png/menu/cocktails.png",  slug: "cocktails" },
+  { src: "/png/menu/shot-pods.png",  slug: "shot-pods" },
 ];
 
 const MenuPage: React.FC = () => {
@@ -27,7 +27,7 @@ const MenuPage: React.FC = () => {
 
       <div className="mx-auto w-full px-6 md:px-[3vw]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {IMAGES.map(({ src, slug, label }, index) => (
+          {IMAGES.map(({ src, slug }, index) => (
             <motion.div
               key={slug}
               initial={{ y: 80, opacity: 0 }}
