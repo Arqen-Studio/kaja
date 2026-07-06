@@ -33,7 +33,10 @@ const FooterSection: React.FC = () => {
           {[
             {
               title: "Contact",
-              lines: [{ label: "+62 858 7604 7835" }, { label: "info@kajabynuma.com" }],
+              lines: [
+                { label: "+62 858 7604 7835", href: "https://wa.me/628587604835" },
+                { label: "info@kajabynuma.com", href: "mailto:info@kajabynuma.com" },
+              ],
             },
             {
               title: "Location",
