@@ -35,17 +35,12 @@ const MenuPage: React.FC = () => {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.15 }}
             >
-              <Link to={`/menu/${slug}`} className="relative block group">
+              <Link to={`/menu/${slug}`} className="block">
                 <img
                   src={src}
                   alt={slug}
-                  className="w-full aspect-[434/653] object-cover group-hover:opacity-90 transition-opacity"
+                  className="w-full aspect-[434/653] object-cover hover:opacity-90 transition-opacity"
                 />
-                <div className="absolute top-0 left-0 px-4 py-3" style={{ background: "rgba(50,52,29,0.55)" }}>
-                  <span className="font-moche font-normal text-[#FCF7F5]" style={{ fontSize: "clamp(18px, 3vw, 28px)" }}>
-                    {label}
-                  </span>
-                </div>
               </Link>
             </motion.div>
           ))}
