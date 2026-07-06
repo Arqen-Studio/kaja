@@ -15,13 +15,6 @@ function HomeChefIntroSection() {
           style={{ filter: "brightness(0) saturate(100%) invert(18%) sepia(15%) saturate(1200%) hue-rotate(50deg) brightness(85%)" }}
         />
 
-        {/* Plate centered on top */}
-        <img
-          src="/png/plate.png"
-          alt="plate"
-          className="absolute w-[62%] h-[62%] object-contain"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-        />
       </Link>
     </div>
   );
